@@ -9,23 +9,11 @@ module.exports = {
     '@snowpack/plugin-dotenv',
     '@snowpack/plugin-typescript',
   ],
-  install: [
-    /* ... */
-  ],
-  installOptions: {
+  packageOptions: {
     polyfillNode: true,
   },
   devOptions: {
     port: 3000,
     open: 'none',
-  },
-  buildOptions: {
-    /* ... */
-  },
-  proxy: {
-    /* ... */
-  },
-  alias: {
-    /* ... */
   },
 };
