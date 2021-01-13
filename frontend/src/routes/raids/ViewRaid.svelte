@@ -1,14 +1,22 @@
 <script lang='ts'>
   import { useQuery } from '@sveltestack/svelte-query'
-  import { getRepoDetails, getAllUserStatsFromRepoSince } from './queries'
-  import { getStatsFromCommits } from './utils'
+  import { useParams } from 'svelte-navigator'
+  import { getRepoDetails, getAllUserStatsFromRepoSince } from '#utils/queries'
+  import { getStatsFromCommits } from '#utils/commitStats'
+  
+  import UserStatBlock from '#components/UserStatBlock.svelte'
 
-  export let originalOwner: string
-  export let prId: number
-  export let raidRepoOwner: string
-  export let raidRepo: string
+  const params = useParams<{ raidRepo: string }>()
+  const raidRepo = $params.raidRepo
 
-  const repoDetails = useQuery<PullStats, Error>('prDetails', () => getRepoDetails(originalOwner, raidRepo, prId))
+  const raidDetails = {
+		originalOwner: 'hospitalrun',
+		raidRepoOwner: 'kcdraidgroup',
+		prId: 2516,
+  }
+  const { originalOwner, raidRepoOwner,  prId } = raidDetails
+
+  const repoDetails = useQuery<PullRequestStats, Error>('prDetails', () => getRepoDetails(originalOwner, raidRepo, prId))
   let createdAt: string
   $: createdAt = $repoDetails.data?.createdAt as string
 
@@ -88,7 +96,6 @@
     text-transform: capitalize;
   }
 
-  /* MAIN DATA */  
   .stat-container {
     overflow-y: auto;
   }
@@ -96,56 +103,9 @@
     margin: 0 auto;
     width: 700px;
   }
-
-  .user-stat-block {
-    background-color: white;
-    border: 1px solid hsl(0, 0%, 78%);
-    border-radius: 8px;
-    padding: 1rem 2rem;
-    display: grid;
-    grid-gap: 2rem;
-    grid-template-columns: 3.75rem 6rem 8.365rem 3fr;
-    grid-template-areas:
-      "rank avatar name stats"
-    ;
-  }
-  .user-stat-block:not(:first-child) {
-    margin-top: 1rem;
-  }
-
-  .rank {
-    font-size: 2rem;
-    opacity: 0.8;
-    grid-area: rank;
-    align-self: center;
-  }
-
-  .avatar {
-    border-radius: 50%;
-    width: 6rem;
-    height: 6rem;
-    grid-area: avatar;
-    align-self: center;
-  }
-
-  .name {
-    grid-area: name;
-    align-self: center;
-  }
-
-  .stat-block {
-    grid-area: stats;
-    align-self: center;
-  }
-
   .emoji-stat {
     font-size: 1.5rem;
     margin-right: 1rem;
-  }
-  .emoji-stat-light {
-    font-size: 1.25rem;
-    margin-right: 1rem;
-    opacity: 0.8;
   }
 </style>
 
@@ -191,17 +151,9 @@
     {:else}
       <ol id="stats">
         {#each userStats ?? [] as userStat, index (userStat.user)}
-          <li class="user-stat-block">
-            <p class="rank">#{index + 1}</p>
-            <img class="avatar" src="{userStat.avatarUrl}" alt="{userStat.user}'s Profile Image">
-            <p class="name">{userStat.user}</p>
-            <div class="stat-block">
-              <p><span class="emoji-stat-light">⚔️️️️️️</span>+{userStat.additions}&emsp;-{userStat.deletions}</p>
-              <p><span class="emoji-stat-light">💾</span>{userStat.commits} {userStat.commits === 1 ? 'Commit' : 'Commits'}</p>
-            </div>
-          </li>
+          <UserStatBlock rank={index + 1} userStats={userStat} />
         {/each}
-        </ol>
+      </ol>
     {/if}
   </div>
 </main>

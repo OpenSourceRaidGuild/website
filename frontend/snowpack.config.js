@@ -13,7 +13,12 @@ module.exports = {
     polyfillNode: true,
   },
   devOptions: {
+    fallback: '/index.html',
     port: 3000,
     open: 'none',
+  },
+  alias: {
+    '#utils': './src/utils',
+    '#components': './src/components',
   },
 };
