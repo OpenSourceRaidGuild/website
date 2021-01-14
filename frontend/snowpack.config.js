@@ -13,10 +13,16 @@ module.exports = {
     polyfillNode: true,
   },
   devOptions: {
-    fallback: '/index.html',
     port: 3000,
     open: 'none',
   },
+  routes: [
+    {
+      match: "routes",
+      src: ".*",
+      dest: "/index.html",
+    }
+  ],
   alias: {
     '#utils': './src/utils',
     '#components': './src/components',
