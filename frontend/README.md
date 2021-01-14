@@ -1,29 +1,27 @@
-# New Project
+# Raid Guild Frontend
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
+> ✨ Bootstrapped with Create Snowpack App (CSA)
 
 ## Available Scripts
 
-### npm start
+### yarn start
 
 Runs the app in the development mode.
-Open http://localhost:8080 to view it in the browser.
+Open http://localhost:3000 to view it in the browser.
 
 The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-### npm test
+**Important!**
 
-Launches the test runner in the interactive watch mode.
-See the section about running tests for more information.
+You will need to create a `.env` file in the root of the frontend folder, with a `SNOWPACK_PUBLIC_GITHUB_PAT` var set to your GitHub Personal Access token - see [Creating a Personal Access Token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token)
 
-### npm run build
+### yarn test
+
+Launches Jest in the interactive watch mode.
+**Currently broken, as it Jest + ESM don't play nicely yet - fails when using `import.meta` to utilize env vars**
+
+### yarn build
 
 Builds a static copy of your site to the `build/` folder.
 Your app is ready to be deployed!
-
-**For the best production performance:** Add a build bundler plugin like [@snowpack/plugin-webpack](https://github.com/snowpackjs/snowpack/tree/main/plugins/plugin-webpack) or [snowpack-plugin-rollup-bundle](https://github.com/ParamagicDev/snowpack-plugin-rollup-bundle) to your `snowpack.config.json` config file.
-
-### Q: What about Eject?
-
-No eject needed! Snowpack guarantees zero lock-in, and CSA strives for the same.
