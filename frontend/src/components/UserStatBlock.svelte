@@ -1,4 +1,6 @@
 <script lang='ts'>
+  import { fade, blur } from 'svelte/transition'
+
   export let rank: number
   export let userStats: UserStats
 </script>
@@ -50,7 +52,7 @@
   }
 </style>
 
-<li class="user-stat-block">
+<li class="user-stat-block" in:blur>
   <p class="rank">#{rank}</p>
   <img class="avatar" src="{userStats.avatarUrl}" alt="{userStats.user}'s Profile Image">
   <p class="name">{userStats.user}</p>

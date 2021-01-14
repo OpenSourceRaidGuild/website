@@ -1,4 +1,6 @@
 <script lang='ts'>
+  import { fade } from 'svelte/transition'
+
   import { useQuery } from '@sveltestack/svelte-query'
   import { useParams } from 'svelte-navigator'
   import { getRepoDetails, getAllUserStatsFromRepoSince } from '#utils/queries'
@@ -118,7 +120,7 @@
       {:else if $repoDetails.error}
         <p>{$repoDetails.error?.message}</p>
       {:else}
-        <div class="total-stats">
+        <div class="total-stats" in:fade>
           <div>
             <p><span class="emoji-stat">🚀</span>{$commits.status === 'success' ? `${userStats.length} Contributors` : 'Loading...'}</p>
             <p><span class="emoji-stat">💾</span>{$repoDetails.data?.commits.totalCount} {$repoDetails.data?.commits.totalCount === 1 ? 'Commit' : 'Commits'}</p>
@@ -149,8 +151,8 @@
     {:else if $commits.isLoading}
       <p>Loading...</p>
     {:else}
-      <ol id="stats">
-        {#each userStats ?? [] as userStat, index (userStat.user)}
+      <ol id="stats" in:fade>
+        {#each userStats ?? [] as userStat, index (index + userStat.user)}
           <UserStatBlock rank={index + 1} userStats={userStat} />
         {/each}
       </ol>
