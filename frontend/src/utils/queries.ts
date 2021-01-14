@@ -30,7 +30,7 @@ export const getRepoDetails = async (owner: string, repo: string, prid: number) 
     }
   )
 
-  return result.repository.pullRequest as PullStats
+  return result.repository.pullRequest as PullRequestStats
 }
 
 export const getAllUserStatsFromRepoSince = async(owner: string, repo: string, since: string, after: string | null): Promise<Commit[]> => {

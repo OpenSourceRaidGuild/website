@@ -1,4 +1,4 @@
-interface PullStats {
+interface PullRequestStats {
   createdAt: string
   additions: number
   deletions: number
