@@ -2,7 +2,7 @@
 	import { Router, Route, Link } from 'svelte-navigator'
 	import { QueryClientProvider } from '@sveltestack/svelte-query'
 
-	import QuestBoard from './routes/quests/QuestBoard.svelte'
+	import QuestBoard from './routes/quests/index.svelte'
 	import Raids from './routes/raids/index.svelte'
 	import ViewRaid from './routes/raids/ViewRaid.svelte'
 	import NotFound from './routes/NotFound.svelte'
