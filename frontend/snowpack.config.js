@@ -24,7 +24,6 @@ module.exports = {
     }
   ],
   alias: {
-    '#utils': './src/utils',
     '#components': './src/components',
   },
 };

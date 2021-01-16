@@ -1,5 +1,5 @@
 <script lang='ts'>
-  import { fade, blur } from 'svelte/transition'
+  import { blur } from 'svelte/transition'
 
   export let rank: number
   export let userStats: UserStats
@@ -59,5 +59,6 @@
   <div class="stat-block">
     <p><span class="emoji-stat-light">⚔️️️️️️</span>+{userStats.additions}&emsp;-{userStats.deletions}</p>
     <p><span class="emoji-stat-light">💾</span>{userStats.commits} {userStats.commits === 1 ? 'Commit' : 'Commits'}</p>
+    <p>{userStats.userId}</p>
   </div>
 </li>
