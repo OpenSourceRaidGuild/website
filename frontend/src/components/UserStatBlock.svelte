@@ -3,21 +3,32 @@
 
   export let rank: number
   export let userStats: UserStats
+
+  console.log(userStats);
 </script>
 
 <style>
   .user-stat-block {
+    margin-bottom: 1rem;
+  }
+
+  .user-stat-block a {
     background-color: white;
     border: 1px solid hsl(0, 0%, 78%);
     border-radius: 8px;
     padding: 1rem 2rem;
-    margin-bottom: 1rem;
     display: grid;
     grid-gap: 2rem;
     grid-template-columns: 3.75rem 6rem 8.365rem 3fr;
-    grid-template-areas:
-      "rank avatar name stats"
-    ;
+    grid-template-areas: "rank avatar name stats";
+    text-decoration: none;
+    color: initial;
+    transition: box-shadow .2s ease-in-out, transform .2s ease-in-out;
+  }
+
+  .user-stat-block a:hover {
+    box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
   }
 
   .rank {
@@ -53,12 +64,14 @@
 </style>
 
 <li class="user-stat-block" in:blur>
-  <p class="rank">#{rank}</p>
-  <img class="avatar" src="{userStats.avatarUrl}" alt="{userStats.user}'s Profile Image">
-  <p class="name">{userStats.user}</p>
-  <div class="stat-block">
-    <p><span class="emoji-stat-light">⚔️️️️️️</span>+{userStats.additions}&emsp;-{userStats.deletions}</p>
-    <p><span class="emoji-stat-light">💾</span>{userStats.commits} {userStats.commits === 1 ? 'Commit' : 'Commits'}</p>
-    <p>{userStats.userId}</p>
-  </div>
+  <a href="https://github.com/{userStats.user}" target="_blank">
+    <p class="rank">#{rank}</p>
+    <img class="avatar" src="{userStats.avatarUrl}" alt="{userStats.user}'s Profile Image">
+    <p class="name">{userStats.user}</p>
+    <div class="stat-block">
+      <p><span class="emoji-stat-light">⚔️️️️️️</span>+{userStats.additions}&emsp;-{userStats.deletions}</p>
+      <p><span class="emoji-stat-light">💾</span>{userStats.commits} {userStats.commits === 1 ? 'Commit' : 'Commits'}</p>
+      <p>{userStats.userId}</p>
+    </div>
+  </a>
 </li>
