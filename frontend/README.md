@@ -6,10 +6,6 @@
 
 ## Development
 
-<b color="red">Important!</b>
-
-You will need to create a `.env` file in the root of the frontend folder, with a `SNOWPACK_PUBLIC_GITHUB_PAT` var set to your GitHub Personal Access token - see [Creating a Personal Access Token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token). Token only needs `public_repo` permissions
-
 ### `yarn` or `yarn install`
 
 Install your node_module dependecies to run the application locally.
@@ -27,7 +23,7 @@ You will also see any lint errors in the console.
 ### `yarn test`
 
 Launches Jest in the interactive watch mode.
-**Currently broken, as Jest + ESM don't play nicely yet - fails when using `import.meta` to utilize env vars**
+**Jest + ESM don't play nicely yet - fails when using `import.meta` to utilize env vars**
 
 ## Deploy
 
