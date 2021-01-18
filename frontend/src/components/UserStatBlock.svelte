@@ -1,9 +1,30 @@
-<script lang='ts'>
-  import { blur } from 'svelte/transition'
+<script lang="ts">
+  import { blur } from "svelte/transition";
 
-  export let rank: number
-  export let userStats: UserStats
+  export let rank: number;
+  export let userStats: UserStats;
 </script>
+
+<li class="user-stat-block" in:blur>
+  <p class="rank">#{rank}</p>
+  <img
+    class="avatar"
+    src={userStats.avatarUrl}
+    alt="{userStats.user}'s Profile Image"
+  />
+  <p class="name">{userStats.user}</p>
+  <div class="stat-block">
+    <p>
+      <span class="emoji-stat-light">⚔️️️️️️</span
+      >+{userStats.additions}&emsp;-{userStats.deletions}
+    </p>
+    <p>
+      <span class="emoji-stat-light">💾</span>{userStats.commits}
+      {userStats.commits === 1 ? "Commit" : "Commits"}
+    </p>
+    <p>{userStats.userId}</p>
+  </div>
+</li>
 
 <style>
   .user-stat-block {
@@ -15,9 +36,7 @@
     display: grid;
     grid-gap: 2rem;
     grid-template-columns: 3.75rem 6rem 8.365rem 3fr;
-    grid-template-areas:
-      "rank avatar name stats"
-    ;
+    grid-template-areas: "rank avatar name stats";
   }
 
   .rank {
@@ -51,14 +70,3 @@
     opacity: 0.8;
   }
 </style>
-
-<li class="user-stat-block" in:blur>
-  <p class="rank">#{rank}</p>
-  <img class="avatar" src="{userStats.avatarUrl}" alt="{userStats.user}'s Profile Image">
-  <p class="name">{userStats.user}</p>
-  <div class="stat-block">
-    <p><span class="emoji-stat-light">⚔️️️️️️</span>+{userStats.additions}&emsp;-{userStats.deletions}</p>
-    <p><span class="emoji-stat-light">💾</span>{userStats.commits} {userStats.commits === 1 ? 'Commit' : 'Commits'}</p>
-    <p>{userStats.userId}</p>
-  </div>
-</li>

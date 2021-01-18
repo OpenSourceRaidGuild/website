@@ -1,0 +1,10 @@
+{
+    "eslint.format.enable": true,
+    "eslint.probe": [
+        "javascript",
+        "typescript",
+        "html",
+        "markdown",
+        "svelte"
+      ],
+}
