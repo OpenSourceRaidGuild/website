@@ -70,3 +70,13 @@
     opacity: 0.8;
   }
 </style>
+
+<li class="user-stat-block" in:blur>
+  <p class="rank">#{rank}</p>
+  <img class="avatar" src="{userStats.avatarUrl}" alt="{userStats.user}'s Profile Image">
+  <p class="name">{userStats.user}</p>
+  <div class="stat-block">
+    <p><span class="emoji-stat-light">⚔️️️️️️</span>+{userStats.additions}&emsp;-{userStats.deletions}</p>
+    <p><span class="emoji-stat-light">💾</span>{userStats.commits} {userStats.commits === 1 ? 'Commit' : 'Commits'}</p>
+  </div>
+</li>

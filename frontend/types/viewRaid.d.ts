@@ -8,6 +8,8 @@ interface UserStats {
 }
 
 interface ViewRaidData {
+  id: number
+  dungeon: string
   title: string
   additions: number
   deletions: number
