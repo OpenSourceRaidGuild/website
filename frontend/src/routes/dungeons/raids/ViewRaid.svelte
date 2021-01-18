@@ -7,12 +7,11 @@
 
   import { fade } from "svelte/transition";
 
-  const params = useParams<{ raidRepo: string }>();
-  const raidRepo = $params.raidRepo;
+  const params = useParams<{ id: string }>();
 
   const database = firebase.database();
   const dataPromise = database
-    .ref(`/${raidRepo}`)
+    .ref(`/${$params.id}`)
     .once("value")
     .then((snapshot) => snapshot.val() as ViewRaidData);
 
