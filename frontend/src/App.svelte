@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Router, Route, Link } from "svelte-navigator";
+  import { Router, Route } from "svelte-navigator";
 
   import QuestBoard from "./routes/quests/index.svelte";
   import Raids from "./routes/dungeons/raids/index.svelte";
