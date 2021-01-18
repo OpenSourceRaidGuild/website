@@ -1,36 +1,35 @@
 <script lang="ts">
 	import { blur } from 'svelte/transition'
+	import Card from './Card.svelte'
 
 	export let rank: number
 	export let userStats: UserStats
 </script>
 
-<li class="user-stat-block" in:blur>
-	<p class="rank">#{rank}</p>
-	<img
-		class="avatar"
-		src={userStats.avatarUrl}
-		alt="{userStats.user}'s Profile Image"
-	/>
-	<p class="name">{userStats.user}</p>
-	<div class="stat-block">
-		<p>
-			<span class="emoji-stat-light">⚔️️️️️️</span
-			>+{userStats.additions}&emsp;-{userStats.deletions}
-		</p>
-		<p>
-			<span class="emoji-stat-light">💾</span>{userStats.commits}
-			{userStats.commits === 1 ? 'Commit' : 'Commits'}
-		</p>
-	</div>
-</li>
+<Card let:className>
+	<li class={`${className} user-stat-block`} in:blur>
+		<p class="rank">#{rank}</p>
+		<img
+			class="avatar"
+			src={userStats.avatarUrl}
+			alt="{userStats.user}'s Profile Image"
+		/>
+		<p class="name">{userStats.user}</p>
+		<div class="stat-block">
+			<p>
+				<span class="emoji-stat-light">⚔️️️️️️</span
+				>+{userStats.additions}&emsp;-{userStats.deletions}
+			</p>
+			<p>
+				<span class="emoji-stat-light">💾</span>{userStats.commits}
+				{userStats.commits === 1 ? 'Commit' : 'Commits'}
+			</p>
+		</div>
+	</li>
+</Card>
 
 <style>
 	.user-stat-block {
-		background-color: white;
-		border: 1px solid hsl(0, 0%, 78%);
-		border-radius: 8px;
-		padding: 1rem 2rem;
 		margin-bottom: 1rem;
 		display: grid;
 		grid-gap: 2rem;
