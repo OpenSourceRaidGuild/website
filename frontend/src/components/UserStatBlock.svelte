@@ -4,7 +4,6 @@
   export let rank: number
   export let userStats: UserStats
 
-  console.log(userStats);
 </script>
 
 <style>
