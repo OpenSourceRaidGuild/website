@@ -2,10 +2,21 @@
   import { fade } from 'svelte/transition'
 </script>
 
+<div class="lds-background" out:fade>
+  <div aria-label="Loading" class="lds-ellipsis">
+    <div />
+    <div />
+    <div />
+    <div />
+  </div>
+</div>
+
 <style>
   .lds-background {
     background-color: hsla(0, 0%, 97%, 50%);
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
   }
@@ -68,7 +79,3 @@
     }
   }
 </style>
-
-<div class="lds-background" out:fade>
-  <div aria-label="Loading" class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-</div>

@@ -4,7 +4,7 @@ module.exports = {
       'svelte-jester',
       {
         preprocess: true,
-      }
+      },
     ],
     '^.+\\.ts$': 'ts-jest',
   },

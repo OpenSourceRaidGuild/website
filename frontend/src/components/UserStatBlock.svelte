@@ -1,17 +1,32 @@
-<script lang='ts'>
+<script lang="ts">
   import { blur } from 'svelte/transition'
+  import Card from './Card.svelte'
 
   export let rank: number
   export let userStats: UserStats
 
 </script>
 
+<Card let:className>
+  <li class="user-stat-block" in:blur>
+      <p class="rank">#{rank}</p>
+      <a href="https://github.com/{userStats.user}" target="_blank">
+        <img class="avatar" src="{userStats.avatarUrl}" alt="{userStats.user}'s Profile Image">
+      </a>
+      <a class="name" href="https://github.com/{userStats.user}" target="_blank">
+        {userStats.user}
+      </a>
+      <div class="stat-block">
+        <p><span class="emoji-stat-light">⚔️️️️️️</span>+{userStats.additions}&emsp;-{userStats.deletions}</p>
+        <p><span class="emoji-stat-light">💾</span>{userStats.commits} {userStats.commits === 1 ? 'Commit' : 'Commits'}</p>
+        <p>{userStats.userId}</p>
+      </div>
+  </li>
+</Card>
+
 <style>
   .user-stat-block {
     margin-bottom: 1rem;
-  }
-
-  .user-stat-block a {
     background-color: white;
     border: 1px solid hsl(0, 0%, 78%);
     border-radius: 8px;
@@ -20,14 +35,6 @@
     grid-gap: 2rem;
     grid-template-columns: 3.75rem 6rem 8.365rem 3fr;
     grid-template-areas: "rank avatar name stats";
-    text-decoration: none;
-    color: initial;
-    transition: box-shadow .2s ease-in-out, transform .2s ease-in-out;
-  }
-
-  .user-stat-block a:hover {
-    box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
   }
 
   .rank {
@@ -38,6 +45,7 @@
   }
 
   .avatar {
+    border: solid 3px white;
     border-radius: 50%;
     width: 6rem;
     height: 6rem;
@@ -45,9 +53,19 @@
     align-self: center;
   }
 
+  .avatar:hover {
+    border: double 3px hsl(0, 0%, 78%);
+  }
+
   .name {
     grid-area: name;
     align-self: center;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .name:hover {
+    text-decoration: underline;
   }
 
   .stat-block {
@@ -61,16 +79,3 @@
     opacity: 0.8;
   }
 </style>
-
-<li class="user-stat-block" in:blur>
-  <a href="https://github.com/{userStats.user}" target="_blank">
-    <p class="rank">#{rank}</p>
-    <img class="avatar" src="{userStats.avatarUrl}" alt="{userStats.user}'s Profile Image">
-    <p class="name">{userStats.user}</p>
-    <div class="stat-block">
-      <p><span class="emoji-stat-light">⚔️️️️️️</span>+{userStats.additions}&emsp;-{userStats.deletions}</p>
-      <p><span class="emoji-stat-light">💾</span>{userStats.commits} {userStats.commits === 1 ? 'Commit' : 'Commits'}</p>
-      <p>{userStats.userId}</p>
-    </div>
-  </a>
-</li>
