@@ -1,29 +1,29 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
 module.exports = {
   mount: {
-    'frontend/public': { url: '/', static: true },
-    'frontend/src': { url: '/dist' },
+    public: {url: '/', static: true},
+    src: {url: '/dist'},
   },
   plugins: [
-    '@snowpack/plugin-svelte',
+    '@snowpack/plugin-react-refresh',
     '@snowpack/plugin-dotenv',
     '@snowpack/plugin-typescript',
   ],
+  routes: [
+    /* Enable an SPA Fallback in development: */
+    // {"match": "routes", "src": ".*", "dest": "/index.html"},
+  ],
+  optimize: {
+    /* Example: Bundle your final build: */
+    // "bundle": true,
+  },
   packageOptions: {
-    polyfillNode: true,
+    /* ... */
   },
   devOptions: {
-    port: 3000,
-    open: 'none',
+    /* ... */
   },
-  routes: [
-    {
-      match: 'routes',
-      src: '.*',
-      dest: '/index.html',
-    },
-  ],
-  alias: {
-    '#components': './frontend/src/components',
+  buildOptions: {
+    /* ... */
   },
-}
+};
