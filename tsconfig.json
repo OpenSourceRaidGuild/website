@@ -1,7 +1,7 @@
 {
   "extends": "@tsconfig/svelte/tsconfig.json",
 
-  "include": ["src", "types"],
+  "include": ["frontend/src", "frontend/types"],
   "compilerOptions": {
     "types": ["jest"],
     "module": "esnext",
@@ -11,7 +11,7 @@
     "baseUrl": "./",
     /* paths - If you configure Snowpack import aliases, add them here. */
     "paths": {
-      "#components/*": ["src/components/*"]
+      "#components/*": ["frontend/src/components/*"]
     },
     /* noEmit - Snowpack builds (emits) files, not tsc. */
     "noEmit": true,

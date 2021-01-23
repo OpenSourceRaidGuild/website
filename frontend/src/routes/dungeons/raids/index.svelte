@@ -19,7 +19,7 @@
   <ul>
     {#each raids.filter((r) => r != null) as raid (raid.id)}
       <Card let:className>
-        <li role="none" class={className}>
+        <li class={className}>
           <Link to={`/raids/${raid.id}`}>
             {raid.title}
           </Link>

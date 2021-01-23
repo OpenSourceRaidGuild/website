@@ -10,7 +10,7 @@ module.exports = {
   },
   moduleFileExtensions: ['js', 'ts', 'svelte'],
   moduleNameMapper: {
-    '^#components/(.*)': '<rootDir>/src/components/$1',
+    '^#components/(.*)': '<rootDir>/frontend/src/components/$1',
   },
-  setupFilesAfterEnv: ['./src/setupTests.ts'],
+  setupFilesAfterEnv: ['./frontend/src/setupTests.ts'],
 }
