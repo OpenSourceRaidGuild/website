@@ -1,6 +1,10 @@
 import React from 'react'
 
-function Card() {
+interface Props {
+  children?: React.ReactNode
+}
+
+function Card({ children }: Props) {
   return (
     <div
       className="card"
@@ -11,7 +15,7 @@ function Card() {
         padding: '1rem 2rem',
       }}
     >
-      Card
+      {children}
     </div>
   )
 }
