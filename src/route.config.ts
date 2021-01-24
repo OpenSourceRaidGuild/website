@@ -1,6 +1,7 @@
 import ViewRaid from './routes/raids/ViewRaid'
 import AllRaids from './routes/raids'
 import Home from './routes/Home'
+import NotFound from './routes/NotFound'
 
 type Route = {
   path: string
@@ -20,8 +21,12 @@ const routes: Route[] = [
     component: AllRaids,
   },
   {
-    path: '/:id',
+    path: '/raids/:raidId',
     component: ViewRaid,
+  },
+  {
+    path: '*',
+    component: NotFound,
   },
 ]
 
