@@ -20,7 +20,6 @@ const StatsView = styled.main`
 `
 
 const Header = styled.header`
-  z-index: 1;
   background-color: white;
   border-bottom: 1px solid hsl(0, 0%, 78%);
   box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 10%);
