@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 
 type State = 'loading' | 'success' | 'not-found' | 'error'
 
-const ViewRaidDisplay = () => {
+const ViewRaid = () => {
   const { raidId } = useParams<{raidId: string}>()
   const [state, setState] = useState<State>('loading')
   const [error, setError] = useState<Error | null>(null)
@@ -67,7 +67,5 @@ const ViewRaidDisplay = () => {
     )
   }
 }
-
-const ViewRaid = () => <Suspense fallback={<p>Loading...</p>}><ViewRaidDisplay /></Suspense>
 
 export default ViewRaid
