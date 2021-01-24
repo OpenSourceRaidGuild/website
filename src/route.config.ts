@@ -1,5 +1,6 @@
 import { lazy } from 'react'
 import Home from './routes/Home'
+import NotFound from './routes/NotFound'
 
 const ViewRaid = lazy(() => import('./routes/raids/ViewRaid'))
 const AllRaids = lazy(() => import('./routes/raids'))
@@ -22,8 +23,12 @@ const routes: Route[] = [
     component: AllRaids,
   },
   {
-    path: '/raids/:id',
+    path: '/raids/:raidId',
     component: ViewRaid,
+  },
+  {
+    path: '*',
+    component: NotFound,
   },
 ]
 
