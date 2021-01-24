@@ -1,0 +1,32 @@
+name: validate
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    branches:
+      - 'main'
+jobs:
+  setup:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node: [12, 14]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v2
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: 💡 Run lint script
+        run: npm run lint:ci
+
+      - name: 🛠 Run build script
+        run: npm run build
+
+      - name: ⚡ Run test script
+        run: npm run test:ci
