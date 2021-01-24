@@ -5,3 +5,8 @@ module.exports = {
   },
   setupFilesAfterEnv: ['./src/setupTests.ts'],
 }
+
+/*
+eslint
+  @typescript-eslint/no-var-requires: "off",
+*/
