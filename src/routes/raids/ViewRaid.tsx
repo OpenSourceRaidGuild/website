@@ -23,12 +23,12 @@ const Header = styled.header`
   background-color: white;
   border-bottom: 1px solid hsl(0, 0%, 78%);
   box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 10%);
-  > div {
+  > section {
     margin: 0 auto;
     max-width: 700px;
   }
 
-  > div > h1 {
+  > section > h1 {
     font-size: 2rem;
     line-height: 3rem;
     margin-bottom: 2rem;
@@ -98,7 +98,7 @@ const ViewRaid = () => {
     return (
       <StatsView>
         <Header>
-          <div>
+          <section>
             <h1>{data?.title}</h1>
             <TotalStats>
               <p>
@@ -122,7 +122,7 @@ const ViewRaid = () => {
                 {(data?.additions ?? 0) - (data?.deletions ?? 0)} Net Deletions
               </p>
             </TotalStats>
-          </div>
+          </section>
         </Header>
         <StatContainer>
           {Object.values(data?.contributors ?? {}).map((contributor, index) => (
