@@ -6,13 +6,13 @@ import routes from './route.config'
 
 const App = () => (
   <Router>
-    <Switch>
-      <React.Suspense fallback={<LoadingSpinner />}>
+    <React.Suspense fallback={<LoadingSpinner />}>
+      <Switch>
         {routes.map((route, i) => (
           <Route key={i} {...route} />
         ))}
-      </React.Suspense>
-    </Switch>
+      </Switch>
+    </React.Suspense>
   </Router>
 )
 
