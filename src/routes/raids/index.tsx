@@ -1,5 +1,12 @@
 import React from 'react'
 
-const AllRaids = () => <h1>Raids</h1>
+import { Link } from 'react-router-dom'
+
+const AllRaids = () => (
+  <>
+    <h1>Raids</h1>
+    <Link to="/raids/wygNnMpvq9KAOrRtkt0M">View Raid</Link>
+  </>
+)
 
 export default AllRaids
