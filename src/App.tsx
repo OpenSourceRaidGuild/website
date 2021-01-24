@@ -8,16 +8,18 @@ import routes from './route.config'
 import { globalStyles } from './styles/globalStyles'
 
 const App = () => (
-  <Router>
-    <React.Suspense fallback={<LoadingSpinner />}>
-      <Switch>
-        {routes.map((route, i) => (
-          <Route key={i} {...route} />
-        ))}
-        <Global styles={globalStyles} />
-      </Switch>
-    </React.Suspense>
-  </Router>
+  <>
+    <Router>
+      <React.Suspense fallback={<LoadingSpinner />}>
+        <Switch>
+          {routes.map((route, i) => (
+            <Route key={i} {...route} />
+          ))}
+        </Switch>
+      </React.Suspense>
+    </Router>
+    <Global styles={globalStyles} />
+  </>
 )
 
 export default App
