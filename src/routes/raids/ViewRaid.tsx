@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import firestore from '#utils/firebase'
 import { useParams } from 'react-router-dom'
 
-import firebase from '../../utils/firebase'
-import UserStatBlock from '../../components/user-stat-block'
-import Emoji from '../../components/emoji'
+import UserStatBlock from '#components/user-stat-block'
+import Emoji from '#components/emoji'
+import LoadingSpinner from '#components/loading-spinner'
 
 type State = 'loading' | 'success' | 'not-found' | 'error'
 
@@ -14,33 +15,26 @@ const ViewRaid = () => {
   const [data, setData] = useState<ViewRaidData | null>(null)
 
   useEffect(() => {
-    firebase
-      .database()
-      .ref(`/raids/${raidId}`)
-      .once('value')
-      .then((snapshot) => {
-        const snapshotValue: ViewRaidData = snapshot.val()
-
-        if (snapshotValue) {
-          setData(snapshotValue)
-          setError(null)
+    firestore
+      .collection('raid-stats')
+      .doc(raidId)
+      .get()
+      .then(snapshot => {
+        if (snapshot.exists) {
+          setData(snapshot.data() as ViewRaidData)
           setState('success')
         } else {
-          setData(null)
-          setError(null)
           setState('not-found')
         }
       })
-      .catch((error) => {
-        console.log(error)
-        setData(null)
+      .catch(error => {
         setError(error)
         setState('error')
       })
   }, [raidId])
 
   if (state === 'loading') {
-    return <p>Loading...</p>
+    return <LoadingSpinner />
   } else if (state === 'error') {
     return <p>{JSON.stringify(error)}</p>
   } else if (state === 'not-found') {

@@ -17,4 +17,8 @@ module.exports = {
     port: 3000,
     open: 'none',
   },
+  alias: {
+    '#components': './src/components',
+    '#utils': './src/utils',
+  },
 }
