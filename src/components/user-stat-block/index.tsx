@@ -10,32 +10,28 @@ interface Props {
 }
 
 const Content = styled.li`
-  margin-bottom: 1rem;
   display: grid;
   grid-gap: 2rem;
   grid-template-columns: 3.75rem 6rem 8.365rem 3fr;
   grid-template-areas: 'rank avatar name stats';
+  align-items: center;
 
   > p {
     font-size: 2rem;
     opacity: 0.8;
     grid-area: rank;
-    align-self: center;
   }
   > img {
     border-radius: 50%;
     width: 6rem;
     height: 6rem;
     grid-area: avatar;
-    align-self: center;
   }
   > span {
     grid-area: name;
-    align-self: center;
   }
   > div {
     grid-area: stats;
-    align-self: center;
 
     span {
       font-size: 1.25rem;
