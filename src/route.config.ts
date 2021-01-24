@@ -1,6 +1,8 @@
-import ViewRaid from './routes/raids/ViewRaid'
-import AllRaids from './routes/raids'
+import { lazy } from 'react'
 import Home from './routes/Home'
+
+const ViewRaid = lazy(() => import('./routes/raids/ViewRaid'))
+const AllRaids = lazy(() => import('./routes/raids'))
 
 type Route = {
   path: string
@@ -20,7 +22,7 @@ const routes: Route[] = [
     component: AllRaids,
   },
   {
-    path: '/:id',
+    path: '/raids/:id',
     component: ViewRaid,
   },
 ]
