@@ -6,6 +6,7 @@
     "build": "snowpack build",
     "test": "jest --watch",
     "test:ci": "jest",
+    "test:precommit": "jest  --watch=false --findRelatedTests",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "eslint --fix --ext js,jsx,ts,tsx --ignore-path .gitignore .",
     "lint:ci": "eslint --ext js,jsx,ts,tsx --ignore-path .gitignore .",
