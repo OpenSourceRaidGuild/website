@@ -17,6 +17,7 @@ if (!firebase.apps.length) {
 
 const firestore = firebase.firestore()
 
+// Comment out the following to pull from the live firestore DB
 if (import.meta.env.NODE_ENV !== 'production') {
   firestore.useEmulator('localhost', 8080)
 }
