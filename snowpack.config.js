@@ -21,4 +21,5 @@ module.exports = {
     '#components': './src/components',
     '#utils': './src/utils',
   },
+  exclude: ['**/*.stories.@(js|jsx|ts|tsx)'],
 }
