@@ -6,5 +6,8 @@
     "ui": {
       "enabled": false
     }
+  },
+  "firestore": {
+    "rules": "firestore.rules"
   }
 }
