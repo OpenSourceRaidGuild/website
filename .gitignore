@@ -1,3 +1,8 @@
 .snowpack
 build
 node_modules
+
+firebase-debug.log
+firestore-debug.log
+
+serviceAccountKey.json
