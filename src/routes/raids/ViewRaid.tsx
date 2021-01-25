@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import firestore from '#utils/firebase'
+import React from 'react'
 import { useParams } from 'react-router-dom'
 
 import styled from '@emotion/styled'
@@ -7,8 +6,7 @@ import styled from '@emotion/styled'
 import UserStatBlock from '#components/user-stat-block'
 import Emoji from '#components/emoji'
 import LoadingSpinner from '#components/loading-spinner'
-
-type State = 'loading' | 'success' | 'not-found' | 'error'
+import useDocument from '#utils/useDocument'
 
 const StatsView = styled.main`
   height: 100vh;
@@ -65,31 +63,10 @@ const StatContainer = styled.ol`
 
 const ViewRaid = () => {
   const { raidId } = useParams<{ raidId: string }>()
-  const [state, setState] = useState<State>('loading')
-  const [error, setError] = useState<Error | null>(null)
-  const [data, setData] = useState<ViewRaidData | null>(null)
-
-  useEffect(() => {
-    firestore
-      .collection('raid-stats')
-      .doc(raidId)
-      .get()
-      .then((snapshot) => {
-        if (snapshot.exists) {
-          setData(snapshot.data() as ViewRaidData)
-          setState('success')
-        } else {
-          setState('not-found')
-        }
-      })
-      .catch((error) => {
-        setError(error)
-        setState('error')
-      })
-  }, [raidId])
+  const { state, data, error } = useDocument<ViewRaidData>('raid-stats', raidId)
 
   if (state === 'loading') {
-    return <p>Loading...</p>
+    return <LoadingSpinner />
   } else if (state === 'error') {
     return <p>{JSON.stringify(error)}</p>
   } else if (state === 'not-found') {
