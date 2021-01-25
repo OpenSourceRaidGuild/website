@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { Link } from 'react-router-dom'
-import firestore from '#utils/useFirestore'
 import LoadingSpinner from '#components/loading-spinner'
 import useCollection from '#utils/useCollection'
 
@@ -18,7 +17,9 @@ const AllRaids = () => {
         <h1>Raids</h1>
         <ul>
           {(data ?? []).map((s) => (
-            <li><Link to={`/raids/${s.id}`}>{s.title}</Link></li>
+            <li key={s.id}>
+              <Link to={`/raids/${s.id}`}>{s.title}</Link>
+            </li>
           ))}
         </ul>
       </>
