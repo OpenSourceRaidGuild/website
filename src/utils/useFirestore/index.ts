@@ -17,8 +17,8 @@ if (!firebase.apps.length) {
 
 const firestore = firebase.firestore()
 
-// if (import.meta.env.NODE_ENV !== 'production') {
-//   firestore.useEmulator('localhost', 8080)
-// }
+if (import.meta.env.NODE_ENV !== 'production') {
+  firestore.useEmulator('localhost', 8080)
+}
 
 export default firestore

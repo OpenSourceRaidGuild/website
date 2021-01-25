@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "snowpack dev",
+    "start": "yarn start:firestore & yarn start:dev",
+    "start:dev": "snowpack dev",
     "start:firestore": "firebase emulators:start --import=./dev-data",
     "build": "snowpack build",
     "test": "jest --watch",
