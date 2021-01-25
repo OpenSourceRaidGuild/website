@@ -1,8 +1,6 @@
 {
   "scripts": {
     "start": "snowpack dev",
-    "start:functions": "cross-env FIRESTORE_EMULATOR_HOST=\"localhost:8080\" yarn start:functions:command",
-    "start:functions:command": "cd functions && netlify dev",
     "start:firestore": "firebase emulators:start --import=./dev-data",
     "build": "snowpack build",
     "test": "jest --watch",
