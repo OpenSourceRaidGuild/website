@@ -8,6 +8,7 @@
     "test:ci": "jest",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "eslint --fix --ext js,jsx,ts,tsx --ignore-path .gitignore .",
+    "lint:precomit": "yarn lint && yarn format",
     "lint:ci": "eslint --ext js,jsx,ts,tsx --ignore-path .gitignore .",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
