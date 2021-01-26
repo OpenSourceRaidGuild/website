@@ -2,6 +2,8 @@
 
 > ✨ Bootstrapped with Create Snowpack App (CSA).
 
+**PLEASE NOTE: Java is required for the firestore emulator to run**
+
 ## Available Scripts
 
 ### `yarn` or `yarn install`
