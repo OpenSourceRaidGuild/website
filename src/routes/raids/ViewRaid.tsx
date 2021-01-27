@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import styled from '@emotion/styled'
@@ -61,9 +61,20 @@ const StatContainer = styled.ol`
   }
 `
 
+const userStatSorts: {
+  [key: string]: (a: UserStats, b: UserStats) => number
+} = {
+  commits: (a, b) => b.commits - a.commits,
+  additions: (a, b) => b.additions - a.additions,
+  deletions: (a, b) => b.deletions - a.deletions,
+}
+const userStatSortNames = Object.keys(userStatSorts)
+
 const ViewRaid = () => {
   const { raidId } = useParams<{ raidId: string }>()
   const { state, data, error } = useDocument<ViewRaidData>('raid-stats', raidId)
+
+  const [currentSort, setCurrentSort] = useState(userStatSortNames[0])
 
   if (state === 'loading') {
     return <LoadingSpinner />
@@ -99,16 +110,30 @@ const ViewRaid = () => {
                 {(data?.additions ?? 0) - (data?.deletions ?? 0)} Net Deletions
               </p>
             </TotalStats>
+            <select
+              name="sort"
+              id="sort"
+              disabled={data ? data.commits <= 1 : false}
+              onBlur={(e) => setCurrentSort(e.target.value)}
+            >
+              {userStatSortNames.map((sortName) => (
+                <option key={sortName} value={sortName}>
+                  {sortName}
+                </option>
+              ))}
+            </select>
           </section>
         </Header>
         <StatContainer>
-          {Object.values(data?.contributors ?? {}).map((contributor, index) => (
-            <UserStatBlock
-              key={contributor.userId}
-              rank={index + 1}
-              userStats={contributor}
-            />
-          ))}
+          {Object.values(data?.contributors ?? {})
+            .sort(userStatSorts[currentSort])
+            .map((contributor, index) => (
+              <UserStatBlock
+                key={contributor.userId}
+                rank={index + 1}
+                userStats={contributor}
+              />
+            ))}
         </StatContainer>
       </StatsView>
     )
