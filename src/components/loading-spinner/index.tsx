@@ -1,6 +1,19 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
+export default function LoadingSpinner() {
+  return (
+    <Background>
+      <Ellipsis>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </Ellipsis>
+    </Background>
+  )
+}
+
 const Background = styled.div`
   position: fixed;
   top: 0;
@@ -74,16 +87,3 @@ const Ellipsis = styled.div`
     }
   }
 `
-
-export default function LoadingSpinner() {
-  return (
-    <Background>
-      <Ellipsis>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </Ellipsis>
-    </Background>
-  )
-}
