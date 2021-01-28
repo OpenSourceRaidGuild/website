@@ -108,7 +108,7 @@ export const cssReset = css`
     display: block;
   }
   body {
-    overflow: hidden;
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

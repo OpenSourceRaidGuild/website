@@ -8,12 +8,17 @@ const globalStyles = css`
     /* Colors */
     --black: hsl(210, 29%, 10%);
     --white: hsl(0, 0%, 100%);
-    --gray: hsl(0, 0%, 40%);
-    --lightGray: hsl(0, 0%, 97%);
+    --gray-400: hsl(0, 0%, 40%);
+    --gray-200: hsl(0, 0%, 80%);
+    --gray-100: hsl(0, 0%, 97%);
 
     /* Intentions */
-    --background: var(--lightGray);
+    --background: var(--gray-100);
     --textColor: var(--black);
+    --lineColor: var(--gray-200);
+
+    /* Elevations */
+    --elevation-1: hsla(0, 0%, 0%, 10%);
 
     /* Type */
     --bodyFont: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu,
@@ -24,22 +29,12 @@ const globalStyles = css`
     --headingFont: var(--bodyFont);
     /* Major Third type scale */
     --headingScaleRatio: 0.8;
-    --h1: calc(
-      1em / var(--headingScaleRatio) / var(--headingScaleRatio) /
-        var(--headingScaleRatio) / var(--headingScaleRatio) /
-        var(--headingScaleRatio)
-    );
-    --h2: calc(
-      1em / var(--headingScaleRatio) / var(--headingScaleRatio) /
-        var(--headingScaleRatio) / var(--headingScaleRatio)
-    );
-    --h3: calc(
-      1em / var(--headingScaleRatio) / var(--headingScaleRatio) /
-        var(--headingScaleRatio)
-    );
-    --h4: calc(1em / var(--headingScaleRatio) / var(--headingScaleRatio));
-    --h5: calc(1em / var(--headingScaleRatio));
-    --smallText: calc(1em * var(--headingScaleRatio));
+    --h1: calc(var(--h2) / var(--headingScaleRatio)); // 48.8281
+    --h2: calc(var(--h3) / var(--headingScaleRatio)); // 39.0625
+    --h3: calc(var(--h4) / var(--headingScaleRatio)); // 31.25
+    --h4: calc(var(--h5) / var(--headingScaleRatio)); // 25
+    --h5: calc(1em / var(--headingScaleRatio)); // 20
+    --smallText: calc(1em * var(--headingScaleRatio)); // 12.8
 
     /* Spacing (fibonacci) */
     --space-unit: 1em;
