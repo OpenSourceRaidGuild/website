@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react'
 import firestore from '#utils/useFirestore'
 
-type State = 'loading' | 'success' | 'not-found' | 'error'
-
-function useCollection<TDocument>(collectionName: string) {
-  const [state, setState] = useState<State>('loading')
-  const [error, setError] = useState<Error | null>(null)
-  const [data, setData] = useState<(TDocument & { id: string })[] | null>(null)
+function useCollection<TDocument>(
+  collectionName: string,
+): UseFirestoreData<DocumentWithId<TDocument>[]> {
+  const [collectionData, setCollectionData] = useState<
+    UseFirestoreData<DocumentWithId<TDocument>[]>
+  >({
+    state: 'loading',
+    data: null,
+    error: null,
+  })
 
   useEffect(() => {
     firestore
@@ -14,28 +18,35 @@ function useCollection<TDocument>(collectionName: string) {
       .get()
       .then((snapshot) => {
         if (!snapshot.empty) {
-          setData(
-            snapshot.docs.map((s) => ({
-              id: s.id,
-              ...(s.data() as TDocument),
-            })),
-          )
-          setState('success')
+          setCollectionData({
+            state: 'success',
+            data: snapshot.docs.map<DocumentWithId<TDocument>>(
+              (s) =>
+                ({
+                  id: s.id,
+                  ...s.data(),
+                } as DocumentWithId<TDocument>),
+            ),
+            error: null,
+          })
         } else {
-          setState('not-found')
+          setCollectionData({
+            state: 'not-found',
+            data: null,
+            error: null,
+          })
         }
       })
       .catch((error) => {
-        setError(error)
-        setState('error')
+        setCollectionData({
+          state: 'error',
+          data: null,
+          error,
+        })
       })
   }, [collectionName])
 
-  return {
-    state,
-    data,
-    error,
-  }
+  return collectionData
 }
 
 export default useCollection
