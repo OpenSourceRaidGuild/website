@@ -6,10 +6,10 @@ interface Props {
 }
 
 const Container = styled.div`
-  background-color: white;
-  border: 1px solid hsl(0, 0%, 78%);
-  border-radius: 8px;
-  padding: 1rem 2rem;
+  background-color: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--roundness);
+  padding: var(--space-4) var(--space-5);
 `
 
 function Card({ children }: Props) {

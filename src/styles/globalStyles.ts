@@ -16,6 +16,7 @@ const globalStyles = css`
     --background: var(--gray-100);
     --textColor: var(--black);
     --lineColor: var(--gray-200);
+    --roundness: 8px;
 
     /* Elevations */
     --elevation-1: hsla(0, 0%, 0%, 10%);
