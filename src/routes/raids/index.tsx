@@ -5,24 +5,47 @@ import LoadingSpinner from '#components/loading-spinner'
 import useCollection from '#utils/useCollection'
 
 const AllRaids = () => {
-  const { state, data, error } = useCollection<ViewRaidData>('raid-stats')
+  const collectionData = useCollection<ViewRaidData>('raid-stats')
 
-  if (state === 'loading') {
-    return <LoadingSpinner />
-  } else if (state === 'error') {
-    return <p>{JSON.stringify(error)}</p>
-  } else {
+  if (collectionData.state === 'success') {
+    const data = collectionData.data
     return (
       <>
         <h1>Raids</h1>
+        <h2>Active</h2>
         <ul>
-          {(data ?? []).map((s) => (
-            <li key={s.id}>
-              <Link to={`/raids/${s.id}`}>{s.title}</Link>
-            </li>
-          ))}
+          {data
+            .filter((r) => r.status === 'active')
+            .map((s) => (
+              <li key={s.id}>
+                <Link to={`/raids/${s.id}`}>
+                  {s.title} | {s.dungeon}
+                </Link>
+              </li>
+            ))}
+        </ul>
+        <h2>Completed</h2>
+        <ul>
+          {data
+            .filter((r) => r.status === 'completed')
+            .map((s) => (
+              <li key={s.id}>
+                <Link to={`/raids/${s.id}`}>
+                  {s.title} | {s.dungeon}
+                </Link>
+              </li>
+            ))}
         </ul>
       </>
+    )
+  } else {
+    return collectionData.state === 'loading' ? (
+      <LoadingSpinner />
+    ) : (
+      <p>
+        {`Strange... I could've sworn the Manticore was here a second ago! Seems
+        there won't be any Raids for a while. Try again later!`}
+      </p>
     )
   }
 }

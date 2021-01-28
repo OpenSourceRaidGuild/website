@@ -10,6 +10,7 @@ interface UserStats {
 interface ViewRaidData {
   dungeon: string
   title: string
+  status: 'active' | 'completed'
   additions: number
   deletions: number
   commits: number
