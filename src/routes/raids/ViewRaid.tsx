@@ -114,7 +114,7 @@ const ViewRaid = () => {
               name="sort"
               id="sort"
               disabled={data ? data.commits <= 1 : false}
-              onBlur={(e) => setCurrentSort(e.target.value)}
+              onChange={(e) => setCurrentSort(e.target.value)}
             >
               {userStatSortNames.map((sortName) => (
                 <option key={sortName} value={sortName}>
