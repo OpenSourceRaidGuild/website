@@ -15,28 +15,28 @@ const globalStyles = css`
 
     /* Intentions */
     --background: var(--gray-100);
-    --textColor: var(--black);
-    --lineColor: var(--gray-200);
+    --text-color: var(--black);
+    --line-color: var(--gray-200);
     --roundness: 8px;
 
     /* Elevations */
     --elevation-1: hsla(0, 0%, 0%, 10%);
 
     /* Type */
-    --bodyFont: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu,
+    --body-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu,
       Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
       'Segoe UI Symbol';
 
-    --textBaseSize: 1rem;
-    --headingFont: var(--bodyFont);
+    --text-base-size: 1rem;
+    --heading-font: var(--body-font);
     /* Major Third type scale */
-    --headingScaleRatio: 0.8;
-    --h1: calc(var(--h2) / var(--headingScaleRatio)); // 48.8281
-    --h2: calc(var(--h3) / var(--headingScaleRatio)); // 39.0625
-    --h3: calc(var(--h4) / var(--headingScaleRatio)); // 31.25
-    --h4: calc(var(--h5) / var(--headingScaleRatio)); // 25
-    --h5: calc(1em / var(--headingScaleRatio)); // 20
-    --smallText: calc(1em * var(--headingScaleRatio)); // 12.8
+    --text-scale-ratio: 0.8;
+    --h1: calc(var(--h2) / var(--text-scale-ratio)); // 48.8281
+    --h2: calc(var(--h3) / var(--text-scale-ratio)); // 39.0625
+    --h3: calc(var(--h4) / var(--text-scale-ratio)); // 31.25
+    --h4: calc(var(--h5) / var(--text-scale-ratio)); // 25
+    --h5: calc(1em / var(--text-scale-ratio)); // 20
+    --small-text: calc(1em * var(--text-scale-ratio)); // 12.8
 
     /* Spacing (fibonacci) */
     --space-unit: 1em;
@@ -54,17 +54,17 @@ const globalStyles = css`
   }
 
   body {
-    font-family: var(--bodyFont);
+    font-family: var(--body-font);
     font-weight: 400;
     background: var(--background);
-    color: var(--textColor);
+    color: var(--text-color);
     line-height: 1.4;
   }
 
   p {
     margin-bottom: 1rem;
     a {
-      color: var(--textColor);
+      color: var(--text-color);
     }
   }
 
@@ -75,7 +75,7 @@ const globalStyles = css`
   h5,
   h6 {
     margin: 0 0 var(--space-4);
-    font-family: var(--headingFont);
+    font-family: var(--heading-font);
     font-weight: 700;
     line-height: 1.3;
   }

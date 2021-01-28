@@ -90,7 +90,7 @@ const ViewRaid = () => {
 export default ViewRaid
 
 const $StatsView = styled.main`
-  --maxContentWidth: 700px;
+  --max-content-width: 700px;
   > * {
     padding: var(--space-4);
   }
@@ -100,11 +100,11 @@ const $Header = styled.header`
   position: sticky;
   top: 0;
   background-color: var(--white);
-  border-bottom: 1px solid var(--lineColor);
+  border-bottom: 1px solid var(--line-color);
   box-shadow: 0 2px 4px 0 var(--elevation-1);
   z-index: 1;
   section {
-    max-width: var(--maxContentWidth);
+    max-width: var(--max-content-width);
     margin: 0 auto;
   }
 
@@ -127,6 +127,6 @@ const $StatContainer = styled.ol`
   display: grid;
   grid-auto-rows: auto;
   gap: var(--space-3);
-  max-width: var(--maxContentWidth);
+  max-width: var(--max-content-width);
   margin: 0 auto;
 `

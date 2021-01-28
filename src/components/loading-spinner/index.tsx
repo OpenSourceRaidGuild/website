@@ -24,41 +24,41 @@ const Background = styled.div`
   z-index: 10;
 `
 const Ellipsis = styled.div`
-  --ellipsisSize: 13px;
-  --baseLeftPos: 8px;
-  --animationSettings: 0.6s infinite;
+  --ellipsis-size: 13px;
+  --base-left-pos: 8px;
+  --animation-settings: 0.6s infinite;
 
   position: absolute;
   top: 50%;
   left: 50%;
   display: inline-block;
   width: 80px;
-  height: var(--ellipsisSize);
+  height: var(--ellipsis-size);
   transform: translate(-50%, -50%);
 
   div {
     position: absolute;
-    width: var(--ellipsisSize);
-    height: var(--ellipsisSize);
+    width: var(--ellipsis-size);
+    height: var(--ellipsis-size);
     background: var(--gray-500);
     border-radius: 50%;
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
 
     &:nth-of-type(1) {
-      left: var(--baseLeftPos);
-      animation: lds-ellipsis1 var(--animationSettings);
+      left: var(--base-left-pos);
+      animation: lds-ellipsis1 var(--animation-settings);
     }
     &:nth-of-type(2) {
-      left: var(--baseLeftPos);
-      animation: lds-ellipsis2 var(--animationSettings);
+      left: var(--base-left-pos);
+      animation: lds-ellipsis2 var(--animation-settings);
     }
     &:nth-of-type(3) {
-      left: calc(var(--baseLeftPos) * 4);
-      animation: lds-ellipsis2 var(--animationSettings);
+      left: calc(var(--base-left-pos) * 4);
+      animation: lds-ellipsis2 var(--animation-settings);
     }
     &:nth-of-type(4) {
-      left: calc(var(--baseLeftPos) * 7);
-      animation: lds-ellipsis3 var(--animationSettings);
+      left: calc(var(--base-left-pos) * 7);
+      animation: lds-ellipsis3 var(--animation-settings);
     }
   }
 
@@ -83,7 +83,7 @@ const Ellipsis = styled.div`
       transform: translate(0, 0);
     }
     100% {
-      transform: translate(calc(var(--baseLeftPos) * 3), 0);
+      transform: translate(calc(var(--base-left-pos) * 3), 0);
     }
   }
 `
