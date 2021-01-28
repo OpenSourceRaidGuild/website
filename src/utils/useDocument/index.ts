@@ -1,12 +1,32 @@
 import { useState, useEffect } from 'react'
 import firestore from '#utils/useFirestore'
 
-type State = 'loading' | 'success' | 'not-found' | 'error'
+type UseDocumentData<TDocument> =
+  | {
+      state: 'loading' | 'not-found'
+      data: null
+      error: null
+    }
+  | {
+      state: 'success'
+      data: TDocument
+      error: null
+    }
+  | {
+      state: 'error'
+      data: null
+      error: Error
+    }
 
-function useDocument<TDocument>(collectionName: string, documentId: string) {
-  const [state, setState] = useState<State>('loading')
-  const [error, setError] = useState<Error | null>(null)
-  const [data, setData] = useState<TDocument | null>(null)
+function useDocument<TDocument>(
+  collectionName: string,
+  documentId: string,
+): UseDocumentData<TDocument> {
+  const [documentData, setDocumentData] = useState<UseDocumentData<TDocument>>({
+    state: 'loading',
+    data: null,
+    error: null,
+  })
 
   useEffect(() => {
     firestore
@@ -15,23 +35,29 @@ function useDocument<TDocument>(collectionName: string, documentId: string) {
       .get()
       .then((snapshot) => {
         if (snapshot.exists) {
-          setData(snapshot.data() as TDocument)
-          setState('success')
+          setDocumentData({
+            state: 'success',
+            data: snapshot.data() as TDocument,
+            error: null,
+          })
         } else {
-          setState('not-found')
+          setDocumentData({
+            state: 'not-found',
+            data: null,
+            error: null,
+          })
         }
       })
       .catch((error) => {
-        setError(error)
-        setState('error')
+        setDocumentData({
+          state: 'error',
+          data: null,
+          error: error,
+        })
       })
   }, [collectionName, documentId])
 
-  return {
-    state,
-    data,
-    error,
-  }
+  return documentData
 }
 
 export default useDocument

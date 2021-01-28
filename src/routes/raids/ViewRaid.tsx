@@ -19,48 +19,39 @@ const userStatSortNames = Object.keys(userStatSorts)
 
 const ViewRaid = () => {
   const { raidId } = useParams<{ raidId: string }>()
-  const { state, data, error } = useDocument<ViewRaidData>('raid-stats', raidId)
+  const documentData = useDocument<ViewRaidData>('raid-stats', raidId)
 
   const [currentSort, setCurrentSort] = useState(userStatSortNames[0])
 
-  if (state === 'loading') {
-    return <LoadingSpinner />
-  } else if (state === 'error') {
-    return <p>{JSON.stringify(error)}</p>
-  } else if (state === 'not-found') {
-    return <p>Couldn`t find that Raid - did you fall into the wrong dungeon?</p>
-  } else {
+  if (documentData.state === 'success') {
+    const data = documentData.data
     return (
       <$StatsView>
         <$Header>
           <section>
-            <h1>{data?.title}</h1>
+            <h1>{data.title}</h1>
             <$TotalStats>
               <li>
                 <Emoji as="🚀" aria-label="rocket" />{' '}
-                {Object.keys(data?.contributors ?? {}).length} Contributors
+                {Object.keys(data.contributors).length} Contributors
               </li>
               <li>
-                <Emoji as="💾" aria-label="floppy" /> {data?.commits}{' '}
-                {(data?.commits ?? 0) === 1 ? 'Commit' : 'Commits'}
+                <Emoji as="💾" aria-label="floppy" /> {data.commits}{' '}
+                {data.commits === 1 ? 'Commit' : 'Commits'}
               </li>
               <li>
-                <Emoji as="📃" aria-label="file" /> {data?.changedFiles} Changed
+                <Emoji as="📃" aria-label="file" /> {data.changedFiles} Changed
                 Files
               </li>
               <li>
-                <Emoji as="⚔️" aria-label="crossing-swords" /> +
-                {data?.additions} -{data?.deletions}
-              </li>
-              <li>
-                <Emoji as="🔥" aria-label="fire" />{' '}
-                {(data?.additions ?? 0) - (data?.deletions ?? 0)} Net Deletions
+                <Emoji as="⚔️" aria-label="crossing-swords" /> +{data.additions}{' '}
+                -{data.deletions}
               </li>
             </$TotalStats>
             <select
               name="sort"
               id="sort"
-              disabled={data ? data.commits <= 1 : false}
+              disabled={data.commits <= 1}
               onChange={(e) => setCurrentSort(e.target.value)}
             >
               {userStatSortNames.map((sortName) => (
@@ -72,7 +63,7 @@ const ViewRaid = () => {
           </section>
         </$Header>
         <$StatContainer>
-          {Object.values(data?.contributors ?? {})
+          {Object.values(data.contributors)
             .sort(userStatSorts[currentSort])
             .map((contributor, index) => (
               <UserStatBlock
@@ -83,6 +74,14 @@ const ViewRaid = () => {
             ))}
         </$StatContainer>
       </$StatsView>
+    )
+  } else if (documentData.state === 'error') {
+    return <p>{JSON.stringify(documentData.error)}</p>
+  } else {
+    return documentData.state === 'loading' ? (
+      <LoadingSpinner />
+    ) : (
+      <p>Couldn`t find that Raid - did you fall into the wrong dungeon?</p>
     )
   }
 }
