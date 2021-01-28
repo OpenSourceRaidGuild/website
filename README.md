@@ -20,11 +20,12 @@ You will also see any lint errors in the console.
 
 ### `yarn start:dev`
 
-Runs the dev server on its own
+Runs the dev server on http://localhost:3000/
 
 ### `yarn start:firestore`
 
 Starts the firestore emulator on its own
+Data can be viewed and manipulated via the UI at http://localhost:4000/firestore
 
 ### `yarn storybook`
 

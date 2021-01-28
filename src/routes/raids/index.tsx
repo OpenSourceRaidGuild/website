@@ -42,9 +42,10 @@ const AllRaids = () => {
     return collectionData.state === 'loading' ? (
       <LoadingSpinner />
     ) : (
+      // Theoretically this can/should never be hit... But a fun message nonetheless
       <p>
         {`Strange... I could've sworn the Manticore was here a second ago! Seems
-        there won't be any Raids for a while. Try again later!`}
+        there aren't any Raids right now. Try again later!`}
       </p>
     )
   }
