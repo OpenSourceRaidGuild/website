@@ -2,50 +2,51 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 const Background = styled.div`
-  background-color: hsla(0, 0%, 97%, 50%);
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background-color: hsla(0, 0%, 97%, 50%);
+  z-index: 10;
 `
 const Ellipsis = styled.div`
-  display: inline-block;
+  --ellipsisSize: 13px;
+  --baseLeftPos: 8px;
+  --animationSettings: 0.6s infinite;
+
   position: absolute;
-  z-index: 1;
+  top: 50%;
+  left: 50%;
+  display: inline-block;
   width: 80px;
-  height: 80px;
-  left: calc(50% - 40px);
-  top: calc(50% - 40px);
+  height: var(--ellipsisSize);
+  transform: translate(-50%, -50%);
 
-  & div {
+  div {
     position: absolute;
-    top: 33px;
-    width: 13px;
-    height: 13px;
+    width: var(--ellipsisSize);
+    height: var(--ellipsisSize);
+    background: var(--gray-500);
     border-radius: 50%;
-    background: hsl(0, 0%, 25%);
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
-  }
 
-  & div:nth-child(1) {
-    left: 8px;
-    animation: lds-ellipsis1 0.6s infinite;
-  }
-
-  & div:nth-child(2) {
-    left: 8px;
-    animation: lds-ellipsis2 0.6s infinite;
-  }
-
-  & div:nth-child(3) {
-    left: 32px;
-    animation: lds-ellipsis2 0.6s infinite;
-  }
-
-  & div:nth-child(4) {
-    left: 56px;
-    animation: lds-ellipsis3 0.6s infinite;
+    &:nth-of-type(1) {
+      left: var(--baseLeftPos);
+      animation: lds-ellipsis1 var(--animationSettings);
+    }
+    &:nth-of-type(2) {
+      left: var(--baseLeftPos);
+      animation: lds-ellipsis2 var(--animationSettings);
+    }
+    &:nth-of-type(3) {
+      left: calc(var(--baseLeftPos) * 4);
+      animation: lds-ellipsis2 var(--animationSettings);
+    }
+    &:nth-of-type(4) {
+      left: calc(var(--baseLeftPos) * 7);
+      animation: lds-ellipsis3 var(--animationSettings);
+    }
   }
 
   @keyframes lds-ellipsis1 {
@@ -69,7 +70,7 @@ const Ellipsis = styled.div`
       transform: translate(0, 0);
     }
     100% {
-      transform: translate(24px, 0);
+      transform: translate(calc(var(--baseLeftPos) * 3), 0);
     }
   }
 `

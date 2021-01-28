@@ -8,6 +8,7 @@ const globalStyles = css`
     /* Colors */
     --black: hsl(210, 29%, 10%);
     --white: hsl(0, 0%, 100%);
+    --gray-500: hsl(0, 0%, 25%);
     --gray-400: hsl(0, 0%, 40%);
     --gray-200: hsl(0, 0%, 80%);
     --gray-100: hsl(0, 0%, 97%);
