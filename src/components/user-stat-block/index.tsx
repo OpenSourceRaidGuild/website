@@ -10,13 +10,26 @@ interface Props {
 }
 
 export default function UserStatBlock({ rank, userStats }: Props) {
+  console.log('[UserStatBlock]: ', rank, userStats)
   return (
     <Card>
       <$Content>
         <$Rank>#{rank}</$Rank>
         <$User>
-          <img src={userStats.avatarUrl} alt={`${userStats.user}'s avatar`} />
-          <span>{userStats.user}</span>
+          <a
+            href={`https://www.github.com/${userStats.user}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={userStats.avatarUrl} alt={`${userStats.user}'s avatar`} />
+          </a>
+          <a
+            href={`https://www.github.com/${userStats.user}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {userStats.user}
+          </a>
         </$User>
         <$Stats>
           <div>
@@ -46,6 +59,10 @@ const $Content = styled.li`
     justify-content: center;
     row-gap: var(--space-4);
     column-gap: 0;
+  }
+  a {
+    text-decoration: none;
+    color: currentColor;
   }
 `
 
