@@ -10,7 +10,6 @@ interface Props {
 }
 
 export default function UserStatBlock({ rank, userStats }: Props) {
-  console.log('[UserStatBlock]: ', rank, userStats)
   return (
     <Card>
       <$Content>
