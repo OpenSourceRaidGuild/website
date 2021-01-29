@@ -17,7 +17,7 @@ const userStatSorts: {
 }
 const userStatSortNames = Object.keys(userStatSorts)
 
-const ViewRaid = () => {
+const Raid = () => {
   const { raidId } = useParams<{ raidId: string }>()
   const documentData = useDocument<ViewRaidData>('raid-stats', raidId)
 
@@ -86,7 +86,7 @@ const ViewRaid = () => {
   }
 }
 
-export default ViewRaid
+export default Raid
 
 const $StatsView = styled.main`
   --max-content-width: 700px;

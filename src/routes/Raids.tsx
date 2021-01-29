@@ -1,10 +1,11 @@
 import React from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, useRouteMatch } from 'react-router-dom'
 import LoadingSpinner from '#components/loading-spinner'
 import useCollection from '#utils/useCollection'
 
-const AllRaids = () => {
+const Raids = () => {
+  const { url } = useRouteMatch()
   const collectionData = useCollection<ViewRaidData>('raid-stats')
 
   if (collectionData.state === 'success') {
@@ -18,7 +19,7 @@ const AllRaids = () => {
             .filter((r) => r.status === 'active')
             .map((s) => (
               <li key={s.id}>
-                <Link to={`/raids/${s.id}`}>
+                <Link to={`${url}/${s.id}`}>
                   {s.title} | {s.dungeon}
                 </Link>
               </li>
@@ -30,7 +31,7 @@ const AllRaids = () => {
             .filter((r) => r.status === 'completed')
             .map((s) => (
               <li key={s.id}>
-                <Link to={`/raids/${s.id}`}>
+                <Link to={`${url}/${s.id}`}>
                   {s.title} | {s.dungeon}
                 </Link>
               </li>
@@ -38,17 +39,17 @@ const AllRaids = () => {
         </ul>
       </>
     )
-  } else {
-    return collectionData.state === 'loading' ? (
-      <LoadingSpinner />
-    ) : (
-      // Theoretically this can/should never be hit... But a fun message nonetheless
-      <p>
-        {`Strange... I could've sworn the Manticore was here a second ago! Seems
-        there aren't any Raids right now. Try again later!`}
-      </p>
-    )
   }
+
+  return collectionData.state === 'loading' ? (
+    <LoadingSpinner />
+  ) : (
+    // Theoretically this can/should never be hit... But a fun message nonetheless
+    <p>
+      {`Strange... I could've sworn the Manticore was here a second ago! Seems
+        there aren't any Raids right now. Try again later!`}
+    </p>
+  )
 }
 
-export default AllRaids
+export default Raids
