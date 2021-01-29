@@ -22,9 +22,9 @@ const Container = styled.div`
   flex-direction: row-reverse;
   @media (max-width: 640px) {
     flex-direction: column;
-  }
-  & > * + * {
-    margin-bottom: var(--space-5);
+    & > * + * {
+      margin-top: var(--space-5);
+    }
   }
 `
 
@@ -66,7 +66,9 @@ const AllRaids = () => {
     const data = collectionData.data
     const dataInCurrentTab = data.filter((r) => r.status === currentTab)
     const filteredData = dungeon
-      ? dataInCurrentTab.filter((r) => r.dungeon.includes(dungeon))
+      ? dataInCurrentTab.filter((r) =>
+          r.dungeon.toLowerCase().includes(dungeon),
+        )
       : dataInCurrentTab
 
     return (
@@ -76,7 +78,9 @@ const AllRaids = () => {
           <form
             onSubmit={(e: React.SyntheticEvent<FilterFormElements>) => {
               e.preventDefault()
-              setDungeon(e.currentTarget.elements.dungeonInput.value)
+              setDungeon(
+                e.currentTarget.elements.dungeonInput.value.toLowerCase(),
+              )
             }}
           >
             <div>
