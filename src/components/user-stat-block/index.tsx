@@ -42,7 +42,7 @@ const $Content = styled.li`
   align-items: center;
   @media screen and (max-width: 1024px) {
     grid-template-columns: min-content 1fr;
-    grid-template-areas: 'rank user' 'stats stats';
+    grid-template-areas: 'rank user' 'rank stats';
     justify-content: center;
     row-gap: var(--space-4);
     column-gap: 0;

@@ -29,30 +29,29 @@ const ViewRaid = () => {
       <$StatsView>
         <$Header>
           <section>
-            <h1>{data?.title}</h1>
+            <h1>{data.title}</h1>
             <$TotalStats>
               <li>
                 <Emoji as="🚀" aria-label="rocket" />{' '}
-                {data ? Object.keys(data.contributors).length : null}{' '}
-                Contributors
+                {Object.keys(data.contributors).length} Contributors
               </li>
               <li>
-                <Emoji as="💾" aria-label="floppy" /> {data?.commits}{' '}
-                {data?.commits === 1 ? 'Commit' : 'Commits'}
+                <Emoji as="💾" aria-label="floppy" /> {data.commits}{' '}
+                {data.commits === 1 ? 'Commit' : 'Commits'}
               </li>
               <li>
-                <Emoji as="📃" aria-label="file" /> {data?.changedFiles} Changed
+                <Emoji as="📃" aria-label="file" /> {data.changedFiles} Changed
                 Files
               </li>
               <li>
-                <Emoji as="⚔️" aria-label="crossing-swords" /> +
-                {data?.additions} -{data?.deletions}
+                <Emoji as="⚔️" aria-label="crossing-swords" /> +{data.additions}{' '}
+                -{data.deletions}
               </li>
             </$TotalStats>
             <select
               name="sort"
               id="sort"
-              disabled={data ? data.commits <= 1 : undefined}
+              disabled={data.commits <= 1}
               onChange={(e) => setCurrentSort(e.target.value)}
             >
               {userStatSortNames.map((sortName) => (
@@ -64,17 +63,15 @@ const ViewRaid = () => {
           </section>
         </$Header>
         <$StatContainer>
-          {data
-            ? Object.values(data.contributors)
-                .sort(userStatSorts[currentSort])
-                .map((contributor, index) => (
-                  <UserStatBlock
-                    key={contributor.userId}
-                    rank={index + 1}
-                    userStats={contributor}
-                  />
-                ))
-            : null}
+          {Object.values(data.contributors)
+            .sort(userStatSorts[currentSort])
+            .map((contributor, index) => (
+              <UserStatBlock
+                key={contributor.userId}
+                rank={index + 1}
+                userStats={contributor}
+              />
+            ))}
         </$StatContainer>
       </$StatsView>
     )
