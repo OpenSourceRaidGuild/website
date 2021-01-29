@@ -128,4 +128,7 @@ const $StatContainer = styled.ol`
   gap: var(--space-3);
   max-width: var(--max-content-width);
   margin: 0 auto;
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
 `
