@@ -61,7 +61,9 @@ const $Content = styled.li`
   }
   a {
     text-decoration: none;
-    color: currentColor;
+  }
+  a:hover {
+    text-decoration: underline;
   }
 `
 
