@@ -37,6 +37,12 @@ const globalStyles = css`
     --h4: calc(var(--h5) / var(--text-scale-ratio)); // 25
     --h5: calc(1em / var(--text-scale-ratio)); // 20
     --small-text: calc(1em * var(--text-scale-ratio)); // 12.8
+    @media screen and (max-width: 1024px) {
+      --text-scale-ratio: 0.85;
+    }
+    @media screen and (max-width: 768px) {
+      --text-scale-ratio: 0.9;
+    }
 
     /* Spacing (fibonacci) */
     --space-unit: 1em;
@@ -47,6 +53,9 @@ const globalStyles = css`
     --space-5: calc(2 * var(--space-unit));
     --space-6: calc(3.25 * var(--space-unit));
     --space-7: calc(5.25 * var(--space-unit));
+    @media screen and (max-width: 1024px) {
+      --space-unit: 0.8em;
+    }
   }
 
   html {
@@ -74,7 +83,7 @@ const globalStyles = css`
   h4,
   h5,
   h6 {
-    margin: 0 0 var(--space-4);
+    margin: 0;
     font-family: var(--heading-font);
     font-weight: 700;
     line-height: 1.3;

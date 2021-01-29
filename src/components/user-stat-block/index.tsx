@@ -36,10 +36,17 @@ export default function UserStatBlock({ rank, userStats }: Props) {
 
 const $Content = styled.li`
   display: grid;
-  grid-gap: 2rem;
+  gap: var(--space-5);
   grid-template-columns: var(--space-6) 1fr 1fr;
   grid-template-areas: 'rank user stats';
   align-items: center;
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: min-content 1fr;
+    grid-template-areas: 'rank user' 'stats stats';
+    justify-content: center;
+    row-gap: var(--space-4);
+    column-gap: 0;
+  }
 `
 
 const $Rank = styled.span`
@@ -52,11 +59,20 @@ const $User = styled.div`
   grid-area: user;
   display: flex;
   align-items: inherit;
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+  }
   img {
     border-radius: 50%;
     width: 6rem;
     height: 6rem;
-    margin-right: var(--space-5);
+    @media screen and (min-width: 1025px) {
+      margin-right: var(--space-5);
+    }
+    @media screen and (max-width: 1024px) {
+      width: 4rem;
+      height: 4rem;
+    }
   }
 `
 
@@ -64,6 +80,9 @@ const $Stats = styled.div`
   grid-area: stats;
   display: grid;
   gap: var(--space-3);
+  @media screen and (max-width: 1024px) {
+    justify-content: center;
+  }
 
   span {
     font-size: var(--h5);
