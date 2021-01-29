@@ -1,17 +1,12 @@
 import { lazy } from 'react'
+import type { RouteProps } from 'react-router-dom'
 import Home from './routes/Home'
 import NotFound from './routes/NotFound'
 
 const ViewRaid = lazy(() => import('./routes/raids/ViewRaid'))
 const AllRaids = lazy(() => import('./routes/raids'))
 
-type Route = {
-  path: string
-  exact?: true
-  component: React.FunctionComponent
-}
-
-const routes: Route[] = [
+const routes: RouteProps[] = [
   {
     path: '/',
     exact: true,
