@@ -4,7 +4,7 @@ import { Link, useRouteMatch } from 'react-router-dom'
 import LoadingSpinner from '#components/loading-spinner'
 import useCollection from '#utils/useCollection'
 
-const Raids = () => {
+const AllRaids = () => {
   const { url } = useRouteMatch()
   const collectionData = useCollection<ViewRaidData>('raid-stats')
 
@@ -52,4 +52,4 @@ const Raids = () => {
   )
 }
 
-export default Raids
+export default AllRaids

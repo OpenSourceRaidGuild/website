@@ -8,14 +8,14 @@ import Home from './routes/Home'
 import NotFound from './routes/NotFound'
 import { globalStyles } from './styles/globalStyles'
 
-const Raids = React.lazy(() => import('./routes/Raids'))
-const Raid = React.lazy(() => import('./routes/Raid'))
+const AllRaids = React.lazy(() => import('./routes/AllRaids'))
+const ViewRaid = React.lazy(() => import('./routes/ViewRaid'))
 
 const AppRouter = () => (
   <React.Suspense fallback={<LoadingSpinner />}>
     <Switch>
-      <Route path="/raids" exact component={Raids} />
-      <Route path="/raids/:raidId" exact component={Raid} />
+      <Route path="/raids" exact component={AllRaids} />
+      <Route path="/raids/:raidId" exact component={ViewRaid} />
       <Route path="/" exact component={Home} />
       <Route path="*" component={NotFound} />
     </Switch>
