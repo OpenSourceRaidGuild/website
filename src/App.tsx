@@ -3,7 +3,7 @@ import { Global, jsx } from '@emotion/react'
 import * as React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import LoadingSpinner from './components/loading-spinner'
+import LoadingSpinner from './components/loadingSpinner'
 import Home from './routes/Home'
 import NotFound from './routes/NotFound'
 import { globalStyles } from './styles/globalStyles'
