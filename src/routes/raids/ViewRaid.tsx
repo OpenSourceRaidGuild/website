@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 
 import styled from '@emotion/styled'
 
-import UserStatBlock from '#components/user-stat-block'
+import UserStatBlock from '#components/userStatBlock'
 import Emoji from '#components/emoji'
 import LoadingSpinner from '#components/loadingSpinner'
 import useDocument from '#utils/useDocument'
