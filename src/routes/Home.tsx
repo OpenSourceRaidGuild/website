@@ -1,4 +1,4 @@
-import Feedback from '#components/form'
+import Feedback from '#components/feedback'
 import React from 'react'
 import { Link } from 'react-router-dom'
 

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Link } from 'react-router-dom'
-import LoadingSpinner from '#components/loadingSpinner'
+import LoadingSpinner from '#components/loading-spinner'
 import useCollection from '#utils/useCollection'
 
 const AllRaids = () => {

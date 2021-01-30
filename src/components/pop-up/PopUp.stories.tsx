@@ -8,5 +8,7 @@ export default {
 }
 
 export const Default = () => (
-  <PopUp placeInView={[true, () => false]}>Hello World</PopUp>
+  <PopUp placeInView={{ isDisplayed: true, setDisplay: () => false }}>
+    Hello World
+  </PopUp>
 )

@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom'
 
 import styled from '@emotion/styled'
 
-import UserStatBlock from '#components/userStatBlock'
+import UserStatBlock from '#components/user-stat-block'
 import Emoji from '#components/emoji'
-import LoadingSpinner from '#components/loadingSpinner'
+import LoadingSpinner from '#components/loading-spinner'
 import useDocument from '#utils/useDocument'
 
 const userStatSorts: {
