@@ -3,30 +3,36 @@ import React from 'react'
 
 type Props = {
   children: React.ReactNode
-  placeInView: [
-    isDisplayed: boolean,
-    setDisplay: React.Dispatch<React.SetStateAction<boolean>>,
-  ]
+  placeInView: {
+    isDisplayed: boolean
+    setDisplay: React.Dispatch<React.SetStateAction<boolean>>
+  }
 }
 
 function PopUp({ children, placeInView }: Props) {
-  const [isDisplayed, setDisplay] = placeInView
+  const { isDisplayed, setDisplay } = placeInView
   const clickListenerRef = React.useRef<HTMLDivElement | null>(null)
 
-  React.useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+  const handleClickOutside = React.useCallback(
+    (event: MouseEvent) => {
       if (
         clickListenerRef.current &&
-        clickListenerRef.current !== event.target
+        !clickListenerRef.current.contains(event.target as Node)
       ) {
         setDisplay(false)
       }
-    }
-    document.addEventListener('click', handleClickOutside, true)
+    },
+    [setDisplay],
+  )
+
+  React.useEffect(() => {
+    document.addEventListener('click', handleClickOutside, { capture: true })
     return () => {
-      document.removeEventListener('click', handleClickOutside, true)
+      document.removeEventListener('click', handleClickOutside, {
+        capture: true,
+      })
     }
-  })
+  }, [handleClickOutside])
 
   return isDisplayed ? (
     <$PopUp ref={clickListenerRef}>
@@ -45,7 +51,7 @@ const $PopUp = styled.div`
   flex-direction: column;
   place-items: flex-end;
   position: absolute;
-  top: 0;
+  top: 15vh;
   button {
     border-radius: 50%;
     background: var(--gray-200);

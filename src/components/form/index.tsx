@@ -1,4 +1,4 @@
-import PopUp from '#components/pop-up'
+import PopUp from '#components/popUp'
 import styled from '@emotion/styled'
 import React from 'react'
 
@@ -32,9 +32,9 @@ function Feedback() {
         Feedback
       </$Button>
       <$Feedback>
-        <PopUp placeInView={[isDisplayed, setDisplay]}>
+        <PopUp placeInView={{ isDisplayed, setDisplay }}>
           <span>Feedback</span>
-          <form onSubmit={(e) => handleSubmit(e)}>
+          <form onSubmit={handleSubmit}>
             <$InputGroup>
               <label htmlFor="name">Name</label>
               <input
