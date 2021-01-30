@@ -1,7 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: 'AIzaSyCAgs6SNew9kKKFgQh7NLkqHK1n9Akq-GM',
   authDomain: 'raid-stats-c1d5a.firebaseapp.com',
   databaseURL: 'https://raid-stats-c1d5a-default-rtdb.firebaseio.com',
