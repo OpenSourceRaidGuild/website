@@ -1,4 +1,4 @@
-import PopUp from '#components/pop-up'
+import PopUp from '#components/popUp'
 import styled from '@emotion/styled'
 import React from 'react'
 
