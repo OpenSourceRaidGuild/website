@@ -18,7 +18,7 @@ const AllRaids = () => {
             .filter((r) => r.status === 'active')
             .map((s) => (
               <li key={s.id}>
-                <Link to={`${url}/${s.id}`}>
+                <Link to={`/raids/${s.id}`}>
                   {s.title} | {s.dungeon}
                 </Link>
               </li>
