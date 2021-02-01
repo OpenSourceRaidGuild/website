@@ -18,7 +18,7 @@ afterEach(() => {
   jest.resetAllMocks()
 })
 
-it('should renders and visits Raids then the first Link', async () => {
+it('can view all raids and individual raids', async () => {
   render(<App />)
 
   userEvent.click(screen.getByText('Raids'))
