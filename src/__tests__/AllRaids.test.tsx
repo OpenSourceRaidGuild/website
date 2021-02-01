@@ -15,7 +15,7 @@ afterEach(() => {
 it('should AllRaids links', async () => {
   render(<App />)
 
-  userEvent.click(screen.getByRole('link', { name: 'Raids' }))
+  userEvent.click(screen.getByText('Raids'))
 
   await loadingScreen()
 

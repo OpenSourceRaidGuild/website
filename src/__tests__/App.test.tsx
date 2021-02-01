@@ -21,22 +21,20 @@ afterEach(() => {
 it('should renders and visits Raids then the first Link', async () => {
   render(<App />)
 
-  userEvent.click(screen.getByRole('link', { name: 'Raids' }))
+  userEvent.click(screen.getByText('Raids'))
 
   await loadingScreen()
 
   const data = fetchedCollectionData.data
 
   expect(screen.getByText('Raids')).toBeInTheDocument()
-  expect(screen.getByText('Active')).toBeInTheDocument()
-  expect(screen.getByText('Completed')).toBeInTheDocument()
-
-  const links = screen.getAllByRole('link')
 
   data.forEach((s) =>
     expect(screen.getByText(`${s.title} | ${s.dungeon}`)).toBeInTheDocument(),
   )
-  userEvent.click(links[0])
+
+  userEvent.click(screen.getByText(`${data[0].title} | ${data[0].dungeon}`))
+
   await loadingScreen()
 
   expect(

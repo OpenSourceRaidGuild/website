@@ -25,13 +25,15 @@ const data = fetchedDocumentData.data
 it('should test the ViewRaid $TotalStats', async () => {
   render(<App />)
 
-  userEvent.click(screen.getByRole('link', { name: 'Raids' }))
+  userEvent.click(screen.getByText('Raids'))
 
   await loadingScreen()
 
-  const links = screen.getAllByRole('link')
-
-  userEvent.click(links[0])
+  userEvent.click(
+    screen.getByText(
+      `${fetchedCollectionData.data[0].title} | ${fetchedCollectionData.data[0].dungeon}`,
+    ),
+  )
   await loadingScreen()
 
   expect(
@@ -44,8 +46,6 @@ it('should test the ViewRaid $TotalStats', async () => {
   expect(
     screen.getByText(`+${data.additions} -${data.deletions}`),
   ).toBeInTheDocument()
-
-  expect(screen.getAllByRole('img')).toBeTruthy()
 })
 it('should Sort ViewRaid By Addition', async () => {
   render(<App />)
@@ -60,6 +60,7 @@ it('should Sort ViewRaid By Addition', async () => {
     .forEach((contributor, index) => {
       // 4 is for the 4 list items of $TotalStats
       const commitAmount = contributor.commits > 1 ? 'Commits' : 'Commit'
+      expect(screen.getByAltText(`${contributor.user}'s avatar`)).toBeTruthy()
       expect(contributorsList[index + 4]).toContainHTML(
         `<span class="css-weeu1d">#${index + 1}</span>`,
       )
