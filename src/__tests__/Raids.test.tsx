@@ -83,8 +83,6 @@ it('should Sort ViewRaid By Commits', async () => {
   userEvent.click(screen.getByRole('combobox'))
   userEvent.click(screen.getByText('commits'))
 
-  expect(screen.getAllByRole('img')).toBeTruthy()
-
   Object.values(data.contributors)
     .sort((a, b) => b.commits - a.commits)
     .forEach((contributor, index) => {
