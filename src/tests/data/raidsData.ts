@@ -226,15 +226,6 @@ const fetchedDocumentData = {
     changedFiles: 169,
     commits: 568,
     contributors: {
-      354596: {
-        additions: 267,
-        avatarUrl:
-          'https://avatars2.githubusercontent.com/u/354596?u=81dee1c50522e7f6d3f22c43ec6269f7d9c59a63&v=4',
-        deletions: 307,
-        userId: 354596,
-        commits: 9,
-        user: 'proful',
-      },
       544386: {
         additions: 1176,
         avatarUrl:
@@ -244,15 +235,7 @@ const fetchedDocumentData = {
         commits: 29,
         user: 'juhanakristian',
       },
-      1087670: {
-        additions: 289,
-        avatarUrl:
-          'https://avatars3.githubusercontent.com/u/1087670?u=5a6738983bae1f3a10243aa603a5e9caa641d93d&v=4',
-        deletions: 486,
-        userId: 1087670,
-        commits: 9,
-        user: 'Aprillion',
-      },
+
       3214876: {
         additions: 23,
         avatarUrl:
@@ -262,15 +245,7 @@ const fetchedDocumentData = {
         commits: 2,
         user: 'TheGallery',
       },
-      15978090: {
-        additions: 64,
-        avatarUrl:
-          'https://avatars3.githubusercontent.com/u/15978090?u=d726f27a71c8a6620e06ad1a768720b5bbc8fd25&v=4',
-        deletions: 75,
-        userId: 15978090,
-        commits: 2,
-        user: 'ziedtouibi',
-      },
+
       17033502: {
         additions: 253,
         avatarUrl:
@@ -289,15 +264,7 @@ const fetchedDocumentData = {
         commits: 2,
         user: 'tsuki42',
       },
-      23029903: {
-        additions: 253,
-        avatarUrl:
-          'https://avatars2.githubusercontent.com/u/23029903?u=86ef88261fe287ecea4c5d678c11abb4e8d40222&v=4',
-        deletions: 378,
-        userId: 23029903,
-        commits: 10,
-        user: 'mpeyper',
-      },
+
       25822851: {
         additions: 231,
         avatarUrl:
@@ -307,15 +274,7 @@ const fetchedDocumentData = {
         commits: 7,
         user: 'kiranjd',
       },
-      27247160: {
-        additions: 1901,
-        avatarUrl:
-          'https://avatars3.githubusercontent.com/u/27247160?u=768c4a975a73af6f5111c2af628c10939f7d0f47&v=4',
-        deletions: 2913,
-        userId: 27247160,
-        commits: 55,
-        user: 'JacobMGEvans',
-      },
+
       35306025: {
         additions: 2163,
         avatarUrl:
