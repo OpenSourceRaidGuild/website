@@ -2,8 +2,10 @@ import { screen, waitForElementToBeRemoved } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 async function loadingScreen() {
-  expect(screen.getByLabelText('loading')).toBeInTheDocument()
-  await waitForElementToBeRemoved(() => screen.queryByLabelText('loading'))
+  expect(screen.getByLabelText('loadingScreen')).toBeInTheDocument()
+  await waitForElementToBeRemoved(() =>
+    screen.queryByLabelText('loadingScreen'),
+  )
 }
 
 export * from '@testing-library/react'

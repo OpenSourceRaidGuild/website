@@ -8,7 +8,7 @@ beforeAll(() => {
     jest.fn().mockReturnValue(fetchedCollectionData),
   )
 })
-afterEach(() => {
+afterAll(() => {
   jest.resetAllMocks()
 })
 

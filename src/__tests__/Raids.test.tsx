@@ -52,8 +52,7 @@ it('should Sort ViewRaid By Addition', async () => {
 
   const contributorsList = screen.getAllByRole('listitem')
 
-  userEvent.click(screen.getByRole('combobox'))
-  userEvent.click(screen.getByText('additions'))
+  userEvent.selectOptions(screen.getByRole('combobox'), 'additions')
 
   Object.values(data.contributors)
     .sort((a, b) => b.additions - a.additions)
@@ -80,8 +79,7 @@ it('should Sort ViewRaid By Commits', async () => {
 
   const contributorsList = screen.getAllByRole('listitem')
 
-  userEvent.click(screen.getByRole('combobox'))
-  userEvent.click(screen.getByText('commits'))
+  userEvent.selectOptions(screen.getByRole('combobox'), 'commits')
 
   Object.values(data.contributors)
     .sort((a, b) => b.commits - a.commits)
@@ -107,8 +105,7 @@ it('should Sort ViewRaid By Deletions', async () => {
 
   const contributorsList = screen.getAllByRole('listitem')
 
-  userEvent.click(screen.getByRole('combobox'))
-  userEvent.click(screen.getByText('deletions'))
+  userEvent.selectOptions(screen.getByRole('combobox'), 'deletions')
 
   Object.values(data.contributors)
     .sort((a, b) => b.deletions - a.deletions)
