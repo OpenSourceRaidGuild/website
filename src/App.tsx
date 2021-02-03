@@ -8,8 +8,8 @@ import Home from './routes/Home'
 import NotFound from './routes/NotFound'
 import { globalStyles } from './styles/globalStyles'
 
-const AllRaids = React.lazy(() => import('./routes/AllRaids'))
-const ViewRaid = React.lazy(() => import('./routes/ViewRaid'))
+const AllRaids = React.lazy(() => import('./routes/raids'))
+const ViewRaid = React.lazy(() => import('./routes/raids/ViewRaid'))
 
 const AppRouter = () => (
   <React.Suspense fallback={<LoadingSpinner />}>
