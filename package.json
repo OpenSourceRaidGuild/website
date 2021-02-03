@@ -4,7 +4,7 @@
     "start:dev": "snowpack dev",
     "start:firestore": "firebase emulators:start --import=./dev-data --only firestore",
     "build": "snowpack build",
-    "test": "jest --watch",
+    "test": "jest --watch --FIRESTORE_EMULATOR_HOST=8080",
     "test:ci": "jest",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "eslint --fix --ext js,jsx,ts,tsx --ignore-path .gitignore .",
@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
+    "@firebase/rules-unit-testing": "^1.1.10",
     "@snowpack/app-scripts-react": "^2.0.0",
     "@snowpack/plugin-dotenv": "^2.0.5",
     "@snowpack/plugin-react-refresh": "^2.4.0",
