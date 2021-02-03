@@ -22,7 +22,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
-    "@firebase/rules-unit-testing": "^1.1.10",
     "@snowpack/app-scripts-react": "^2.0.0",
     "@snowpack/plugin-dotenv": "^2.0.5",
     "@snowpack/plugin-react-refresh": "^2.4.0",

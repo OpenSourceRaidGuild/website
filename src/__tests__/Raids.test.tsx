@@ -60,18 +60,14 @@ it('should Sort ViewRaid By Addition', async () => {
       // 4 is for the 4 list items of $TotalStats
       const commitAmount = contributor.commits > 1 ? 'Commits' : 'Commit'
       expect(screen.getByAltText(`${contributor.user}'s avatar`)).toBeTruthy()
-      expect(contributorsList[index + 4]).toContainHTML(
-        `<span class="css-weeu1d">#${index + 1}</span>`,
-      )
-      expect(
-        screen.getByRole('link', { name: contributor.user }),
-      ).toBeInTheDocument()
+      expect(contributorsList[index + 4]).toContainHTML(`#${index + 1}`)
+      expect(screen.getByText(contributor.user)).toBeInTheDocument()
       expect(contributorsList[index + 4]).toContainHTML(
         `+${contributor.additions} -${contributor.deletions}`,
       )
-      expect(contributorsList[index + 4]).toContainHTML(
-        `${contributor.commits} ${commitAmount}`,
-      )
+      expect(
+        screen.getByText(`${contributor.commits} ${commitAmount}`),
+      ).toBeInTheDocument()
     })
 })
 it('should Sort ViewRaid By Commits', async () => {
@@ -86,18 +82,14 @@ it('should Sort ViewRaid By Commits', async () => {
     .forEach((contributor, index) => {
       // 4 is for the 4 list items of $TotalStats
       const commitAmount = contributor.commits > 1 ? 'Commits' : 'Commit'
-      expect(contributorsList[index + 4]).toContainHTML(
-        `<span class="css-weeu1d">#${index + 1}</span>`,
-      )
-      expect(
-        screen.getByRole('link', { name: contributor.user }),
-      ).toBeInTheDocument()
+      expect(contributorsList[index + 4]).toContainHTML(`#${index + 1}`)
+      expect(screen.getByText(contributor.user)).toBeInTheDocument()
       expect(contributorsList[index + 4]).toContainHTML(
         `+${contributor.additions} -${contributor.deletions}`,
       )
-      expect(contributorsList[index + 4]).toContainHTML(
-        `${contributor.commits} ${commitAmount}`,
-      )
+      expect(
+        screen.getByText(`${contributor.commits} ${commitAmount}`),
+      ).toBeInTheDocument()
     })
 })
 it('should Sort ViewRaid By Deletions', async () => {
@@ -112,17 +104,13 @@ it('should Sort ViewRaid By Deletions', async () => {
     .forEach((contributor, index) => {
       // 4 is for the 4 list items of $TotalStats
       const commitAmount = contributor.commits > 1 ? 'Commits' : 'Commit'
-      expect(contributorsList[index + 4]).toContainHTML(
-        `<span class="css-weeu1d">#${index + 1}</span>`,
-      )
-      expect(
-        screen.getByRole('link', { name: contributor.user }),
-      ).toBeInTheDocument()
+      expect(contributorsList[index + 4]).toContainHTML(`#${index + 1}`)
+      expect(screen.getByText(contributor.user)).toBeInTheDocument()
       expect(contributorsList[index + 4]).toContainHTML(
         `+${contributor.additions} -${contributor.deletions}`,
       )
-      expect(contributorsList[index + 4]).toContainHTML(
-        `${contributor.commits} ${commitAmount}`,
-      )
+      expect(
+        screen.getByText(`${contributor.commits} ${commitAmount}`),
+      ).toBeInTheDocument()
     })
 })
