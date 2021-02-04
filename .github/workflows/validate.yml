@@ -31,6 +31,7 @@ jobs:
 
       - name: Install packages
         run: yarn install
+        if: steps.cache.outputs.cache-hit != 'true'
 
       - name: 💡 Run lint script
         run: npm run lint:ci
