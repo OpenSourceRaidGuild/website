@@ -2,7 +2,7 @@
   "scripts": {
     "start": "yarn start:firestore & yarn start:dev",
     "start:dev": "snowpack dev",
-    "start:firestore": "firebase emulators:start --import=./dev-data --only firestore",
+    "start:firestore": "firebase emulators:start --import=./devData --only firestore",
     "build": "snowpack build",
     "test": "jest --watch",
     "test:ci": "jest",

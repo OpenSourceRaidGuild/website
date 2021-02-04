@@ -5,7 +5,6 @@ import LoadingSpinner from '#components/loadingSpinner'
 import useCollection from '#utils/useCollection'
 
 const AllRaids = () => {
-  const { url } = useRouteMatch()
   const collectionData = useCollection<ViewRaidData>('raid-stats')
 
   if (collectionData.state === 'success') {
@@ -19,7 +18,7 @@ const AllRaids = () => {
             .filter((r) => r.status === 'active')
             .map((s) => (
               <li key={s.id}>
-                <Link to={`${url}/${s.id}`}>
+                <Link to={`/raids/${s.id}`}>
                   {s.title} | {s.dungeon}
                 </Link>
               </li>
@@ -31,7 +30,7 @@ const AllRaids = () => {
             .filter((r) => r.status === 'completed')
             .map((s) => (
               <li key={s.id}>
-                <Link to={`${url}/${s.id}`}>
+                <Link to={`/raids/${s.id}`}>
                   {s.title} | {s.dungeon}
                 </Link>
               </li>
