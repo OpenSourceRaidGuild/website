@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import firestore from '#utils/useFirestore'
+import firestore from '#utils/firestore'
 
 function useDocument<TDocument>(
   collectionName: string,
