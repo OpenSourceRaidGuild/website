@@ -7,7 +7,7 @@ interface UserStats {
   commits: number
 }
 
-interface ViewRaidData {
+interface Raid {
   dungeon: string
   title: string
   status: 'active' | 'completed'
