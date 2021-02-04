@@ -10,6 +10,7 @@ const globalStyles = css`
     --white: hsl(0, 0%, 100%);
     --gray-500: hsl(0, 0%, 25%);
     --gray-400: hsl(0, 0%, 40%);
+    --gray-300: hsl(0, 0%, 66%);
     --gray-200: hsl(0, 0%, 80%);
     --gray-100: hsl(0, 0%, 97%);
 
@@ -37,15 +38,15 @@ const globalStyles = css`
     --h4: calc(var(--h5) / var(--text-scale-ratio)); // 25
     --h5: calc(1em / var(--text-scale-ratio)); // 20
     --small-text: calc(1em * var(--text-scale-ratio)); // 12.8
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1023px) {
       --text-scale-ratio: 0.85;
     }
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 767px) {
       --text-scale-ratio: 0.9;
     }
 
     /* Spacing (fibonacci) */
-    --space-unit: 1em;
+    --space-unit: 1rem;
     --space-1: calc(0.25 * var(--space-unit));
     --space-2: calc(0.5 * var(--space-unit));
     --space-3: calc(0.75 * var(--space-unit));
@@ -56,16 +57,26 @@ const globalStyles = css`
     @media screen and (max-width: 1024px) {
       --space-unit: 0.8em;
     }
+
+    /* Shadows */
+    --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    --elevation-2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    --elevation-3: 0 10px 20px rgba(0, 0, 0, 0.19),
+      0 6px 6px rgba(0, 0, 0, 0.23);
+    --elevation-4: 0 14px 28px rgba(0, 0, 0, 0.25),
+      0 10px 10px rgba(0, 0, 0, 0.22);
+    --elevation-5: 0 19px 38px rgba(0, 0, 0, 0.3),
+      0 15px 12px rgba(0, 0, 0, 0.22);
   }
 
   html {
     font-size: 100%;
+    background: var(--background);
   }
 
   body {
     font-family: var(--body-font);
     font-weight: 400;
-    background: var(--background);
     color: var(--text-color);
     line-height: 1.4;
   }
