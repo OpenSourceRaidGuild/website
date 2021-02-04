@@ -1,9 +1,7 @@
 /**@jsx jsx */
-import { firebaseConfig } from '#utils/useFirestore'
 import { Global, jsx } from '@emotion/react'
 import * as React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { FirebaseAppProvider } from 'reactfire'
 
 import LoadingSpinner from './components/loadingSpinner'
 import Home from './routes/Home'
