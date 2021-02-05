@@ -41,3 +41,9 @@ jobs:
 
       - name: ⚡ Run test script
         run: npm run test:ci
+
+      - name: ⚡ Run Cypress test script
+        uses: cypress-io/github-action@v2
+        with:
+          command: npm run test:e2e
+          tag: node-${{ matrix.node }}
