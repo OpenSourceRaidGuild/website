@@ -47,5 +47,5 @@ jobs:
         with:
           cache-key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
           browser: chrome
-          install-command: yarn --frozen-lockfile --silent
+          install-command: yarn install
           command: npm run test:e2e
