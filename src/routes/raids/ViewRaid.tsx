@@ -19,7 +19,7 @@ const userStatSortNames = Object.keys(userStatSorts)
 
 const ViewRaid = () => {
   const { raidId } = useParams<{ raidId: string }>()
-  const documentData = useDocument<Raid>('raid-stats', raidId)
+  const documentData = useDocument<RaidStats>('raid-stats', raidId)
 
   const [currentSort, setCurrentSort] = useState(userStatSortNames[0])
 

@@ -7,7 +7,7 @@ interface UserStats {
   commits: number
 }
 
-interface Raid {
+interface RaidStats {
   dungeon: string
   title: string
   status: 'active' | 'completed'

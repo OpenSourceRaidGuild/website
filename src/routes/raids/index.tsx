@@ -14,12 +14,12 @@ enum Tabs {
   completed,
 }
 
-function filterByDungon(raids: Raid[], dungeon: string) {
+function filterByDungon(raids: RaidStats[], dungeon: string) {
   return raids.filter((raid) => raid.dungeon.includes(dungeon))
 }
 
 function AllRaids() {
-  const { data, error, loading } = useCollection<Raid>('raid-stats')
+  const { data, error, loading } = useCollection<RaidStats>('raid-stats')
   const [tab, setTab] = React.useState<Tabs>(Tabs.active)
 
   // @ts-expect-error issue with type merging and interfaces https://github.com/microsoft/TypeScript/issues/15300
@@ -84,7 +84,7 @@ function AllRaids() {
 const github = (repo: string) => `https://github.com/${repo}`
 
 interface RaidsSelectionProps {
-  raids: WithID<Raid>[]
+  raids: WithID<RaidStats>[]
 }
 
 function RaidsSelection(props: RaidsSelectionProps) {
@@ -100,7 +100,7 @@ function RaidsSelection(props: RaidsSelectionProps) {
 }
 
 interface RaidCardProps {
-  raid: WithID<Raid>
+  raid: WithID<RaidStats>
 }
 
 function RaidCard(props: RaidCardProps) {
