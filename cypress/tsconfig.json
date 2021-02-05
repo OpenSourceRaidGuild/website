@@ -5,7 +5,7 @@
     "baseUrl": "./",
     "target": "es5",
     "lib": ["es2015", "dom"],
-    "types": ["cypress", "cypress-axe"],
+    "types": ["cypress", "@testing-library/cypress", "cypress-axe"],
     "isolatedModules": false,
     "allowJs": true,
     "noEmit": true

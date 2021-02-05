@@ -8,21 +8,22 @@ describe('Routes', () => {
       'Welcome to the Open Source Raid Guild!',
     )
 
-    cy.contains('Raids').click()
+    cy.findByText('Raids').click()
     cy.get('h2')
       .should('contain.text', 'Active')
       .should('contain.text', 'Completed')
-    cy.get('h1').should('contain.text', 'Raids')
-    cy.contains(
+      .should('exist')
+    cy.get('h1').should('contain.text', 'Raids').should('exist')
+    cy.findByText(
       'Migrate to TypeScript | kentcdodds/babel-plugin-preval',
     ).click()
-    cy.contains('commits')
-    cy.contains('Contributors')
+    cy.findByText('commits').should('exist')
+    cy.findByText(/Contributors/i).should('exist')
 
     cy.visit('/raids')
-    cy.get('h1').should('contain.text', 'Raids')
-    cy.contains('Adding Tests | smeijer/unimported').click()
-    cy.contains('commits')
-    cy.contains('Contributors')
+    cy.get('h1').should('contain.text', 'Raids').should('exist')
+    cy.findByText('Adding Tests | smeijer/unimported').click()
+    cy.findByText('commits').should('exist')
+    cy.findByText(/Contributors/i).should('exist')
   })
 })

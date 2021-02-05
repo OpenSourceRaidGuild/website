@@ -17,8 +17,8 @@ describe('A11y tests', () => {
     )
   })
   it('Feedback', () => {
-    cy.contains('Feedback').click()
-    cy.contains('name')
+    cy.findByText('Feedback').click()
+    cy.findByPlaceholderText(/your name/i).should('exist')
 
     cy.injectAxe()
     cy.checkA11y('form', a11yRunOnly, terminalLog)
@@ -26,18 +26,18 @@ describe('A11y tests', () => {
 
   it('AllRaids Page', () => {
     cy.visit('/raids')
-    cy.get('h1').should('contain.text', 'Raids')
+    cy.get('h1').should('contain.text', 'Raids').should('exist')
 
     cy.injectAxe()
     cy.checkA11y(undefined, a11yRunOnly, terminalLog)
   })
   it('viewRaid Page', () => {
     cy.visit('/raids')
-    cy.get('h1').should('contain.text', 'Raids')
+    cy.get('h1').should('contain.text', 'Raids').should('exist')
 
-    cy.contains('Adding Tests | smeijer/unimported').click()
-    cy.contains('commits')
-    cy.contains('Contributors')
+    cy.findByText('Adding Tests | smeijer/unimported').click()
+    cy.findByText('commits').should('exist')
+    cy.findByText(/Contributors/i).should('exist')
 
     cy.injectAxe()
     cy.checkA11y(undefined, a11yRunOnly, terminalLog)
