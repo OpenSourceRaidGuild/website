@@ -4,9 +4,16 @@ import { Link } from 'react-router-dom'
 
 const Home = () => (
   <>
-    <h1>Welcome to the Open Source Raid Guild!</h1>
-    <Link to="/raids">Raids</Link>
-    <Feedback />
+    <div role="banner">
+      <Feedback />
+    </div>
+    <div role="navigation">
+      <Link to="/raids">Raids</Link>
+    </div>
+
+    <div role="main">
+      <h1>Welcome to the Open Source Raid Guild!</h1>
+    </div>
   </>
 )
 

@@ -10,7 +10,7 @@ const AllRaids = () => {
   if (collectionData.state === 'success') {
     const data = collectionData.data
     return (
-      <>
+      <section role="main">
         <h1>Raids</h1>
         <h2>Active</h2>
         <ul>
@@ -36,7 +36,7 @@ const AllRaids = () => {
               </li>
             ))}
         </ul>
-      </>
+      </section>
     )
   }
 
