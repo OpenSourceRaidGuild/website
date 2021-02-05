@@ -49,3 +49,4 @@ jobs:
           browser: chrome
           cache-key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
           command: npm run test:e2e
+          wait-on: 'http://localhost:3000'
