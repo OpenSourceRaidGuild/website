@@ -45,8 +45,7 @@ jobs:
       - name: ⚡ Run Cypress test script
         uses: cypress-io/github-action@v2
         with:
-          install: false
-          browser: chrome
           cache-key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          browser: chrome
+          install-command: yarn --frozen-lockfile --silent
           command: npm run test:e2e
-          wait-on: 'http://localhost:3000'
