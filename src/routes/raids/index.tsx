@@ -130,9 +130,19 @@ function FilterAside(props: FilterAsideProps) {
   }
 
   return (
-    <div>
-      <input name="dungeon filter" onChange={handleChange} />
-    </div>
+    <$Aside>
+      <h3>Filters</h3>
+      <div css={{ marginTop: 'var(--space-4)' }}>
+        <label htmlFor="dungeon fiter">
+          Dungeon
+          <$Input
+            placeholder="facebook/react"
+            name="dungeon filter"
+            onChange={handleChange}
+          />
+        </label>
+      </div>
+    </$Aside>
   )
 }
 
@@ -220,5 +230,29 @@ const $RaidCard = styled.div`
   }
   @media (min-width: 768px) {
     margin-left: var(--space-4);
+  }
+`
+
+const $Input = styled.input`
+  all: unset;
+  line-height: 2;
+  border: 1px solid var(--gray-500);
+  padding-left: var(--space-2);
+  width: 100%;
+  background: var(--white);
+  &::placeholder {
+    color: var(--gray-200);
+  }
+`
+
+const $Aside = styled.aside`
+  padding: var(--space-4);
+  label {
+    margin-top: var(--space-4);
+  }
+  label input {
+    margin-top: var(--space-2);
+    display: block;
+    max-width: 330px;
   }
 `
