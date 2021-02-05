@@ -55,7 +55,7 @@ const globalStyles = css`
     --space-6: calc(3.25 * var(--space-unit));
     --space-7: calc(5.25 * var(--space-unit));
     @media screen and (max-width: 1024px) {
-      --space-unit: 0.8em;
+      --space-unit: 0.8rem;
     }
 
     /* Shadows */
