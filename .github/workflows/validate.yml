@@ -45,5 +45,7 @@ jobs:
       - name: ⚡ Run Cypress test script
         uses: cypress-io/github-action@v2
         with:
+          install: false
+          browser: chrome
+          cache-key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
           command: npm run test:e2e
-          tag: node-${{ matrix.node }}
