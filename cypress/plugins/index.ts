@@ -16,17 +16,20 @@
 /**
  * @type {Cypress.PluginConfig}
  */
-module.exports = (on, config) => {
+
+const task: Cypress.PluginConfig = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
   on('task', {
-    log(message) {
+    log(message: string) {
       console.log(message)
       return null
     },
-    table(message) {
+    table(message: Record<string, unknown>) {
       console.table(message)
       return null
     },
   })
 }
+
+export default task
