@@ -65,6 +65,9 @@ jobs:
       - name: Run Cypress test script
         uses: cypress-io/github-action@v2
         with:
+          parallel: true
+          group: Parallel 2x on ${{ matrix.os }}
           command: npm run test:e2e
+          start-windows: npm run test:e2e:ci:windows
           browser: chrome
           headless: true
