@@ -36,13 +36,10 @@ jobs:
       - name: Install packages & verify Cypress
         run: |
           yarn install --frozen-lockfile
+          npx cypress cache path
+          npx cypress cache list
           npx cypress verify
           npx cypress info
-          npx cypress version
-          npx cypress version --component package
-          npx cypress version --component binary
-          npx cypress version --component electron
-          npx cypress version --component node
         if: steps.cache.outputs.cache-hit != 'true'
 
       - name: Cache Cypress binary
@@ -65,9 +62,8 @@ jobs:
       - name: Run Cypress test script
         uses: cypress-io/github-action@v2
         with:
-          parallel: true
           group: Parallel 2x on ${{ matrix.os }}
           command: npm run test:e2e
-          start-windows: npm run test:e2e:ci:windows
+          start-windows: npm run test:e2e:windows
           browser: chrome
           headless: true
