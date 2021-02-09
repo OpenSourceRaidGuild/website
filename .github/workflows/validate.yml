@@ -29,7 +29,7 @@ jobs:
           path: |
             node_modules
              ~/.cache/Cypress
-            ~/Caches/Cypress
+            ~/Library/Caches/Cypress
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-modules-
@@ -48,7 +48,7 @@ jobs:
         with:
           path: |
             ~/.cache/Cypress
-            ~/Caches/Cypress
+            ~/Library/Caches/Cypress
           key: cypress-${{ runner.os }}-cypress-${{ hashFiles('**/package.json') }}
           restore-keys: |
             cypress-${{ runner.os }}-cypress-
