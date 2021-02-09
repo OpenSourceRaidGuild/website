@@ -31,17 +31,27 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-modules-
 
-      - name: Install packages
-        run: yarn install
-        if: steps.cache.outputs.cache-hit != 'true'
-
       - name: Cache Cypress binary
         uses: actions/cache@v2
         with:
           path: ~/.cache/Cypress
-          key: ${{ runner.os }}-cypress-${{ hashFiles('**/package.json') }}
+          key: cypress-${{ runner.os }}-cypress-${{ hashFiles('**/package.json') }}
           restore-keys: |
-            ${{ runner.os }}-cypress-
+            cypress-${{ runner.os }}-cypress-
+
+      - name: Install packages & verify Cypress
+        env:
+        CI: 1
+        run: |
+          yarn install --frozen-lockfile
+          npx cypress verify
+          npx cypress info
+          npx cypress version
+          npx cypress version --component package
+          npx cypress version --component binary
+          npx cypress version --component electron
+          npx cypress version --component node
+        if: steps.cache.outputs.cache-hit != 'true'
 
       - name: 💡 Run lint script
         run: npm run lint:ci
@@ -55,8 +65,6 @@ jobs:
       - name: Run Cypress test script
         uses: cypress-io/github-action@v2
         with:
-          group: Tests on Node v${{ matrix.node }}
-          cache-key: ${{ runner.os }}-cypress-${{ hashFiles('**/yarn.lock') }}
           command: npm run test:e2e
           browser: chrome
           headless: true
