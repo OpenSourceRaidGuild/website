@@ -26,18 +26,12 @@ jobs:
         id: cache
         uses: actions/cache@v2
         with:
-          path: node_modules
+          path: |
+            node_modules
+             ~/.cache/Cypress
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-modules-
-
-      - name: Cache Cypress binary
-        uses: actions/cache@v2
-        with:
-          path: ~/.cache/Cypress
-          key: cypress-${{ runner.os }}-cypress-${{ hashFiles('**/package.json') }}
-          restore-keys: |
-            cypress-${{ runner.os }}-cypress-
 
       - name: Install packages & verify Cypress
         run: |
@@ -50,6 +44,14 @@ jobs:
           npx cypress version --component electron
           npx cypress version --component node
         if: steps.cache.outputs.cache-hit != 'true'
+
+      - name: Cache Cypress binary
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-${{ runner.os }}-cypress-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            cypress-${{ runner.os }}-cypress-
 
       - name: 💡 Run lint script
         run: npm run lint:ci
