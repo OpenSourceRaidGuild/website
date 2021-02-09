@@ -28,7 +28,7 @@ jobs:
         with:
           path: |
             node_modules
-             ~/.cache/Cypress
+            ~/.cache/Cypress
             ~/Library/Caches/Cypress
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
@@ -67,6 +67,5 @@ jobs:
         with:
           group: Parallel 2x on ${{ matrix.os }}
           command: npm run test:e2e
-          start-windows: npm run test:e2e:windows
           browser: chrome
           headless: true
