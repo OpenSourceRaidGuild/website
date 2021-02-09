@@ -28,10 +28,20 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-modules-
 
       - name: Install packages
         run: yarn install
         if: steps.cache.outputs.cache-hit != 'true'
+
+      - name: Cache Cypress binary
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/Cypress
+          key: ${{ runner.os }}-cypress-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-cypress-
 
       - name: 💡 Run lint script
         run: npm run lint:ci
@@ -46,23 +56,8 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           group: Tests on Node v${{ matrix.node }}
-          cache-key: node-v${{ matrix.node }}-on-${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
-          install-command: yarn install
-          build: npm run build
-          start: npm run start:dev
+          cache-key: ${{ runner.os }}-cypress-${{ hashFiles('**/yarn.lock') }}
           command: npm run test:e2e
           browser: chrome
           headless: true
           wait-on: 'http://localhost:3000'
-
-      - uses: actions/upload-artifact@v1
-        if: failure()
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-      # Test run video was always captured, so this action uses "always()" condition
-      - uses: actions/upload-artifact@v1
-        if: always()
-        with:
-          name: cypress-videos
-          path: cypress/videos
