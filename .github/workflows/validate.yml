@@ -41,9 +41,3 @@ jobs:
 
       - name: ⚡ Run test script
         run: npm run test:ci
-
-      - name: Run Cypress test script
-        uses: cypress-io/github-action@v2
-        with:
-          start: npm run start:dev
-          wait-on: 'http://localhost:3000'
