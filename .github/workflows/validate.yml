@@ -1,0 +1,64 @@
+name: validate
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    branches:
+      - 'main'
+jobs:
+  setup:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node: [12, 14]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v2
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Cache node modules
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install packages
+        run: yarn install
+        if: steps.cache.outputs.cache-hit != 'true'
+
+      - name: 💡 Run lint script
+        run: npm run lint:ci
+
+      - name: 🛠 Run build script
+        run: npm run build
+
+      - name: ⚡ Run test script
+        run: npm run test:ci
+
+      - name: Run Cypress test script
+        uses: cypress-io/github-action@v2
+        with:
+          build: yarn run build
+          start: npm run start:dev
+          browser: chrome
+          headless: true
+          wait-on: 'http://localhost:3000'
+
+      - uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      # Test run video was always captured, so this action uses "always()" condition
+      - uses: actions/upload-artifact@v1
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos
