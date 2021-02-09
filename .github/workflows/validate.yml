@@ -68,4 +68,3 @@ jobs:
           command: npm run test:e2e
           browser: chrome
           headless: true
-          wait-on: 'http://localhost:3000'
