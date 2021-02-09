@@ -45,8 +45,12 @@ jobs:
       - name: Run Cypress test script
         uses: cypress-io/github-action@v2
         with:
-          build: yarn run build
+          group: Tests on Node v${{ matrix.node }}
+          cache-key: node-v${{ matrix.node }}-on-${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+          install-command: yarn install
+          build: npm run build
           start: npm run start:dev
+          command: npm run test:e2e
           browser: chrome
           headless: true
           wait-on: 'http://localhost:3000'
