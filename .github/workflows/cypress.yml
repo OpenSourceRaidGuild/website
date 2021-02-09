@@ -1,22 +1,12 @@
-name: End-to-end tests
-'on':
-  - push
+name: E2E on Chrome
+on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-16.04
+    # let's make sure our tests pass on Chrome browser
+    name: E2E on Chrome
     steps:
-      - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.7.0
-        with:
-          access_token: '${{ github.token }}'
-      - name: Checkout
-        uses: actions/checkout@v1
-
-      - name: Install packages
-        run: yarn install
-        if: steps.cache.outputs.cache-hit != 'true'
-
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
+      - uses: actions/checkout@v1
+      - uses: cypress-io/github-action@v2
         with:
           browser: chrome
