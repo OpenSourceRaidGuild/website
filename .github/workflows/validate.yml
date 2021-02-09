@@ -40,8 +40,6 @@ jobs:
             cypress-${{ runner.os }}-cypress-
 
       - name: Install packages & verify Cypress
-        env:
-        CI: 1
         run: |
           yarn install --frozen-lockfile
           npx cypress verify
