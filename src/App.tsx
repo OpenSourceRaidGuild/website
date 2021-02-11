@@ -1,4 +1,5 @@
 /**@jsx jsx */
+import Header from '#components/header'
 import { Global, jsx } from '@emotion/react'
 import * as React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -25,6 +26,7 @@ const AppRouter = () => (
 const App = () => (
   <>
     <Router>
+      <Header />
       <AppRouter />
     </Router>
     <Global styles={globalStyles} />
