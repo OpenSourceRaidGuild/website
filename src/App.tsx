@@ -1,5 +1,6 @@
 /**@jsx jsx */
 import Header from '#components/header'
+import HomePage from '#components/homePage'
 import { Global, jsx } from '@emotion/react'
 import * as React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -17,6 +18,7 @@ const AppRouter = () => (
     <Switch>
       <Route path="/raids" exact component={AllRaids} />
       <Route path="/raids/:raidId" exact component={ViewRaid} />
+      <Route path="/homepage" exact component={HomePage} />
       <Route path="/" exact component={Home} />
       <Route path="*" component={NotFound} />
     </Switch>
