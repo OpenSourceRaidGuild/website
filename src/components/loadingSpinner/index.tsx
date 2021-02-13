@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 export default function LoadingSpinner() {
   return (
     <Background>
-      <Ellipsis>
+      <Ellipsis aria-label="loadingScreen">
         <div></div>
         <div></div>
         <div></div>
