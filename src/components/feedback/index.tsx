@@ -7,23 +7,12 @@ function Feedback() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>): void {
     e.preventDefault()
-    const {
-      name,
-      raidName,
-      rate,
-      description,
-    } = e.currentTarget as typeof e.currentTarget & {
+    e.currentTarget as typeof e.currentTarget & {
       name: { value: string }
       raidName: { value: string }
       rate: { value: string }
       description: { value: string }
     }
-    // console.log({
-    //   name: name.value,
-    //   raidName: raidName.value,
-    //   rate: rate.value,
-    //   description: description.value,
-    // })
   }
 
   return (

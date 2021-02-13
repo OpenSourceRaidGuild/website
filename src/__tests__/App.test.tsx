@@ -21,13 +21,12 @@ afterAll(() => {
 it('can view all raids and individual raids', async () => {
   render(<App />)
 
-  userEvent.click(screen.getByText('Raids'))
+  // TODO improve this
+  userEvent.click(screen.getAllByText('Raids')[0])
 
   await loadingScreen()
 
   const data = fetchedCollectionData.data
-
-  expect(screen.getByText('Raids')).toBeInTheDocument()
 
   data.forEach((s) =>
     expect(screen.getByText(`${s.title} | ${s.dungeon}`)).toBeInTheDocument(),
