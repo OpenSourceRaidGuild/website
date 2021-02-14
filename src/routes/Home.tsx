@@ -40,7 +40,7 @@ const Home = () => {
 const $HomePageContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  `
+`
 
 const $LeftContainer = styled.section`
   flex-grow: 1;
@@ -91,7 +91,7 @@ const $OverlayLogo = styled.div`
   width: 300px;
   height: 400px;
   transform: translate(-15%, 28%);
-  `
+`
 
 const $MessageLine1 = styled.span`
   font-style: normal;
