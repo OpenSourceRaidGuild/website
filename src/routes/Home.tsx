@@ -30,7 +30,7 @@ const Home = () => {
       </$LeftContainer>
       <$RightContainer>
         <$BackgroundContainer>
-          <$OverlayLogo src={logo} alt="OS Raid Guild" />
+          <$OverlayLogo />
         </$BackgroundContainer>
       </$RightContainer>
     </$HomePageContainer>
@@ -40,7 +40,7 @@ const Home = () => {
 const $HomePageContainer = styled.div`
   display: flex;
   justify-content: space-between;
-`
+  `
 
 const $LeftContainer = styled.section`
   flex-grow: 1;
@@ -50,7 +50,7 @@ const $LeftContainer = styled.section`
 
   nav {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
 
     a {
       text-transform: uppercase;
@@ -60,38 +60,38 @@ const $LeftContainer = styled.section`
       font-weight: bold;
       font-size: 16px;
     }
+    @media only screen and (min-width: 600px) {
+      padding-left: 1rem;
+    }
   }
 `
 const $RightContainer = styled.section`
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  min-height: calc(100vh - 4rem);
+  flex: 1;
   padding-top: 2rem;
 `
 
 const $BackgroundContainer = styled.div`
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
   background: url(${backgroundLogo}) no-repeat;
   background-size: contain;
   justify-content: center;
+  width: 800px;
+  height: 800px;
 `
 
-const $OverlayLogo = styled.img`
+const $OverlayLogo = styled.div`
   display: block;
   margin-left: auto;
   margin-right: auto;
+  background: url(${logo}) no-repeat;
+  background-size: contain;
   width: 300px;
   height: 400px;
-  transform: translate(-5%, 23%);
-
-  /* Large screens ----------- */
-  @media only screen and (min-width: 1824px) {
-    transform: translate(-20%, 25%);
-  }
-`
+  transform: translate(-15%, 28%);
+  `
 
 const $MessageLine1 = styled.span`
   font-style: normal;
@@ -135,7 +135,7 @@ const $LeftContentWrapper = styled.main`
   flex-grow: 1;
   justify-content: space-evenly;
   align-items: flex-start;
-  padding-left: 6.5em;
+  padding-left: 5em;
 
   section {
     display: flex;
