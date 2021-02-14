@@ -2,7 +2,7 @@ import React from 'react'
 import PopUp from '.'
 
 export default {
-  title: 'Components/Card',
+  title: 'Components/PopUp',
   component: PopUp,
   argTypes: {},
 }

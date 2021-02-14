@@ -1,6 +1,7 @@
-import PopUp from '#components/popUp'
 import styled from '@emotion/styled'
 import React from 'react'
+
+import PopUp from '../popUp'
 
 function Feedback() {
   const [isDisplayed, setDisplay] = React.useState(false)
