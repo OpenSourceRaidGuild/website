@@ -21,8 +21,7 @@ const data = fetchedDocumentData.data
 
 it('should test the ViewRaid $TotalStats', async () => {
   render(<App />)
-
-  userEvent.click(screen.getAllByRole('link', { name: /raids/i })[1])
+  userEvent.click(screen.getByTestId('raids'))
 
   await loadingScreen()
 
