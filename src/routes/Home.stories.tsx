@@ -1,10 +1,10 @@
 import React from 'react'
-import HomePage from '.'
+import Home from './Home'
 
 export default {
   title: 'Components/HomePage',
-  component: HomePage,
+  component: Home,
   argTypes: {},
 }
 
-export const Default = () => <HomePage />
+export const Default = () => <Home />

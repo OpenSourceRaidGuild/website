@@ -6,7 +6,7 @@ export default function Header() {
   const { pathname } = useLocation()
 
   const isHeaderPresent = () => {
-    if (pathname.includes('/homepage')) {
+    if (pathname === '/') {
       return null
     }
     return (
