@@ -7,23 +7,12 @@ function Feedback() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>): void {
     e.preventDefault()
-    const {
-      name,
-      raidName,
-      rate,
-      description,
-    } = e.target as typeof e.target & {
+    e.currentTarget as typeof e.currentTarget & {
       name: { value: string }
       raidName: { value: string }
       rate: { value: string }
       description: { value: string }
     }
-    console.log({
-      name: name.value,
-      raidName: raidName.value,
-      rate: rate.value,
-      description: description.value,
-    })
   }
 
   return (
@@ -59,7 +48,13 @@ function Feedback() {
               <label htmlFor="rate1">1</label>
               <input type="radio" value="fine" name="rate" id="rate2" />
               <label htmlFor="rate2">2</label>
-              <input type="radio" value="superior" name="rate" id="rate3" />
+              <input
+                type="radio"
+                value="superior"
+                name="rate"
+                id="rate3"
+                defaultChecked
+              />
               <label htmlFor="rate3">3</label>
               <input type="radio" value="epic" name="rate" id="rate4" />
               <label htmlFor="rate4">4</label>
