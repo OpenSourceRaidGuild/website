@@ -11,7 +11,9 @@ const Home = () => {
         <nav>
           <NavLink to="#">about us</NavLink>
 
-          <NavLink to="/raids">our raids</NavLink>
+          <NavLink data-testid="raids" to="/raids">
+            our raids
+          </NavLink>
 
           <NavLink to="#">our stats</NavLink>
 
