@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Link, useRouteMatch } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import LoadingSpinner from '#components/loadingSpinner'
 import useCollection from '#utils/useCollection'
 

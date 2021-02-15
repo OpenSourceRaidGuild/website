@@ -1,29 +1,19 @@
-import PopUp from '#components/popUp'
 import styled from '@emotion/styled'
 import React from 'react'
+
+import PopUp from '../popUp'
 
 function Feedback() {
   const [isDisplayed, setDisplay] = React.useState(false)
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>): void {
     e.preventDefault()
-    const {
-      name,
-      raidName,
-      rate,
-      description,
-    } = e.currentTarget as typeof e.currentTarget & {
+    e.currentTarget as typeof e.currentTarget & {
       name: { value: string }
       raidName: { value: string }
       rate: { value: string }
       description: { value: string }
     }
-    // console.log({
-    //   name: name.value,
-    //   raidName: raidName.value,
-    //   rate: rate.value,
-    //   description: description.value,
-    // })
   }
 
   return (

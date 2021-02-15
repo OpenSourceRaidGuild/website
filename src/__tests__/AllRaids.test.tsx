@@ -14,12 +14,11 @@ afterAll(() => {
 
 it('should AllRaids links', async () => {
   render(<App />)
-
-  userEvent.click(screen.getByText('Raids'))
-
+  userEvent.click(screen.getByTestId('raids'))
   await loadingScreen()
 
-  expect(screen.getByText('Raids')).toBeInTheDocument()
+  userEvent.click(screen.getAllByText('Raids')[1])
+
   expect(screen.getByText('Active')).toBeInTheDocument()
   expect(screen.getByText('Completed')).toBeInTheDocument()
 
