@@ -15,17 +15,16 @@ publish = "build"
 # Production context: all deploys from the Production branch set in your site’s
 # deploy contexts will inherit these settings.
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# [[redirects]]
+#   from = "/*"
+#   to = "/index.html"
+#   status = 200
 
 [[plugins]]
   # https://github.com/cypress-io/netlify-plugin-cypress
   package = "netlify-plugin-cypress"
   # we don't need to run all tests, just a few sanity specs
   [plugins.inputs]
-    record = true
     browser = "chromium"
   [plugins.inputs.onSuccess]
     enable = true
