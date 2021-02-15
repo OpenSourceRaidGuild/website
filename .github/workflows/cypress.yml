@@ -1,0 +1,59 @@
+name: cypress
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    branches:
+      - 'main'
+jobs:
+  setup:
+    runs-on: ubuntu-16.04
+    strategy:
+      matrix:
+        node: [12, 14]
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v2
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Cache node modules
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+            ~/.cache/Cypress
+          key: ${{ runner.node }}-modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.node }}-modules-
+
+      - name: 🏗 Install packages & verify Cypress
+        run: |
+          yarn install --frozen-lockfile
+          npx cypress cache path
+          npx cypress cache list
+          npx cypress verify
+          npx cypress info
+        if: steps.cache.outputs.cache-hit != 'true'
+
+      - name: 🛅 Cache Cypress binary
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-${{ runner.node }}-cypress-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            cypress-${{ runner.node }}-cypress-
+
+      - name: 🛠 Run build script
+        run: npm run build
+
+      - name: 🕸 Run Cypress test script
+        uses: cypress-io/github-action@v2
+        with:
+          command: npm run test:e2e
+          browser: chrome
+          headless: true

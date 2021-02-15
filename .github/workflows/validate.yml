@@ -10,7 +10,7 @@ jobs:
   setup:
     strategy:
       matrix:
-        os: [ubuntu-16.04, windows-latest, macos-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
         node: [12, 14]
     runs-on: ${{ matrix.os }}
     steps:
@@ -35,23 +35,8 @@ jobs:
             ${{ runner.os }}-modules-
 
       - name: Install packages & verify Cypress
-        run: |
-          yarn install --frozen-lockfile
-          npx cypress cache path
-          npx cypress cache list
-          npx cypress verify
-          npx cypress info
+        run: yarn install --frozen-lockfile
         if: steps.cache.outputs.cache-hit != 'true'
-
-      - name: Cache Cypress binary
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.cache/Cypress
-            ~/Library/Caches/Cypress
-          key: cypress-${{ runner.os }}-cypress-${{ hashFiles('**/package.json') }}
-          restore-keys: |
-            cypress-${{ runner.os }}-cypress-
 
       - name: 💡 Run lint script
         run: npm run lint:ci
@@ -61,11 +46,3 @@ jobs:
 
       - name: ⚡ Run test script
         run: npm run test:ci
-
-      - name: Run Cypress test script
-        uses: cypress-io/github-action@v2
-        with:
-          group: Parallel 2x on ${{ matrix.os }}
-          command: npm run test:e2e
-          browser: chrome
-          headless: true
