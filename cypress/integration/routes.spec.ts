@@ -17,7 +17,8 @@ describe('Routes', () => {
     cy.findByText('commits').should('exist')
     cy.findByText(/Contributors/i).should('exist')
 
-    cy.visit('/raids')
+    cy.findByText(/raids/i).click()
+
     cy.get('h1').should('contain.text', 'Raids').should('exist')
     cy.findByText('Adding Tests | smeijer/unimported').click()
     cy.findByText('commits').should('exist')

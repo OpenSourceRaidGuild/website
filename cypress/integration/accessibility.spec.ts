@@ -25,14 +25,16 @@ describe('A11y tests', () => {
   })
 
   it('AllRaids Page', () => {
-    cy.visit('/raids')
+    cy.findByText(/raids/i).click()
+
     cy.get('h1').should('contain.text', 'Raids').should('exist')
 
     cy.injectAxe()
     cy.checkA11y(undefined, a11yRunOnly, terminalLog)
   })
   it('viewRaid Page', () => {
-    cy.visit('/raids')
+    cy.findByText(/raids/i).click()
+
     cy.get('h1').should('contain.text', 'Raids').should('exist')
 
     cy.findByText('Adding Tests | smeijer/unimported').click()

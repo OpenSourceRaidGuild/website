@@ -26,15 +26,12 @@ jobs:
         id: cache
         uses: actions/cache@v2
         with:
-          path: |
-            node_modules
-            ~/.cache/Cypress
-            ~/Library/Caches/Cypress
+          path: node_modules
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-modules-
 
-      - name: Install packages & verify Cypress
+      - name: Install packages
         run: yarn install --frozen-lockfile
         if: steps.cache.outputs.cache-hit != 'true'
 
