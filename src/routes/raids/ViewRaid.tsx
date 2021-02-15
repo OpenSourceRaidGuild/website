@@ -50,6 +50,7 @@ const ViewRaid = () => {
             </$TotalStats>
             <select
               name="sort"
+              aria-label="sort"
               id="sort"
               disabled={data.commits <= 1}
               onChange={(e) => setCurrentSort(e.target.value)}
@@ -122,7 +123,7 @@ const $TotalStats = styled.ul`
   margin-bottom: var(--space-3);
 `
 
-const $StatContainer = styled.ol`
+const $StatContainer = styled.div`
   display: grid;
   grid-auto-rows: auto;
   gap: var(--space-3);
