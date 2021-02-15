@@ -1,27 +1,39 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 export default function Header() {
-  return (
-    <$Header>
-      <strong>OSRG</strong>
-      <$Nav>
-        <ul>
-          <li>
-            <NavLink to="/" exact activeStyle={{ color: 'var(--black)' }}>
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/raids" exact activeStyle={{ color: 'var(--black)' }}>
-              Raids
-            </NavLink>
-          </li>
-        </ul>
-      </$Nav>
-    </$Header>
-  )
+  const { pathname } = useLocation()
+
+  const isHeaderPresent = () => {
+    if (pathname === '/') {
+      return null
+    }
+    return (
+      <$Header>
+        <strong>OSRG</strong>
+        <$Nav>
+          <ul>
+            <li>
+              <NavLink to="/" exact activeStyle={{ color: 'var(--black)' }}>
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/raids"
+                exact
+                activeStyle={{ color: 'var(--black)' }}
+              >
+                Raids
+              </NavLink>
+            </li>
+          </ul>
+        </$Nav>
+      </$Header>
+    )
+  }
+  return <>{isHeaderPresent()}</>
 }
 
 const $Header = styled.header`

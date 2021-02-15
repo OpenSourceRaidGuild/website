@@ -20,6 +20,7 @@ afterAll(() => {
 
 it('can view all raids and individual raids', async () => {
   render(<App />)
+  userEvent.click(screen.getByTestId('raids'))
 
   // TODO improve this
   userEvent.click(screen.getAllByText('Raids')[0])
