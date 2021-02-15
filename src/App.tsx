@@ -5,6 +5,7 @@ import * as React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import LoadingSpinner from './components/loadingSpinner'
+import Feedback from './routes/feedback'
 import Home from './routes/Home'
 import NotFound from './routes/NotFound'
 import { globalStyles } from './styles/globalStyles'
@@ -17,6 +18,7 @@ const AppRouter = () => (
     <Switch>
       <Route path="/raids" exact component={AllRaids} />
       <Route path="/raids/:raidId" exact component={ViewRaid} />
+      <Route path="/feedback" exact component={Feedback} />
       <Route path="/" exact component={Home} />
       <Route path="*" component={NotFound} />
     </Switch>

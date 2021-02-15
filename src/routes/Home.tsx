@@ -10,14 +10,12 @@ const Home = () => {
       <$LeftContainer>
         <nav>
           <NavLink to="#">about us</NavLink>
-
           <NavLink data-testid="raids" to="/raids">
             our raids
           </NavLink>
-
           <NavLink to="#">our stats</NavLink>
-
           <NavLink to="#">contact us</NavLink>
+          <NavLink to="/feedback">feedback</NavLink>
         </nav>
         <$LeftContentWrapper>
           <section>
@@ -40,6 +38,7 @@ const Home = () => {
 const $HomePageContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 `
 
 const $LeftContainer = styled.section`

@@ -3,12 +3,9 @@
 describe('Routes', () => {
   it('visit all routes', () => {
     cy.visit('/')
-    cy.get('h1').should(
-      'contain.text',
-      'Welcome to the Open Source Raid Guild!',
-    )
 
-    cy.findByText('Raids').click()
+    cy.findByText(/feedback/i).click()
+    cy.findByText(/Raids/i).click()
     cy.get('h2')
       .should('contain.text', 'Active')
       .should('contain.text', 'Completed')

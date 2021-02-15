@@ -17,7 +17,7 @@ describe('A11y tests', () => {
     )
   })
   it('Feedback', () => {
-    cy.findByText('Feedback').click()
+    cy.findByText(/Feedback/i).click()
     cy.findByPlaceholderText(/your name/i).should('exist')
 
     cy.injectAxe()
