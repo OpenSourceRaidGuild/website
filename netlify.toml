@@ -1,0 +1,31 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+[build]
+command = "yarn install && yarn build"
+publish = "build"
+
+[build.environment]
+  # do not show Cypress installation progress messages
+  CI = "1"
+  # cache Cypress binary in local "node_modules" folder
+  # so Netlify caches it
+  CYPRESS_CACHE_FOLDER = "./node_modules/CypressBinary"
+  # set TERM variable for terminal output
+  TERM = "xterm"
+# Production context: all deploys from the Production branch set in your site’s
+# deploy contexts will inherit these settings.
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[plugins]]
+  # https://github.com/cypress-io/netlify-plugin-cypress
+  package = "netlify-plugin-cypress"
+  # we don't need to run all tests, just a few sanity specs
+  [plugins.inputs]
+    record = true
+    browser = "chromium"
+  [plugins.inputs.onSuccess]
+    enable = true
