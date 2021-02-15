@@ -104,10 +104,10 @@ const $MessageLine2 = styled.span`
   font-weight: 900;
   font-size: 55px;
   text-transform: uppercase;
-  color: #59c9e6;
+  color: #3e99b0;
 `
 
-const $MessageLine3 = styled.span`
+const $MessageLine3 = styled.h1`
   font-style: normal;
   font-weight: 900;
   font-size: 69px;
