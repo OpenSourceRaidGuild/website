@@ -12,7 +12,7 @@ import { globalStyles } from './styles/globalStyles'
 const AllRaids = React.lazy(() => import('./routes/raids'))
 const ViewRaid = React.lazy(() => import('./routes/raids/ViewRaid'))
 
-const AppRouter = () => (
+export const AppRouter = () => (
   <React.Suspense fallback={<LoadingSpinner />}>
     <Switch>
       <Route path="/raids" exact component={AllRaids} />

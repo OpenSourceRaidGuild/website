@@ -11,6 +11,8 @@ interface ViewRaidData {
   dungeon: string
   title: string
   status: 'active' | 'completed'
+  createdAt: number
+  duration?: number
   additions: number
   deletions: number
   commits: number

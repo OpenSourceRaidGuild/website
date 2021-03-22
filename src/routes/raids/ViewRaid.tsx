@@ -36,16 +36,25 @@ const ViewRaid = () => {
                 {Object.keys(data.contributors).length} Contributors
               </li>
               <li>
-                <Emoji as="💾" aria-label="floppy" /> {data.commits}{' '}
+                <Emoji as="💻" aria-label="laptop" /> {data.commits}{' '}
                 {data.commits === 1 ? 'Commit' : 'Commits'}
               </li>
               <li>
-                <Emoji as="📃" aria-label="file" /> {data.changedFiles} Changed
-                Files
+                <Emoji as="🗃️" aria-label="card box" /> {data.changedFiles}{' '}
+                Changed Files
               </li>
               <li>
-                <Emoji as="⚔️" aria-label="crossing-swords" /> +{data.additions}{' '}
+                <Emoji as="⚔️" aria-label="crossed swords" /> +{data.additions}{' '}
                 -{data.deletions}
+              </li>
+              <li>
+                <Emoji as="📆" aria-label="calendar" />{' '}
+                {data.duration
+                  ? data.duration
+                  : Math.ceil(
+                      Math.abs(data.createdAt - Date.now()) / 86400000,
+                    )}{' '}
+                Day(s)
               </li>
             </$TotalStats>
             <select

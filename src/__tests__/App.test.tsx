@@ -1,10 +1,14 @@
 import * as React from 'react'
 import { loadingScreen, render, screen, userEvent } from '../tests/testUtils'
-import App from '../App'
+import App, { AppRouter } from '../App'
+import { MemoryRouter } from 'react-router-dom'
 import {
   fetchedCollectionData,
   fetchedDocumentData,
 } from '../tests/data/raidsData'
+import Header from '#components/header'
+import { Global } from '@emotion/react'
+import { globalStyles } from '../styles/globalStyles'
 
 beforeAll(() => {
   jest.doMock('../utils/useDocument', () =>
@@ -40,4 +44,22 @@ it('can view all raids and individual raids', async () => {
   expect(
     screen.getByText(`${fetchedDocumentData.data.title}`),
   ).toBeInTheDocument()
+})
+
+it('shows 404 for missing pages', () => {
+  render(
+    <>
+      <MemoryRouter
+        initialEntries={[
+          '/will-never-exist-but-if-it-does-it-is-probably-an-easter-egg',
+        ]}
+      >
+        <Header />
+        <AppRouter />
+      </MemoryRouter>
+      <Global styles={globalStyles} />
+    </>,
+  )
+
+  expect(screen.getByText('Traveller, have you lost your way?'))
 })

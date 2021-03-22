@@ -89,7 +89,7 @@ const fetchedDocumentData = {
           'https://avatars3.githubusercontent.com/u/49603590?u=011adf63409359a3a222a718f5b8230e1dcecc79&v=4',
         deletions: 539,
         userId: 49603590,
-        commits: 15,
+        commits: 1,
         user: 'tigerabrodi',
       },
     },

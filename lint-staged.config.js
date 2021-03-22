@@ -1,4 +1,4 @@
 module.exports = {
-  '*.+(js|jsx|ts|tsx)': ['eslint --fix', 'yarn test:ci --findRelatedTests'],
+  '*.+(js|jsx|ts|tsx)': ['eslint --fix'],
   '*.+(json|yml|yaml|css)': ['prettier --write'],
 }

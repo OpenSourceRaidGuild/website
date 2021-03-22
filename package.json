@@ -1,11 +1,11 @@
 {
   "scripts": {
-    "start": "run-p start:firestore start:dev",
-    "start:dev": "snowpack dev",
+    "firestore": "cross-env FIRESTORE_EMULATOR_HOST=\"localhost:8080\" firebase emulators:exec --import=./devData --ui --only firestore",
+    "start": "yarn firestore \"snowpack dev\"",
     "start:firestore": "firebase emulators:start --import=./devData --only firestore",
     "build": "snowpack build",
-    "test": "jest --watch --FIRESTORE_EMULATOR_HOST=8080",
-    "test:ci": "jest",
+    "test": "yarn firestore \"jest --watch\"",
+    "test:ci": "yarn firestore \"jest --coverage\"",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "eslint --fix --ext js,jsx,ts,tsx --ignore-path .gitignore .",
     "lint:ci": "eslint --ext js,jsx,ts,tsx --ignore-path .gitignore .",
