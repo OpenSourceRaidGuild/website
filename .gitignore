@@ -1,6 +1,7 @@
 .snowpack
 build
 node_modules
+coverage
 
 firebase-debug.log
 firestore-debug.log
