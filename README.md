@@ -18,9 +18,7 @@ Open http://localhost:3000 to view it in the browser.
 The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-### `yarn start:dev`
-
-Runs the dev server on http://localhost:3000/
+Firestore Emulator Data can be viewed and manipulated via the UI at http://localhost:4000/firestore
 
 ### `yarn start:firestore`
 
