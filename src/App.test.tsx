@@ -1,14 +1,14 @@
 import * as React from 'react'
-import { loadingScreen, render, screen, userEvent } from '../tests/testUtils'
-import App, { AppRouter } from '../App'
+import { loadingScreen, render, screen, userEvent } from './tests/testUtils'
+import App, { AppRouter } from './App'
 import { MemoryRouter } from 'react-router-dom'
 import {
   fetchedCollectionData,
   fetchedDocumentData,
-} from '../tests/data/raidsData'
+} from './tests/data/raidsData'
 import Header from '#components/header'
 import { Global } from '@emotion/react'
-import { globalStyles } from '../styles/globalStyles'
+import { globalStyles } from './styles/globalStyles'
 
 beforeAll(() => {
   jest.doMock('../utils/useDocument', () =>
