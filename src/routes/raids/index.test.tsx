@@ -4,7 +4,7 @@ import App from '../../App'
 import { fetchedCollectionData } from '../../tests/data/raidsData'
 
 beforeAll(() => {
-  jest.doMock('../utils/useCollection', () =>
+  jest.doMock('../../utils/useCollection', () =>
     jest.fn().mockReturnValue(fetchedCollectionData),
   )
 })

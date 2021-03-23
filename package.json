@@ -4,7 +4,7 @@
     "start": "yarn firestore \"snowpack dev\"",
     "start:firestore": "firebase emulators:start --import=./devData --only firestore",
     "build": "snowpack build",
-    "test": "yarn firestore \"jest --watch\"",
+    "test": "jest --watch",
     "test:ci": "yarn firestore \"jest --coverage\"",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "eslint --fix --ext js,jsx,ts,tsx --ignore-path .gitignore .",

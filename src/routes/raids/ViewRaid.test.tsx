@@ -7,10 +7,10 @@ import {
 } from '../../tests/data/raidsData'
 
 beforeAll(() => {
-  jest.doMock('../utils/useDocument', () =>
+  jest.doMock('../../utils/useDocument', () =>
     jest.fn().mockReturnValue(fetchedDocumentData),
   )
-  jest.doMock('../utils/useCollection', () =>
+  jest.doMock('../../utils/useCollection', () =>
     jest.fn().mockReturnValue(fetchedCollectionData),
   )
 })

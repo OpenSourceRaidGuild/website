@@ -11,10 +11,10 @@ import { Global } from '@emotion/react'
 import { globalStyles } from './styles/globalStyles'
 
 beforeAll(() => {
-  jest.doMock('../utils/useDocument', () =>
+  jest.doMock('./utils/useDocument', () =>
     jest.fn().mockReturnValue(fetchedDocumentData),
   )
-  jest.doMock('../utils/useCollection', () =>
+  jest.doMock('./utils/useCollection', () =>
     jest.fn().mockReturnValue(fetchedCollectionData),
   )
 })
