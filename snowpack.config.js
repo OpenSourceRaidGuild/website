@@ -20,6 +20,7 @@ module.exports = {
   alias: {
     '#components': './src/components',
     '#utils': './src/utils',
+    '#assets': './assets',
   },
   exclude: ['**/*.stories.@(js|jsx|ts|tsx)'],
 }

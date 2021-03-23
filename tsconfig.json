@@ -9,7 +9,8 @@
     /* paths - import rewriting/resolving */
     "paths": {
       "#components/*": ["./src/components/*"],
-      "#utils/*": ["./src/utils/*"]
+      "#utils/*": ["./src/utils/*"],
+      "#assets/*": ["./assets/*"]
     },
     /* noEmit - Snowpack builds (emits) files, not tsc. */
     "noEmit": true,
