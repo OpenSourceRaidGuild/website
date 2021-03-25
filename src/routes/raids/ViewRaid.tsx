@@ -6,7 +6,8 @@ import styled from '@emotion/styled'
 import UserStatBlock from '#components/userStatBlock'
 import Emoji from '#components/emoji'
 import LoadingSpinner from '#components/loadingSpinner'
-import useDocument from '#utils/useDocument'
+import { RAID_STATS } from '#utils/firestoreCollections'
+import useFirestoreQuery, { to } from '#utils/useFirestoreQuery'
 
 const userStatSorts: {
   [key: string]: (a: UserStats, b: UserStats) => number
@@ -19,12 +20,20 @@ const userStatSortNames = Object.keys(userStatSorts)
 
 const ViewRaid = () => {
   const { raidId } = useParams<{ raidId: string }>()
-  const documentData = useDocument<ViewRaidData>('raid-stats', raidId)
+  const documentQuery = useFirestoreQuery((firestore) =>
+    firestore.collection(RAID_STATS).withConverter(to<ViewRaidData>()).doc(),
+  )
 
   const [currentSort, setCurrentSort] = useState(userStatSortNames[0])
 
-  if (documentData.state === 'success') {
-    const data = documentData.data
+  if (documentQuery.status === 'success') {
+    const data = documentQuery.data
+
+    if (!data)
+      return (
+        <p>Couldn`t find that Raid - did you fall into the wrong dungeon?</p>
+      )
+
     return (
       <$StatsView>
         <$Header>
@@ -84,14 +93,10 @@ const ViewRaid = () => {
         </$StatContainer>
       </$StatsView>
     )
-  } else if (documentData.state === 'error') {
-    return <p>{JSON.stringify(documentData.error)}</p>
+  } else if (documentQuery.status === 'error') {
+    return <p>{JSON.stringify(documentQuery.error)}</p>
   } else {
-    return documentData.state === 'loading' ? (
-      <LoadingSpinner />
-    ) : (
-      <p>Couldn`t find that Raid - did you fall into the wrong dungeon?</p>
-    )
+    return <LoadingSpinner />
   }
 }
 

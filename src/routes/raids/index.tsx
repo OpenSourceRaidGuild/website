@@ -2,13 +2,16 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 import LoadingSpinner from '#components/loadingSpinner'
-import useCollection from '#utils/useCollection'
+import useFirestoreQuery, { to } from '#utils/useFirestoreQuery'
+import { RAID_STATS } from '#utils/firestoreCollections'
 
 const AllRaids = () => {
-  const collectionData = useCollection<ViewRaidData>('raid-stats')
+  const collectionQuery = useFirestoreQuery((firestore) =>
+    firestore.collection(RAID_STATS).withConverter(to<ViewRaidData>()),
+  )
 
-  if (collectionData.state === 'success') {
-    const data = collectionData.data
+  if (collectionQuery.status === 'success') {
+    const data = collectionQuery.data
     return (
       <>
         <h1>Raids</h1>
@@ -40,7 +43,7 @@ const AllRaids = () => {
     )
   }
 
-  return collectionData.state === 'loading' ? (
+  return collectionQuery.status === 'loading' ? (
     <LoadingSpinner />
   ) : (
     // Theoretically this can/should never be hit... But a fun message nonetheless

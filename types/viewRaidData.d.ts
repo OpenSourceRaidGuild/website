@@ -8,6 +8,7 @@ interface UserStats {
 }
 
 interface ViewRaidData {
+  id: string
   dungeon: string
   title: string
   status: 'active' | 'completed'
