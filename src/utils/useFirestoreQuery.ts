@@ -25,18 +25,20 @@ if (import.meta.env.NODE_ENV !== 'production') {
   firestore.useEmulator('localhost', 8080)
 }
 
+const converter = {
+  toFirestore(data: unknown): firebase.firestore.DocumentData {
+    return data as firebase.firestore.DocumentData
+  },
+  fromFirestore(
+    snapshot: firebase.firestore.QueryDocumentSnapshot,
+    options: firebase.firestore.SnapshotOptions,
+  ): unknown {
+    return snapshot.data(options)
+  },
+}
+
 export function to<TData>() {
-  return {
-    toFirestore(data: TData): firebase.firestore.DocumentData {
-      return data
-    },
-    fromFirestore(
-      snapshot: firebase.firestore.QueryDocumentSnapshot,
-      options: firebase.firestore.SnapshotOptions,
-    ): TData {
-      return snapshot.data(options) as TData
-    },
-  }
+  return converter as firebase.firestore.FirestoreDataConverter<TData>
 }
 
 const reducer = <
@@ -71,7 +73,7 @@ export default function useFirestoreQuery<
   const [state, dispatch] = useReducer<
     FirestoreQueryReducer<TQueryResult, TData>
   >(reducer, {
-    status: 'loading',
+    status: 'idle',
     data: null,
     error: null,
   })
@@ -80,15 +82,20 @@ export default function useFirestoreQuery<
   // Needed because firestore.collection().doc() will always be a new object reference
   // causing effect to run -> state change -> rerender -> effect runs -> etc ...
   // This is nicer than requiring hook consumer to always memoize query with useMemo.
-  const queryCached = useMemoCompare(query(firestore), (prevQuery) => {
-    if (prevQuery && query) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      query.isEqual(prevQuery)
-    }
+  const queryCached = useMemoCompare(
+    query(firestore),
+    (prevQueryResult, nextQueryResult) => {
+      if (prevQueryResult && nextQueryResult) {
+        return nextQueryResult.isEqual(
+          prevQueryResult as firebase.firestore.Query<unknown> &
+            firebase.firestore.CollectionReference<unknown> &
+            firebase.firestore.DocumentReference<unknown>,
+        )
+      }
 
-    return false
-  })
+      return prevQueryResult === nextQueryResult // If both are undefined, then they are the same
+    },
+  )
 
   useEffect(() => {
     if (!queryCached) {
@@ -113,7 +120,6 @@ export default function useFirestoreQuery<
           })
         } else {
           const data = getDocData(snapshot)
-
           dispatch({ type: 'success', payload: data }) // need something better for the null case...
         }
       },

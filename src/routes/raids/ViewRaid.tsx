@@ -21,7 +21,10 @@ const userStatSortNames = Object.keys(userStatSorts)
 const ViewRaid = () => {
   const { raidId } = useParams<{ raidId: string }>()
   const documentQuery = useFirestoreQuery((firestore) =>
-    firestore.collection(RAID_STATS).withConverter(to<ViewRaidData>()).doc(),
+    firestore
+      .collection(RAID_STATS)
+      .withConverter(to<ViewRaidData>())
+      .doc(raidId),
   )
 
   const [currentSort, setCurrentSort] = useState(userStatSortNames[0])

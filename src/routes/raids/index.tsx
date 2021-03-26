@@ -2,10 +2,11 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 import LoadingSpinner from '#components/loadingSpinner'
-import useFirestoreQuery, { to } from '#utils/useFirestoreQuery'
 import { RAID_STATS } from '#utils/firestoreCollections'
+import useFirestoreQuery, { to } from '#utils/useFirestoreQuery'
 
 const AllRaids = () => {
+  console.log('Rendering page...')
   const collectionQuery = useFirestoreQuery((firestore) =>
     firestore.collection(RAID_STATS).withConverter(to<ViewRaidData>()),
   )
@@ -41,16 +42,20 @@ const AllRaids = () => {
         </ul>
       </>
     )
+  } else if (collectionQuery.status === 'error') {
+    return (
+      <>
+        <h1>An error occurred</h1>
+        <code>{JSON.stringify(collectionQuery.error)}</code>
+      </>
+    )
   }
 
   return collectionQuery.status === 'loading' ? (
     <LoadingSpinner />
   ) : (
     // Theoretically this can/should never be hit... But a fun message nonetheless
-    <p>
-      {`Strange... I could've sworn the Manticore was here a second ago! Seems
-        there aren't any Raids right now. Try again later!`}
-    </p>
+    <p>{`We ain't doing much, here`}</p>
   )
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import backgroundLogo from '#assets/bg_logo.svg'
-import logo from '#assets/logo.svg'
+import backgroundLogo from 'assets/bg_logo.svg'
+import logo from 'assets/logo.svg'
 import styled from '@emotion/styled'
 
 const Home = () => {

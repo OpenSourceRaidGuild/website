@@ -10,7 +10,7 @@
     "paths": {
       "#components/*": ["./src/components/*"],
       "#utils/*": ["./src/utils/*"],
-      "#assets/*": ["./assets/*"]
+      "assets/*": ["./src/assets/*"]
     },
     /* noEmit - Snowpack builds (emits) files, not tsc. */
     "noEmit": true,
