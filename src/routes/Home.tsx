@@ -1,4 +1,3 @@
-import React from 'react'
 import { NavLink } from 'react-router-dom'
 import backgroundLogo from '../components/assets/bg_logo.svg'
 import logo from '../components/assets/logo.svg'

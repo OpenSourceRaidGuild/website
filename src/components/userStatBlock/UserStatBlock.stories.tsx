@@ -1,4 +1,3 @@
-import React from 'react'
 import UserStatBlock from '.'
 
 export default {

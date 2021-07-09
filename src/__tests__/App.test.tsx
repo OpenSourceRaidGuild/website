@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { loadingScreen, render, screen, userEvent } from '../tests/testUtils'
 import App, { AppRouter } from '../App'
 import { MemoryRouter } from 'react-router-dom'
@@ -9,6 +8,7 @@ import {
 import Header from '#components/header'
 import { Global } from '@emotion/react'
 import { globalStyles } from '../styles/globalStyles'
+import { Fragment } from 'react'
 
 beforeAll(() => {
   jest.doMock('../utils/useDocument', () =>
@@ -48,7 +48,8 @@ it('can view all raids and individual raids', async () => {
 
 it('shows 404 for missing pages', () => {
   render(
-    <>
+    <Fragment 
+    >
       <MemoryRouter
         initialEntries={[
           '/will-never-exist-but-if-it-does-it-is-probably-an-easter-egg',
@@ -58,7 +59,7 @@ it('shows 404 for missing pages', () => {
         <AppRouter />
       </MemoryRouter>
       <Global styles={globalStyles} />
-    </>,
+    </Fragment>,
   )
 
   expect(screen.getByText('Traveller, have you lost your way?'))

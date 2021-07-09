@@ -1,0 +1,25 @@
+{
+  "verbose": true,
+  "setupFiles": [
+    "<rootDir>/node_modules/react-app-polyfill/jsdom.js"
+  ],
+  "setupFilesAfterEnv": ["./src/setupTests.ts"],
+  "testMatch": [
+    "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}",
+    "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}"
+  ],
+  "transformIgnorePatterns": ["node_modules"],
+  "moduleNameMapper": {
+    "^#components/(.*)": "<rootDir>/src/components/$1",
+    "^#utils/(.*)": "<rootDir>/src/utils/$1"  },
+  "extensionsToTreatAsEsm": [".ts", ".tsx"],
+  "preset": "ts-jest/presets/default-esm",
+  "globals": {
+    "ts-jest": {
+      "useESM": true
+    }
+  },
+  "transform": {
+    "^.+\\.svg$": "jest-transform-stub"
+  }
+}

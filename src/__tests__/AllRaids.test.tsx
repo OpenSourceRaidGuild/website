@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { loadingScreen, render, screen, userEvent } from '../tests/testUtils'
 import App from '../App'
 import { fetchedCollectionData } from '../tests/data/raidsData'

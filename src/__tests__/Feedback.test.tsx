@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { render, screen, userEvent } from '../tests/testUtils'
 import faker from 'faker'
 import App from '../App'

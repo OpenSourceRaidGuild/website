@@ -4,21 +4,17 @@
     "module": "esnext",
     "target": "esnext",
     "moduleResolution": "node",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "baseUrl": "./",
-    /* paths - import rewriting/resolving */
     "paths": {
       "#components/*": ["./src/components/*"],
       "#utils/*": ["./src/utils/*"]
     },
-    /* noEmit - Snowpack builds (emits) files, not tsc. */
     "noEmit": true,
-    /* Additional Options */
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "importsNotUsedAsValues": "error"
   }
 }
