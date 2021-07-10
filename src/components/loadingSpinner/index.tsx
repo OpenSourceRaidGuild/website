@@ -13,7 +13,7 @@ export default function LoadingSpinner() {
   )
 }
 
-const Background = styled.div`
+const Background = styled("div")`
   position: fixed;
   top: 0;
   left: 0;
@@ -22,7 +22,7 @@ const Background = styled.div`
   background-color: hsla(0, 0%, 97%, 50%);
   z-index: 10;
 `
-const Ellipsis = styled.div`
+const Ellipsis = styled("div")`
   --ellipsis-size: 13px;
   --base-left-pos: 8px;
   --animation-settings: 0.6s infinite;

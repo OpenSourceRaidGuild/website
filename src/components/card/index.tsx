@@ -5,7 +5,7 @@ interface Props {
   children?: React.ReactNode
 }
 
-const Container = styled.div`
+const Container = styled('div')`
   background-color: var(--white);
   border: 1px solid var(--gray-200);
   border-radius: var(--roundness);

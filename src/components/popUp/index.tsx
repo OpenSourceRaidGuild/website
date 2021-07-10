@@ -46,7 +46,7 @@ function PopUp({ children, placeInView }: Props) {
 
 export default PopUp
 
-const $PopUp = styled.div`
+const $PopUp = styled("div")`
   display: flex;
   flex-direction: column;
   place-items: flex-end;

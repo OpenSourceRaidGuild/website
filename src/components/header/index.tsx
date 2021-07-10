@@ -35,7 +35,7 @@ export default function Header() {
   return <>{isHeaderPresent()}</>
 }
 
-const $Header = styled.header`
+const $Header = styled("header")`
   position: sticky;
   top: 0;
   z-index: 2;
@@ -48,7 +48,7 @@ const $Header = styled.header`
   border-bottom: 1px solid var(--line-color);
   box-shadow: 0 2px 4px 0 var(--elevation-1);
 `
-const $Nav = styled.nav`
+const $Nav = styled("nav")`
   ul {
     display: flex;
     align-items: center;

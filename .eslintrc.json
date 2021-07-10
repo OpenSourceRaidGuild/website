@@ -1,8 +1,8 @@
 {
   "env": {
     "browser": true,
-    "es2021": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "extends": [
     "eslint:recommended",
@@ -22,7 +22,8 @@
   },
   "plugins": [
     "@typescript-eslint",
-    "prettier"
+    "prettier",
+    "@emotion"
   ],
   "rules": {
     "quotes": [
@@ -52,7 +53,9 @@
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "jsx-a11y/no-onchange": "off",
     "react/react-in-jsx-scope": "off",
-    "camelcase":"warn"
+    "camelcase":"warn",
+    "@emotion/jsx-import": "error",
+    "@emotion/pkg-renaming": "error"
   },
   "settings": {
     "react": {

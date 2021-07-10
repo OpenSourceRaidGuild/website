@@ -36,12 +36,12 @@ const Home = () => {
   )
 }
 
-const $HomePageContainer = styled.div`
+const $HomePageContainer = styled("div")`
   display: flex;
   justify-content: space-between;
 `
 
-const $LeftContainer = styled.section`
+const $LeftContainer = styled("section")`
   flex-grow: 1;
   padding-top: 2rem;
   display: flex;
@@ -64,14 +64,14 @@ const $LeftContainer = styled.section`
     }
   }
 `
-const $RightContainer = styled.section`
+const $RightContainer = styled("section")`
   display: flex;
   flex-direction: column;
   flex: 1;
   padding-top: 2rem;
 `
 
-const $BackgroundContainer = styled.div`
+const $BackgroundContainer = styled("div")`
   display: flex;
   flex-direction: column;
   background: url(${backgroundLogo}) no-repeat;
@@ -81,7 +81,7 @@ const $BackgroundContainer = styled.div`
   height: 800px;
 `
 
-const $OverlayLogo = styled.div`
+const $OverlayLogo = styled("div")`
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -92,14 +92,14 @@ const $OverlayLogo = styled.div`
   transform: translate(-15%, 28%);
 `
 
-const $MessageLine1 = styled.span`
+const $MessageLine1 = styled("span")`
   font-style: normal;
   font-weight: normal;
   font-size: 28px;
   color: #888888;
 `
 
-const $MessageLine2 = styled.span`
+const $MessageLine2 = styled("span")`
   font-style: normal;
   font-weight: 900;
   font-size: 55px;
@@ -107,7 +107,7 @@ const $MessageLine2 = styled.span`
   color: #59c9e6;
 `
 
-const $MessageLine3 = styled.span`
+const $MessageLine3 = styled("span")`
   font-style: normal;
   font-weight: 900;
   font-size: 69px;
@@ -115,7 +115,7 @@ const $MessageLine3 = styled.span`
   color: #101c2e;
 `
 
-const $JoinUsButton = styled.button`
+const $JoinUsButton = styled("button")`
   border: 2px solid #101c2e;
   box-sizing: border-box;
   border-radius: 8px;
@@ -128,7 +128,7 @@ const $JoinUsButton = styled.button`
   font-size: 16px;
 `
 
-const $LeftContentWrapper = styled.main`
+const $LeftContentWrapper = styled("main")`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
