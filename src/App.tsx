@@ -1,4 +1,3 @@
-/**@jsx jsx */
 import Header from './components/header'
 import { Global } from '@emotion/react'
 import { lazy, Suspense, Fragment } from 'react'
