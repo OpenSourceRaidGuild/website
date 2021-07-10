@@ -48,8 +48,7 @@ it('can view all raids and individual raids', async () => {
 
 it('shows 404 for missing pages', () => {
   render(
-    <Fragment 
-    >
+    <Fragment>
       <MemoryRouter
         initialEntries={[
           '/will-never-exist-but-if-it-does-it-is-probably-an-easter-egg',

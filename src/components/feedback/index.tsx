@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import * as React from 'react';
+import * as React from 'react'
 
 import PopUp from '../popUp'
 

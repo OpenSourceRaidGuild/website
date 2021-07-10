@@ -1,8 +1,5 @@
-.snowpack
-build
 node_modules
-coverage
-
-firebase-debug.log
-firestore-debug.log
-ui-debug.log
+.DS_Store
+dist
+dist-ssr
+*.local

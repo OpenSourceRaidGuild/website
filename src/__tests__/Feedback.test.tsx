@@ -31,7 +31,7 @@ it.skip('should renders and visits Raids then the first Link', async () => {
   render(<App />)
   userEvent.click(screen.getByText('Feedback'))
 
-  expect(screen.getByLabelText(`3`)).toBeChecked()
+  expect(screen.getByLabelText('3')).toBeChecked()
   userEvent.type(screen.getByPlaceholderText('Your name'), buildFeedback.name)
   userEvent.type(
     screen.getByPlaceholderText('Repo name'),
