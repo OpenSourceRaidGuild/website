@@ -22,8 +22,8 @@
   },
   "plugins": [
     "@typescript-eslint",
-    "prettier",
-    "@emotion"
+    "@emotion",
+    "prettier"
   ],
   "rules": {
     "quotes": [
@@ -37,18 +37,11 @@
     "prettier/prettier": [
       "error",
       {
-        "quotes": [
-          "error",
-          "single",
-          {
-            "allowTemplateLiterals": true,
-            "avoidEscape": true
-          }
-        ],
         "singleQuote": true,
         "trailingComma": "all",
         "semi": false
-      }
+      },
+      {"usePrettierrc": false}
     ],
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "jsx-a11y/no-onchange": "off",
