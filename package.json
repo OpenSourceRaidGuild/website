@@ -1,5 +1,6 @@
 {
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -12,7 +13,7 @@
     "lint:ci": "eslint --ext js,jsx,ts,tsx --ignore-path .gitignore .",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "firestore": "cross-env FIRESTORE_EMULATOR_HOST=\"localhost:8080\" firebase emulators:exec --import=./devData --ui --only firestore",
+    "firestore": "cross-env FIRESTORE_EMULATOR_HOST=\"localhost:8080\" firebase emulators:exec --import=./devData --ui --only firestore"
   },
   "dependencies": {
     "@emotion/react": "^11.4.0",
