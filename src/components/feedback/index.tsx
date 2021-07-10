@@ -76,7 +76,7 @@ function Feedback() {
 
 export default Feedback
 
-const $Button = styled("button")`
+const $Button = styled('button')`
   position: absolute;
   top: 10px;
   right: 10px;
@@ -85,7 +85,7 @@ const $Button = styled("button")`
   border: 4px solid var(--gray-200);
 `
 
-const $Feedback = styled("div")`
+const $Feedback = styled('div')`
   display: flex;
   flex-wrap: wrap;
   place-items: center;
@@ -120,7 +120,7 @@ const $Feedback = styled("div")`
     }
   }
 `
-const $InputGroup = styled("div")`
+const $InputGroup = styled('div')`
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -132,7 +132,7 @@ const $InputGroup = styled("div")`
   }
 `
 
-const $RadioGroup = styled("div")`
+const $RadioGroup = styled('div')`
   display: flex;
   gap: 10px;
   flex-wrap: wrap;

@@ -97,14 +97,14 @@ const ViewRaid = () => {
 
 export default ViewRaid
 
-const $StatsView = styled("main")`
+const $StatsView = styled('main')`
   --max-content-width: 700px;
   > * {
     padding: var(--space-4);
   }
 `
 
-const $Header = styled("header")`
+const $Header = styled('header')`
   position: sticky;
   top: 0;
   background-color: var(--white);
@@ -122,7 +122,7 @@ const $Header = styled("header")`
   }
 `
 
-const $TotalStats = styled("ul")`
+const $TotalStats = styled('ul')`
   list-style-type: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -131,7 +131,7 @@ const $TotalStats = styled("ul")`
   margin-bottom: var(--space-3);
 `
 
-const $StatContainer = styled("ol")`
+const $StatContainer = styled('ol')`
   display: grid;
   grid-auto-rows: auto;
   gap: var(--space-3);
