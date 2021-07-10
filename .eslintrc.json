@@ -10,7 +10,7 @@
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended"
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -43,6 +43,8 @@
       },
       {"usePrettierrc": false}
     ],
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "jsx-a11y/no-onchange": "off",
     "react/jsx-uses-react": "off",
