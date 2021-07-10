@@ -1,9 +1,9 @@
 {
   "verbose": true,
-  "setupFilesAfterEnv": ["./src/setupTests.ts"],
+  "setupFilesAfterEnv": ["./src/__tests__/setupTests.ts"],
   "testMatch": [
     "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}",
-    "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}"
+    "<rootDir>/src/**/__tests__/**/*.{spec,test}.{js,jsx,ts,tsx}"
   ],
   "transformIgnorePatterns": ["node_modules"],
   "moduleNameMapper": {

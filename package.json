@@ -8,8 +8,8 @@
     "test:watch": "npm run firestore \"NODE_OPTIONS=--experimental-vm-modules npx jest --watch\"",
     "test:ci": "npm run firestore \"jest --coverage\"",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
-    "lint": "eslint --fix --ext js,jsx,ts,tsx --ignore-path .gitignore .",
-    "lint:ci": "eslint --ext js,jsx,ts,tsx --ignore-path .gitignore .",
+    "lint": "eslint --fix --ext js,jsx,ts,tsx ./src",
+    "lint:ci": "eslint --ext js,jsx,ts,tsx ./src",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "firestore": "cross-env FIRESTORE_EMULATOR_HOST=\"localhost:8080\" firebase emulators:exec --import=./devData --ui --only firestore"

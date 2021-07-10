@@ -1,10 +1,10 @@
-import { loadingScreen, render, screen, userEvent } from '../tests/testUtils'
+import { loadingScreen, render, screen, userEvent } from './helpers/testUtils'
 import App, { AppRouter } from '../App'
 import { MemoryRouter } from 'react-router-dom'
 import {
   fetchedCollectionData,
   fetchedDocumentData,
-} from '../tests/data/raidsData'
+} from './helpers/data/raidsData'
 import Header from '#components/header'
 import { Global } from '@emotion/react'
 import { globalStyles } from '../styles/globalStyles'

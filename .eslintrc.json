@@ -14,6 +14,9 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
@@ -26,9 +29,7 @@
       "error",
       "single",
       {
-        "allowTemplateLiterals": true
-      },
-      {
+        "allowTemplateLiterals": true,     
         "avoidEscape": true
       }
     ],
@@ -39,9 +40,7 @@
           "error",
           "single",
           {
-            "allowTemplateLiterals": true
-          },
-          {
+            "allowTemplateLiterals": true,
             "avoidEscape": true
           }
         ],
@@ -52,7 +51,8 @@
     ],
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "jsx-a11y/no-onchange": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "camelcase":"warn"
   },
   "settings": {
     "react": {

@@ -1,10 +1,10 @@
-import { render, screen, userEvent } from '../tests/testUtils'
+import { render, screen, userEvent } from './helpers/testUtils'
 import faker from 'faker'
 import App from '../App'
 import {
   fetchedCollectionData,
   fetchedDocumentData,
-} from '../tests/data/raidsData'
+} from './helpers/data/raidsData'
 
 const buildFeedback = {
   name: faker.name.firstName(),
