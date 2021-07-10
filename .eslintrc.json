@@ -24,12 +24,27 @@
   "rules": {
     "quotes": [
       "error",
-      "single"
+      "single",
+      {
+        "allowTemplateLiterals": true
+      },
+      {
+        "avoidEscape": true
+      }
     ],
     "prettier/prettier": [
       "error",
       {
-        "quotes": "single",
+        "quotes": [
+          "error",
+          "single",
+          {
+            "allowTemplateLiterals": true
+          },
+          {
+            "avoidEscape": true
+          }
+        ],
         "singleQuote": true,
         "trailingComma": "all",
         "semi": false

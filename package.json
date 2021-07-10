@@ -19,7 +19,8 @@
     "firebase": "^8.7.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "vite-react-jsx": "^1.1.2"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",

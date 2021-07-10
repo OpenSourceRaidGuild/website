@@ -1,5 +1,5 @@
 /**@jsx jsx */
-import Header from '#components/header'
+import Header from './components/header'
 import { Global } from '@emotion/react'
 import { lazy, Suspense, Fragment } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
