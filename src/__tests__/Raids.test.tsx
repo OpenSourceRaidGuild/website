@@ -1,10 +1,10 @@
-import * as React from 'react'
-import { loadingScreen, render, screen, userEvent } from '../tests/testUtils'
+import React from 'react'
+import { loadingScreen, render, screen, userEvent } from './helpers/testUtils'
 import App from '../App'
 import {
   fetchedCollectionData,
   fetchedDocumentData,
-} from '../tests/data/raidsData'
+} from './helpers/data/raidsData'
 
 beforeAll(() => {
   jest.doMock('../utils/useDocument', () =>

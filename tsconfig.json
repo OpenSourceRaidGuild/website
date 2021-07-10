@@ -1,24 +1,23 @@
 {
-  "include": ["src", "types"],
   "compilerOptions": {
-    "module": "esnext",
-    "target": "esnext",
-    "moduleResolution": "node",
-    "jsx": "preserve",
-    "baseUrl": "./",
-    /* paths - import rewriting/resolving */
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "skipLibCheck": false,
+    "esModuleInterop": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "noImplicitAny": false,
     "paths": {
       "#components/*": ["./src/components/*"],
       "#utils/*": ["./src/utils/*"]
     },
-    /* noEmit - Snowpack builds (emits) files, not tsc. */
-    "noEmit": true,
-    /* Additional Options */
-    "strict": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-    "importsNotUsedAsValues": "error"
-  }
+  },
+  "include": ["./src", "types"]
 }

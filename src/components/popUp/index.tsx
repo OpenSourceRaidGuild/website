@@ -1,5 +1,5 @@
+import { useRef, useCallback, useEffect } from 'react'
 import styled from '@emotion/styled'
-import React from 'react'
 
 type Props = {
   children: React.ReactNode
@@ -11,9 +11,9 @@ type Props = {
 
 function PopUp({ children, placeInView }: Props) {
   const { isDisplayed, setDisplay } = placeInView
-  const clickListenerRef = React.useRef<HTMLDivElement | null>(null)
+  const clickListenerRef = useRef<HTMLDivElement | null>(null)
 
-  const handleClickOutside = React.useCallback(
+  const handleClickOutside = useCallback(
     (event: MouseEvent) => {
       if (
         clickListenerRef.current &&
@@ -25,7 +25,7 @@ function PopUp({ children, placeInView }: Props) {
     [setDisplay],
   )
 
-  React.useEffect(() => {
+  useEffect(() => {
     document.addEventListener('click', handleClickOutside, { capture: true })
     return () => {
       document.removeEventListener('click', handleClickOutside, {
@@ -46,7 +46,7 @@ function PopUp({ children, placeInView }: Props) {
 
 export default PopUp
 
-const $PopUp = styled.div`
+const $PopUp = styled('div')`
   display: flex;
   flex-direction: column;
   place-items: flex-end;

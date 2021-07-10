@@ -1,4 +1,7 @@
 {
   "eslint.format.enable": true,
-  "eslint.probe": ["javascript", "typescript", "html", "markdown", "svelte"]
+  "eslint.probe": ["javascript", "typescript", "html", "markdown", "typescriptreact"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
 }

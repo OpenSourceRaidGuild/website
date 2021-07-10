@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from '@emotion/styled'
 
 import Card from '../card'
@@ -46,7 +45,7 @@ export default function UserStatBlock({ rank, userStats }: Props) {
   )
 }
 
-const $Content = styled.li`
+const $Content = styled('li')`
   display: grid;
   gap: var(--space-5);
   grid-template-columns: var(--space-6) 1fr 1fr;
@@ -67,13 +66,13 @@ const $Content = styled.li`
   }
 `
 
-const $Rank = styled.span`
+const $Rank = styled('span')`
   font-size: var(--h3);
   opacity: 0.8;
   grid-area: rank;
 `
 
-const $User = styled.div`
+const $User = styled('div')`
   grid-area: user;
   display: flex;
   align-items: inherit;
@@ -94,7 +93,7 @@ const $User = styled.div`
   }
 `
 
-const $Stats = styled.div`
+const $Stats = styled('div')`
   grid-area: stats;
   display: grid;
   gap: var(--space-3);

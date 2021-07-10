@@ -30,7 +30,7 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install packages
-        run: yarn install
+        run: npm install
         if: steps.cache.outputs.cache-hit != 'true'
 
       - name: 💡 Run lint script

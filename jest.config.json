@@ -1,0 +1,22 @@
+{
+  "verbose": true,
+  "setupFilesAfterEnv": ["<rootDir>/src/__tests__/setupTests.ts"],
+  "testMatch": [
+    "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}",
+    "<rootDir>/src/**/__tests__/**/*.{spec,test}.{js,jsx,ts,tsx}"
+  ],
+  "transformIgnorePatterns": ["node_modules"],
+  "moduleNameMapper": {
+    "^#components/(.*)": "<rootDir>/src/components/$1",
+    "^#utils/(.*)": "<rootDir>/src/utils/$1"  },
+  "preset": "ts-jest/presets/default-esm",
+  "globals": {
+    "ts-jest": {
+      "useESM": true
+    }
+  },
+  "transform": {
+    "^.+\\.svg$": "jest-transform-stub"
+  },
+  "testEnvironment": "jsdom"
+}
