@@ -1,17 +1,17 @@
-import {useRef,useCallback, useEffect} from 'react'
-import styled from '@emotion/styled'
+import { useRef, useCallback, useEffect } from "react";
+import styled from "@emotion/styled";
 
 type Props = {
-  children: React.ReactNode
+  children: React.ReactNode;
   placeInView: {
-    isDisplayed: boolean
-    setDisplay: React.Dispatch<React.SetStateAction<boolean>>
-  }
-}
+    isDisplayed: boolean;
+    setDisplay: React.Dispatch<React.SetStateAction<boolean>>;
+  };
+};
 
 function PopUp({ children, placeInView }: Props) {
-  const { isDisplayed, setDisplay } = placeInView
-  const clickListenerRef = useRef<HTMLDivElement | null>(null)
+  const { isDisplayed, setDisplay } = placeInView;
+  const clickListenerRef = useRef<HTMLDivElement | null>(null);
 
   const handleClickOutside = useCallback(
     (event: MouseEvent) => {
@@ -19,20 +19,20 @@ function PopUp({ children, placeInView }: Props) {
         clickListenerRef.current &&
         !clickListenerRef.current.contains(event.target as Node)
       ) {
-        setDisplay(false)
+        setDisplay(false);
       }
     },
-    [setDisplay],
-  )
+    [setDisplay]
+  );
 
   useEffect(() => {
-    document.addEventListener('click', handleClickOutside, { capture: true })
+    document.addEventListener("click", handleClickOutside, { capture: true });
     return () => {
-      document.removeEventListener('click', handleClickOutside, {
+      document.removeEventListener("click", handleClickOutside, {
         capture: true,
-      })
-    }
-  }, [handleClickOutside])
+      });
+    };
+  }, [handleClickOutside]);
 
   return isDisplayed ? (
     <$PopUp ref={clickListenerRef}>
@@ -41,12 +41,12 @@ function PopUp({ children, placeInView }: Props) {
       </button>
       {children}
     </$PopUp>
-  ) : null
+  ) : null;
 }
 
-export default PopUp
+export default PopUp;
 
-const $PopUp = styled('div')`
+const $PopUp = styled("div")`
   display: flex;
   flex-direction: column;
   place-items: flex-end;
@@ -60,4 +60,4 @@ const $PopUp = styled('div')`
     text-align: center;
     margin-bottom: 5px;
   }
-`
+`;
