@@ -52,6 +52,7 @@
     ],
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "jsx-a11y/no-onchange": "off",
+    "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "camelcase":"warn",
     "@emotion/jsx-import": "error",
