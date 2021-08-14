@@ -27,6 +27,15 @@ export default function Header() {
                 Raids
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/contact"
+                exact
+                activeStyle={{ color: 'var(--black)' }}
+              >
+                Contact Us
+              </NavLink>
+            </li>
           </ul>
         </$Nav>
       </$Header>
