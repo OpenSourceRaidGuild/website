@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { NavLink, useLocation } from 'react-router-dom'
+import Logo from '../assets/logo.svg'
 
 export default function Header() {
   const { pathname } = useLocation()
@@ -10,7 +11,9 @@ export default function Header() {
     }
     return (
       <$Header>
-        <strong>OSRG</strong>
+        <NavLink to="/" exact>
+          <$Img src={Logo} alt="OSRG Logo" />
+        </NavLink>
         <$Nav>
           <ul>
             <li>
@@ -73,4 +76,7 @@ const $Nav = styled('nav')`
     color: var(--gray-400);
     text-decoration: none;
   }
+`
+const $Img = styled('img')`
+  width: var(--space-5);
 `

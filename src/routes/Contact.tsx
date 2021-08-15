@@ -1,7 +1,9 @@
 import styled from '@emotion/styled'
+import { useState } from 'react'
 import backgroundLogo from '../components/assets/bg_logo.svg'
 
 export default function Contact() {
+  const [disabled, setDisabled] = useState(false)
   const HoneyPotForm = () => (
     <form
       name="contact"
@@ -12,7 +14,7 @@ export default function Contact() {
       <input hidden type="text" name="name" />
       <input hidden type="email" name="email" />
       <textarea hidden name="message"></textarea>
-      <button hidden type="submit" value="Send">
+      <button hidden type="submit" value="Send" disabled={disabled}>
         submit
       </button>
     </form>
@@ -24,25 +26,28 @@ export default function Contact() {
         name="contact"
         method="POST"
         data-netlify="true"
+        data-netlify-recaptcha="true"
         onSubmit={(event) => {
           event.preventDefault()
+
+          setDisabled(true)
         }}
       >
         <p>
           <$Labels>
-            Name: <input type="text" name="name" />
+            Name: <input type="text" name="name" required />
           </$Labels>
         </p>
         <p>
           <$Labels>
-            Email: <input type="email" name="email" />
+            Email: <input type="email" name="email" required />
           </$Labels>
         </p>
         <p>
           <$Labels>
             Role:
-            <select name="role">
-              <option value="">--Please choose an option--</option>
+            <select name="role" required>
+              <option value=""> --Please choose an option-- </option>
               <option value="Maintainer">Maintainer</option>
               <option value="Contributor">Contributor</option>
               <option value="Guild Member">Guild Member</option>
@@ -56,7 +61,9 @@ export default function Contact() {
           </$Labels>
         </p>
         <p>
-          <$SubmitButton type="submit">submit</$SubmitButton>
+          <$SubmitButton type="submit" name="submit-button" disabled={disabled}>
+            submit
+          </$SubmitButton>
         </p>
         <p>
           You can also find us on{' '}
