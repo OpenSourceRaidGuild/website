@@ -3,7 +3,12 @@ import backgroundLogo from '../components/assets/bg_logo.svg'
 
 export default function Contact() {
   const HoneyPotForm = () => (
-    <form name="contact" data-netlify netlify-honeypot="bot-field" hidden>
+    <form
+      name="contact"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      hidden
+    >
       <input hidden type="text" name="name" />
       <input hidden type="email" name="email" />
       <textarea hidden name="message"></textarea>
@@ -18,7 +23,7 @@ export default function Contact() {
       <$FormContact
         name="contact"
         method="POST"
-        data-netlify
+        data-netlify="true"
         onSubmit={(event) => {
           event.preventDefault()
         }}
