@@ -2,50 +2,63 @@ import styled from '@emotion/styled'
 import backgroundLogo from '../components/assets/bg_logo.svg'
 
 export default function Contact() {
+  const HoneyPotForm = () => (
+    <form name="contact" data-netlify netlify-honeypot="bot-field" hidden>
+      <input hidden type="text" name="name" />
+      <input hidden type="email" name="email" />
+      <textarea hidden name="message"></textarea>
+      <button hidden type="submit" value="Send">
+        submit
+      </button>
+    </form>
+  )
   return (
-    <$FormContact name="contact" method="POST" data-netlify="true">
-      <p>
-        <$Labels>
-          Name: <input type="text" name="name" />
-        </$Labels>
-      </p>
-      <p>
-        <$Labels>
-          Email: <input type="email" name="email" />
-        </$Labels>
-      </p>
-      <p>
-        <$Labels>
-          Role:
-          <select name="role">
-            <option value="">--Please choose an option--</option>
-            <option value="Maintainer">Maintainer</option>
-            <option value="Contributor">Contributor</option>
-            <option value="Guild Member">Guild Member</option>
-            <option value="Other">Other</option>
-          </select>
-        </$Labels>
-      </p>
-      <p>
-        <$Labels>
-          Message: <textarea name="message" />
-        </$Labels>
-      </p>
-      <p>
-        <$SubmitButton
-          type="submit"
-          onSubmit={(event) => {
-            event.preventDefault()
-          }}
-        >
-          submit
-        </$SubmitButton>
-      </p>
-      <p>
-        You can also find us on{' '}
-        <a href="https://discord.gg/urQuPURusm">Discord</a>
-      </p>
-    </$FormContact>
+    <>
+      <HoneyPotForm />
+      <$FormContact
+        name="contact"
+        method="POST"
+        data-netlify
+        onSubmit={(event) => {
+          event.preventDefault()
+        }}
+      >
+        <p>
+          <$Labels>
+            Name: <input type="text" name="name" />
+          </$Labels>
+        </p>
+        <p>
+          <$Labels>
+            Email: <input type="email" name="email" />
+          </$Labels>
+        </p>
+        <p>
+          <$Labels>
+            Role:
+            <select name="role">
+              <option value="">--Please choose an option--</option>
+              <option value="Maintainer">Maintainer</option>
+              <option value="Contributor">Contributor</option>
+              <option value="Guild Member">Guild Member</option>
+              <option value="Other">Other</option>
+            </select>
+          </$Labels>
+        </p>
+        <p>
+          <$Labels>
+            Message: <textarea name="message" />
+          </$Labels>
+        </p>
+        <p>
+          <$SubmitButton type="submit">submit</$SubmitButton>
+        </p>
+        <p>
+          You can also find us on{' '}
+          <a href="https://discord.gg/urQuPURusm">Discord</a>
+        </p>
+      </$FormContact>
+    </>
   )
 }
 const $FormContact = styled('form')`
