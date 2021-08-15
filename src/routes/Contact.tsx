@@ -1,42 +1,81 @@
+import styled from '@emotion/styled'
+import backgroundLogo from '../components/assets/bg_logo.svg'
+
 export default function Contact() {
   return (
-    <form name="contact" method="POST" data-netlify="true">
+    <$FormContact name="contact" method="POST" data-netlify="true">
       <p>
-        <label>
-          Your Name: <input type="text" name="name" />
-        </label>
+        <$Labels>
+          Name: <input type="text" name="name" />
+        </$Labels>
       </p>
       <p>
-        <label>
-          Your Email: <input type="email" name="email" />
-        </label>
+        <$Labels>
+          Email: <input type="email" name="email" />
+        </$Labels>
       </p>
       <p>
-        <label>
-          Your Role:
+        <$Labels>
+          Role:
           <select name="role">
             <option value="">--Please choose an option--</option>
             <option value="Maintainer">Maintainer</option>
             <option value="Contributor">Contributor</option>
             <option value="Guild Member">Guild Member</option>
+            <option value="Other">Other</option>
           </select>
-        </label>
+        </$Labels>
       </p>
       <p>
-        <label>
-          Message: <textarea name="message"></textarea>
-        </label>
+        <$Labels>
+          Message: <textarea name="message" />
+        </$Labels>
       </p>
       <p>
-        <button
+        <$SubmitButton
           type="submit"
           onSubmit={(e) => {
             e.preventDefault()
           }}
         >
-          Send
-        </button>
+          submit
+        </$SubmitButton>
       </p>
-    </form>
+      <p>
+        You can also find us on{' '}
+        <a href="https://discord.gg/urQuPURusm">Discord</a>
+      </p>
+    </$FormContact>
   )
 }
+const $FormContact = styled('form')`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background: url(${backgroundLogo}) no-repeat center;
+  background-size: contain;
+`
+const $SubmitButton = styled('button')`
+  border: 2px solid #101c2e;
+  box-sizing: border-box;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.9rem;
+`
+const $Labels = styled('label')`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+`
