@@ -18,7 +18,7 @@ export default function Contact() {
       <$FormContact
         name="contact"
         method="POST"
-        data-netlify
+        data-netlify="true"
         onSubmit={(event) => {
           event.preventDefault()
         }}
