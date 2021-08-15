@@ -16,7 +16,9 @@ const Home = () => {
 
           <NavLink to="#">our stats</NavLink>
 
-          <NavLink to="#">contact us</NavLink>
+          <NavLink data-testid="contact" to="/contact">
+            contact us
+          </NavLink>
         </nav>
         <$LeftContentWrapper>
           <section>

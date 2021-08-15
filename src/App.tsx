@@ -10,10 +10,12 @@ import { globalStyles } from './styles/globalStyles'
 
 const AllRaids = lazy(() => import('./routes/raids'))
 const ViewRaid = lazy(() => import('./routes/raids/ViewRaid'))
+const Contact = lazy(() => import('./routes/Contact'))
 
 export const AppRouter = () => (
   <Suspense fallback={<LoadingSpinner />}>
     <Switch>
+      <Route path="/contact" component={Contact} exact />
       <Route path="/raids" exact component={AllRaids} />
       <Route path="/raids/:raidId" exact component={ViewRaid} />
       <Route path="/" exact component={Home} />
