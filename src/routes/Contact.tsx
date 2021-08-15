@@ -34,8 +34,8 @@ export default function Contact() {
       <p>
         <$SubmitButton
           type="submit"
-          onSubmit={(e) => {
-            e.preventDefault()
+          onSubmit={(event) => {
+            event.preventDefault()
           }}
         >
           submit
@@ -56,8 +56,7 @@ const $FormContact = styled('form')`
   padding: 20px;
   border: 1px solid #ccc;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  background: url(${backgroundLogo}) no-repeat center;
-  background-size: contain;
+  background: url(${backgroundLogo}) no-repeat center/contain;
 `
 const $SubmitButton = styled('button')`
   border: 2px solid #101c2e;
