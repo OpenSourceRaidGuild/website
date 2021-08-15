@@ -1,5 +1,5 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a9260dd6-286e-4e38-8ef8-619854c2b4c4/deploy-status)](https://app.netlify.com/sites/osrg/deploys)
-# New Project
+# [Open Source Raid Guild](https://github.com/OpenSourceRaidGuild/tutorial-quest)
 
 > ✨ Bootstrapped with Create Vite
 
