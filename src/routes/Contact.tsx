@@ -4,21 +4,9 @@ import backgroundLogo from '../components/assets/bg_logo.svg'
 
 export default function Contact() {
   const [disabled, setDisabled] = useState(false)
-  const HoneyPotForm = () => (
-    <form
-      name="contact-us"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
-      hidden
-    >
-      <input hidden type="text" name="name" />
-      <input hidden type="email" name="email" />
-      <textarea hidden name="message"></textarea>
-    </form>
-  )
+
   return (
     <>
-      <HoneyPotForm />
       <$FormContact
         name="contact-us"
         method="POST"
