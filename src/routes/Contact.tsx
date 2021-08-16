@@ -1,16 +1,21 @@
 import styled from '@emotion/styled'
 import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router'
 import backgroundLogo from '../components/assets/bg_logo.svg'
 
+function useQuery() {
+  return new URLSearchParams(useLocation().search)
+}
 export default function Contact() {
   const [disabled, setDisabled] = useState(false)
   const [success, setSuccess] = useState(false)
+  const query = useQuery()
 
   useEffect(() => {
-    if (window.location.search.includes('success=true')) {
+    if (query.get('success') === 'true') {
       setSuccess(true)
     }
-  }, [])
+  }, [query])
 
   return (
     <>
@@ -20,10 +25,7 @@ export default function Contact() {
         data-netlify="true"
         data-netlify-recaptcha="true"
         action="/contact/?success=true"
-        onSubmit={(event) => {
-          event.preventDefault()
-          setDisabled(true)
-        }}
+        onSubmit={() => setDisabled(true)}
       >
         <input type="hidden" name="form-name" value="contact" />
         <p>
