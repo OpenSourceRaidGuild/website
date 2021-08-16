@@ -6,7 +6,7 @@ export default function Contact() {
   const [disabled, setDisabled] = useState(false)
   const HoneyPotForm = () => (
     <form
-      name="contact"
+      name="contact-us"
       data-netlify="true"
       netlify-honeypot="bot-field"
       hidden
@@ -14,25 +14,22 @@ export default function Contact() {
       <input hidden type="text" name="name" />
       <input hidden type="email" name="email" />
       <textarea hidden name="message"></textarea>
-      <button hidden type="submit" value="Send" disabled={disabled}>
-        submit
-      </button>
     </form>
   )
   return (
     <>
       <HoneyPotForm />
       <$FormContact
-        name="contact"
+        name="contact-us"
         method="POST"
         data-netlify="true"
         data-netlify-recaptcha="true"
         onSubmit={(event) => {
           event.preventDefault()
-
           setDisabled(true)
         }}
       >
+        <input type="hidden" name="contact-us" value="contact" />
         <p>
           <$Labels>
             Name: <input type="text" name="name" required />
