@@ -6,6 +6,18 @@
     <title>OSRG</title>
   </head>
   <body>
+    
+    <form
+    name="contact"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    hidden
+  >
+    <input hidden type="text" name="name" />
+    <input hidden type="email" name="email" />
+    <textarea hidden name="message"></textarea>
+  </form>
+
     <div id="root"></div>
     <script type="module" src="./src/index.tsx"></script>
   </body>

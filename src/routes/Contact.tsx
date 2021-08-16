@@ -1,35 +1,31 @@
 import styled from '@emotion/styled'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import backgroundLogo from '../components/assets/bg_logo.svg'
 
 export default function Contact() {
   const [disabled, setDisabled] = useState(false)
-  const HoneyPotForm = () => (
-    <form
-      name="contact-us"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
-      hidden
-    >
-      <input hidden type="text" name="name" />
-      <input hidden type="email" name="email" />
-      <textarea hidden name="message"></textarea>
-    </form>
-  )
+  const [success, setSuccess] = useState(false)
+
+  useEffect(() => {
+    if (window.location.search.includes('success=true')) {
+      setSuccess(true)
+    }
+  }, [])
+
   return (
     <>
-      <HoneyPotForm />
       <$FormContact
-        name="contact-us"
+        name="contact"
         method="POST"
         data-netlify="true"
         data-netlify-recaptcha="true"
+        action="/contact/?success=true"
         onSubmit={(event) => {
           event.preventDefault()
           setDisabled(true)
         }}
       >
-        <input type="hidden" name="form-name" value="contact-us" />
+        <input type="hidden" name="form-name" value="contact" />
         <p>
           <$Labels>
             Name: <input type="text" name="name" required />
@@ -61,6 +57,9 @@ export default function Contact() {
           <$SubmitButton type="submit" name="submit-button" disabled={disabled}>
             submit
           </$SubmitButton>
+          {success && (
+            <p style={{ color: '#4BB543' }}>Thank you for your message!</p>
+          )}
         </p>
         <p>
           You can also find us on{' '}
