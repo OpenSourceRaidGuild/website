@@ -1,13 +1,13 @@
 import { ContactFormValidator } from "@/shared/contact-form";
-import * as trpc from "@trpc/server";
-import { sendToDiscord } from "../utils/ping-discord";
+import { sendToDiscord } from "@/backend/utils/ping-discord";
+import { createProtectedRouter } from "@/backend/router/create-protected-router";
 
 // Primary api for interacting with "server side"
 // Read more: https://trpc.io
-export const appRouter = trpc.router().mutation("contact-form", {
+export const appRouter = createProtectedRouter().mutation("contact-form", {
   input: ContactFormValidator,
-  async resolve({ input }) {
-    const content = `**NEW CONTACT**\n\n**Email:** ${input.email}\n**Name:** ${input.name}\n**Role:** ${input.role}\n**Message**: ${input.message}\n\n`;
+  async resolve({ input, ctx }) {
+    const content = `**NEW CONTACT**\n\n**Email:** ${input.email}\n**Name:** ${ctx.session.user?.name}\n**Role:** ${input.role}\n**Message**: ${input.message}\n\n`;
     return await sendToDiscord(content);
   },
 });
