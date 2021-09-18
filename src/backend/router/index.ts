@@ -1,16 +1,12 @@
-import { ContactFormValidator } from "@/shared/contact-form";
 import * as trpc from "@trpc/server";
-import { sendToDiscord } from "../utils/ping-discord";
+import { contactFormRouter } from "./contact";
+import { AuthenticatedTrpcRouterContextType } from "./context";
 
 // Primary api for interacting with "server side"
 // Read more: https://trpc.io
-export const appRouter = trpc.router().mutation("contact-form", {
-  input: ContactFormValidator,
-  async resolve({ input }) {
-    const content = `**NEW CONTACT**\n\n**Email:** ${input.email}\n**Name:** ${input.name}\n**Role:** ${input.role}\n**Message**: ${input.message}\n\n`;
-    return await sendToDiscord(content);
-  },
-});
+export const appRouter = trpc
+  .router<AuthenticatedTrpcRouterContextType>()
+  .merge("contact.", contactFormRouter);
 
 // export type definition of API
 export type AppRouter = typeof appRouter;
