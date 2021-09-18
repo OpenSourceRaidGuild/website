@@ -1,8 +1,8 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import TopNav from "../components/topnav";
+import TopNav from "../frontend/components/topnav";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function AppCore({ Component, pageProps }: AppProps) {
   return (
     <div>
       <TopNav />
@@ -10,4 +10,35 @@ function MyApp({ Component, pageProps }: AppProps) {
     </div>
   );
 }
-export default MyApp;
+
+import { withTRPC } from "@trpc/next";
+import type { AppRouter } from "@/backend/router";
+import { httpBatchLink } from "@trpc/client/links/httpBatchLink";
+import { loggerLink } from "@trpc/client/links/loggerLink";
+
+function getBaseUrl() {
+  if (process.browser) return ""; // Browser should use current path
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`; // SSR should use vercel url
+
+  return `http://localhost:${process.env.PORT ?? 3000}`; // dev SSR should use localhost
+}
+
+export default withTRPC<AppRouter>({
+  config() {
+    const url = `${getBaseUrl()}/api/trpc`;
+
+    return {
+      links: [
+        loggerLink({
+          enabled: (opts) =>
+            process.env.NODE_ENV === "development" ||
+            (opts.direction === "down" && opts.result instanceof Error),
+        }),
+        httpBatchLink({
+          url,
+        }),
+      ],
+    };
+  },
+  ssr: true,
+})(AppCore);
