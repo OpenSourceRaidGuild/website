@@ -19,7 +19,7 @@ const ContactForm = () => {
     resolver: zodResolver(ContactFormValidator),
   });
 
-  const postMutation = trpc.useMutation("contact-form");
+  const postMutation = trpc.useMutation("contact.submit-form");
 
   if (!session) {
     return (
