@@ -5,7 +5,11 @@ export default function Home() {
     <div className="flex flex-col items-center min-h-screen justify-center cursor-default relative">
       <CustomSiteHead />
       <div className="max-w-md md:max-w-2xl text-lg p-4">
-        <img src="/logo.svg" alt="logo" className="animate-fade-in-down" />
+        <img
+          src="/assets/logo-full.svg"
+          alt="logo"
+          className="animate-fade-in-down"
+        />
       </div>
       <div>
         <h1 className="text-4xl animate-fade-in-down max-w-lg md:max-w-xl text-center text-gray-700">

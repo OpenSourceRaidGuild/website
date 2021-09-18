@@ -35,7 +35,11 @@ export default function TopNav() {
       {router.pathname !== "/" && (
         <Link href="/">
           <a>
-            <img src="/logo.svg" alt="logo" className="h-16 animate-fade-in" />
+            <img
+              src="/assets/logo-minimal.svg"
+              alt="logo"
+              className="h-16 animate-fade-in"
+            />
           </a>
         </Link>
       )}

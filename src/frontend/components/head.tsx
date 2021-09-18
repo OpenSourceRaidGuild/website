@@ -26,7 +26,26 @@ export const CustomSiteHead: React.FC<{
       <meta property="og:image" content={"https://osrg.t3.gg/twitter.png"} />
       <meta name="twitter:image" content={"https://osrg.t3.gg/twitter.png"} />
       <meta name="twitter:card" content="summary_large_image" />
-      <link rel="icon" href="/logo.svg" />
+
+      {/** Favicon junk */}
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/apple-touch-icon.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/favicon-32x32.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/favicon-16x16.png"
+      />
+      <link rel="icon" href="/favicon.svg" />
     </Head>
   );
 };
