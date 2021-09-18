@@ -23,7 +23,7 @@ export const appRouter = createProtectedRouter().mutation("contact-form", {
       await fetch(`https://api.github.com/user/${userInfo.providerAccountId}`)
     ).json()) as { html_url: string; login: string };
 
-    const content = `**NEW CONTACT**\n\n**Email:** ${input.email}\n**Github:** [${githubFetch.login}](${githubFetch.html_url})\n**Name:** ${ctx.session.user?.name}\n**Role:** ${input.role}\n**Message**: ${input.message}\n\n`;
+    const content = `**Github:** [${githubFetch.login}](${githubFetch.html_url})\n**Name:** ${ctx.session.user?.name}\n**Role:** ${input.role}\n**Message**: ${input.message}\n**Email:** ${input.email}\n\n`;
     return await sendToDiscord(content);
   },
 });
