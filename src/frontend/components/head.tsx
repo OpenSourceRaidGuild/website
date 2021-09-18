@@ -22,6 +22,10 @@ export const CustomSiteHead: React.FC<{
       />
       <meta property="og:url" content="https://osrg.t3.gg/" />
       <meta property="og:type" content="website" />
+
+      <meta property="og:image" content={"https://osrg.t3.gg/twitter.png"} />
+      <meta name="twitter:image" content={"https://osrg.t3.gg/twitter.png"} />
+      <meta name="twitter:card" content="summary_large_image" />
       <link rel="icon" href="/logo.svg" />
     </Head>
   );
