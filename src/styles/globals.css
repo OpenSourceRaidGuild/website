@@ -9,7 +9,6 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  user-select: none;
   scroll-behavior: smooth;
 }
 
@@ -17,17 +16,12 @@ body {
   @apply bg-gray-200 text-gray-800;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 * {
   box-sizing: border-box;
 }
 
 .link-light {
-  @apply text-blue-800 no-underline hover:underline hover:text-blue-600;
+  @apply no-underline hover:underline;
 }
 
 .link-dark {

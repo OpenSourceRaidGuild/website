@@ -20,6 +20,7 @@ export const CustomSiteHead: React.FC<{
         property="og:description"
         content={props.description ?? DEFAULT_DESCRIPTION}
       />
+      <meta property="og:url" content="https://osrg.t3.gg/" />
       <meta property="og:type" content="website" />
       <link rel="icon" href="/logo.svg" />
     </Head>
