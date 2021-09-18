@@ -17,6 +17,14 @@ const ContactForm = () => {
 
   const postMutation = trpc.useMutation("contact-form");
 
+  if (postMutation.isLoading) {
+    return <div className="text-center">Submitting...</div>;
+  }
+
+  if (postMutation.data) {
+    return <div className="text-center">Submission received, hang tight!</div>;
+  }
+
   return (
     <form
       onSubmit={handleSubmit((input) => {
@@ -110,7 +118,7 @@ export default function ContactPage() {
   return (
     <div
       id="about"
-      className="flex flex-col justify-center items-center min-h-screen cursor-default relative"
+      className="flex flex-col justify-center items-center min-h-screen cursor-default relative text-gray-200"
     >
       <div className="w-[28rem] md:w-[42rem] max-w-full mx-4 text-lg p-4 bg-gray-700 bg-transparent-50 rounded-xl shadow-xl flex flex-col">
         <ContactForm />
