@@ -1,7 +1,15 @@
-# init.tips
+# [Open Source Raid Guild](https://github.com/OpenSourceRaidGuild/tutorial-quest)
 
-Howdy. We made this as a quick place to get recommendations for "how to start a new project"
+> ✨ Bootstrapped with Next.js
 
-Right now, we're using Next.JS, Typescript, and Tailwind.
+Check out more about our stack on [init.tips](https://init.tips)
 
-[https://init.tips](https://init.tips)
+## Available Scripts
+
+### `npm` or `npm install`
+
+Installs all dependencies
+
+### `npm run dev`
+
+Runs local dev environment
