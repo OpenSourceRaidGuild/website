@@ -5,6 +5,7 @@ import {
   ContactFormValidatorType,
 } from "@/shared/contact-form";
 import { trpc } from "@/frontend/utils/trpc";
+import { CustomSiteHead } from "@/frontend/components/head";
 
 const ContactForm = () => {
   const {
@@ -120,6 +121,7 @@ export default function ContactPage() {
       id="about"
       className="flex flex-col justify-center items-center min-h-screen cursor-default relative text-gray-200"
     >
+      <CustomSiteHead title="Contact Us" />
       <div className="w-[28rem] md:w-[42rem] max-w-full mx-4 text-lg p-4 bg-gray-700 bg-transparent-50 rounded-xl shadow-xl flex flex-col">
         <ContactForm />
       </div>
