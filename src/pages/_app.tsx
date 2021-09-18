@@ -1,13 +1,14 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import TopNav from "../frontend/components/topnav";
+import PlausibleProvider from "next-plausible";
 
 function AppCore({ Component, pageProps }: AppProps) {
   return (
-    <div>
+    <PlausibleProvider domain="osrg.t3.gg" trackOutboundLinks>
       <TopNav />
       <Component {...pageProps} />
-    </div>
+    </PlausibleProvider>
   );
 }
 
