@@ -114,6 +114,24 @@ const ContactForm = () => {
 
         <label
           className="block text-gray-200 text-md font-bold mb-2"
+          htmlFor="repoUrl"
+        >
+          Git repo URL (optional)
+        </label>
+        <input
+          {...register("repoUrl")}
+          type="text"
+          id="repoUrl"
+          placeholder="github.com/theobr/t3-astro"
+        />
+        {errors.repoUrl && (
+          <p className="text-red-400">Error: {errors.repoUrl?.message}</p>
+        )}
+
+        <div className="py-4" />
+
+        <label
+          className="block text-gray-200 text-md font-bold mb-2"
           htmlFor="message"
         >
           Message

@@ -20,7 +20,13 @@ export const submitContactForm = async (
     await fetch(`https://api.github.com/user/${userInfo.providerAccountId}`)
   ).json()) as { html_url: string; login: string; name: string };
 
-  const content = `**Github:** [${githubFetch.login}](${githubFetch.html_url})\n**Name:** ${githubFetch?.name}\n**Role:** ${input.role}\n**Message**: ${input.message}\n**Email:** ${input.email}\n\n`;
+  const content =
+    `**Github:** [${githubFetch.login}](${githubFetch.html_url})\n` +
+    `**Name:** ${githubFetch?.name}\n` +
+    `**Role:** ${input.role}\n` +
+    `**Message**: ${input.message}\n` +
+    (input.repoUrl ? `**Repo**: ${input.repoUrl}\n` : "") +
+    `**Email:** ${input.email}\n\n`;
   return await sendToDiscord(content);
 };
 
