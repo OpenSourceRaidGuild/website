@@ -3,11 +3,15 @@ import type { AppProps } from "next/app";
 import TopNav from "../frontend/components/topnav";
 import PlausibleProvider from "next-plausible";
 
+import { SessionProvider } from "next-auth/react";
+
 function AppCore({ Component, pageProps }: AppProps) {
   return (
     <PlausibleProvider domain="osrg.t3.gg" trackOutboundLinks>
-      <TopNav />
-      <Component {...pageProps} />
+      <SessionProvider session={pageProps.session}>
+        <TopNav />
+        <Component {...pageProps} />
+      </SessionProvider>
     </PlausibleProvider>
   );
 }
