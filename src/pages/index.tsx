@@ -1,5 +1,4 @@
 import { CustomSiteHead } from "@/frontend/components/head";
-import { trpc } from "@/frontend/utils/trpc";
 
 export default function Home() {
   return (
