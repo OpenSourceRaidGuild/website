@@ -1,61 +1,6 @@
 {
-  "env": {
-    "browser": true,
-    "node": true,
-    "jest": true
-  },
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended",
-    "plugin:react-hooks/recommended",
-    "prettier"
-  ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": "latest",
-    "sourceType": "module"
-  },
-  "plugins": [
-    "@typescript-eslint",
-    "@emotion",
-    "prettier"
-  ],
+  "extends": "next/core-web-vitals",
   "rules": {
-    "quotes": [
-      "error",
-      "single",
-      {
-        "allowTemplateLiterals": true,     
-        "avoidEscape": true
-      }
-    ],
-    "prettier/prettier": [
-      "error",
-      {
-        "singleQuote": true,
-        "trailingComma": "all",
-        "semi": false
-      },
-      {"usePrettierrc": false}
-    ],
-    "arrow-body-style": "off",
-    "prefer-arrow-callback": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "jsx-a11y/no-onchange": "off",
-    "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off",
-    "camelcase":"warn",
-    "@emotion/jsx-import": "error",
-    "@emotion/pkg-renaming": "error"
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
+    "@next/next/no-img-element": "off"
   }
 }
