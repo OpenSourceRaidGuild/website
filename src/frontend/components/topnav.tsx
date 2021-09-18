@@ -14,7 +14,9 @@ export default function TopNav() {
         >
           Discord
         </a>
+
         <div className="pr-4" />
+
         <a
           href="https://github.com/OpenSourceRaidGuild"
           target="_blank"
@@ -23,11 +25,12 @@ export default function TopNav() {
         >
           Github
         </a>
+
         <div className="pr-4" />
+
         <Link href="/contact">
           <a className="link-light">Contact Us</a>
         </Link>
-        <div className="pr-4" />
       </div>
       {router.pathname !== "/" && (
         <Link href="/">

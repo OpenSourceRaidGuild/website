@@ -2,6 +2,8 @@ import { ContactFormValidator } from "@/shared/contact-form";
 import * as trpc from "@trpc/server";
 import { sendToDiscord } from "../utils/ping-discord";
 
+// Primary api for interacting with "server side"
+// Read more: https://trpc.io
 export const appRouter = trpc.router().mutation("contact-form", {
   input: ContactFormValidator,
   async resolve({ input }) {
