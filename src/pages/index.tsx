@@ -2,7 +2,7 @@ import { CustomSiteHead } from "@/frontend/components/head";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center min-h-screen justify-center cursor-default relative">
+    <div className="flex flex-col items-center justify-center cursor-default relative f_safari">
       <CustomSiteHead />
       <div className="max-w-md md:max-w-2xl text-lg p-4">
         <img
