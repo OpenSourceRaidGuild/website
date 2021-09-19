@@ -12,7 +12,7 @@ export default function Home() {
         />
       </div>
       <div>
-        <h1 className="text-4xl animate-fade-in-down max-w-lg md:max-w-xl text-center text-gray-700">
+        <h1 className="mx-8 md:mx-4 text-4xl animate-fade-in-down max-w-lg md:max-w-xl text-center text-gray-700">
           {"Open Source Raid Guild"}
         </h1>
         <div className="pt-4" />
