@@ -35,3 +35,14 @@ input[type="text"] {
 select {
   @apply bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500;
 }
+
+.f_safari {
+  height: 100vh;
+}
+
+/* Fixes mobile safari: https://stackoverflow.com/questions/16348489/is-there-a-css-hack-for-safari-only-not-chrome */
+_::-webkit-full-page-media,
+_:future,
+:root .f_safari {
+  height: -webkit-fill-available;
+}
