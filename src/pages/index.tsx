@@ -21,13 +21,9 @@ export default function Home() {
           <span className="font-semibold">{"we're here to help"}</span>
         </h3>
       </div>
-      <div className="absolute bottom-0 w-full text-center font-light">
-        {"Quickly hacked together by "}
-        <a
-          href="https://t3.gg/me"
-          className="link-light text-gray-900 font-normal underline hover:text-blue-800"
-        >
-          Theo
+      <div className="absolute bottom-0 w-full flex justify-center p-4 font-light">
+        <a href="https://vercel.com/?utm_source=osrg&utm_campaign=oss">
+          <img src="/powered-by-vercel.svg" alt="Proudly powered by Vercel" />
         </a>
       </div>
     </div>
