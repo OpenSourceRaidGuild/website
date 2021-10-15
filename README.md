@@ -1,6 +1,6 @@
 # [Open Source Raid Guild](https://github.com/OpenSourceRaidGuild/tutorial-quest)
 
-> Built with Next.js and the ["Theo Stack"](https://twitter.com/t3dotgg)
+> Built with Next.js and the ["T3 Stack"](https://twitter.com/t3dotgg)
 
 [![Powered by Vercel](./public/powered-by-vercel.svg)](https://vercel.com/?utm_source=osrg&utm_campaign=oss)
 
