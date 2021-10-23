@@ -23,7 +23,7 @@ export default function TopNav() {
           rel="noreferrer"
           className="link-light"
         >
-          Documentation
+          Docs
         </a>
 
         <div className="pr-4" />
