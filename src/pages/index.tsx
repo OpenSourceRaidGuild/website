@@ -29,7 +29,3 @@ export default function Home() {
     </div>
   );
 }
-
-export const getStaticProps = () => {
-  return { props: {} };
-};
