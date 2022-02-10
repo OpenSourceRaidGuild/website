@@ -28,6 +28,7 @@
     "zod": "^3.11.6"
   },
   "devDependencies": {
+    "@types/node": "^17.0.17",
     "@types/react": "17.0.39",
     "autoprefixer": "^10.4.2",
     "eslint": "8.8.0",
