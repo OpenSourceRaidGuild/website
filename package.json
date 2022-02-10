@@ -11,30 +11,30 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@hookform/resolvers": "^2.8.0",
-    "@next-auth/prisma-adapter": "0.5.2-next.5",
-    "@prisma/client": "^3.0.2",
-    "@trpc/client": "^9.10.1",
-    "@trpc/next": "^9.10.1",
-    "@trpc/react": "^9.10.1",
-    "@trpc/server": "^9.10.1",
+    "@hookform/resolvers": "^2.8.8",
+    "@next-auth/prisma-adapter": "1.0.1",
+    "@prisma/client": "^3.9.2",
+    "@trpc/client": "^9.18.0",
+    "@trpc/next": "^9.18.0",
+    "@trpc/react": "^9.18.0",
+    "@trpc/server": "^9.18.0",
     "next": "^12.0.10",
-    "next-auth": "4.0.0-beta.2",
-    "next-plausible": "^2.1.2",
+    "next-auth": "4.2.1",
+    "next-plausible": "^3.1.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-hook-form": "^7.15.3",
-    "react-query": "^3.23.2",
-    "zod": "^3.8.2"
+    "react-hook-form": "^7.26.1",
+    "react-query": "^3.34.14",
+    "zod": "^3.11.6"
   },
   "devDependencies": {
-    "@types/react": "17.0.19",
-    "autoprefixer": "^10.3.3",
-    "eslint": "7.32.0",
-    "eslint-config-next": "12.0.0",
-    "postcss": "^8.3.6",
-    "prisma": "^3.3.0",
-    "tailwindcss": "^2.2.9",
-    "typescript": "4.4.2"
+    "@types/react": "17.0.39",
+    "autoprefixer": "^10.4.2",
+    "eslint": "8.8.0",
+    "eslint-config-next": "12.0.10",
+    "postcss": "^8.4.6",
+    "prisma": "^3.9.2",
+    "tailwindcss": "^3.0.20",
+    "typescript": "4.5.5"
   }
 }
