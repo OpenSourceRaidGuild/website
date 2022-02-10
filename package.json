@@ -18,7 +18,7 @@
     "@trpc/next": "^9.10.1",
     "@trpc/react": "^9.10.1",
     "@trpc/server": "^9.10.1",
-    "next": "12.0.0",
+    "next": "^12.0.10",
     "next-auth": "4.0.0-beta.2",
     "next-plausible": "^2.1.2",
     "react": "17.0.2",
