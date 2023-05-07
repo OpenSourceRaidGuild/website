@@ -16,6 +16,17 @@ export default function TopNav() {
         </a>
 
         <div className="pr-4" />
+        
+        <a
+          href="https://osrgmerch.com/collections/all"
+          target="_blank"
+          rel="noreferrer"
+          className="link-light"
+        >
+          Merch
+        </a>
+
+        <div className="pr-4" />
 
         <a
           href="https://quests.osrg.t3.gg/docs/en/tutorial-quest"
